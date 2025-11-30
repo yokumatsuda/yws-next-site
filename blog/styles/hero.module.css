@@ -1,0 +1,241 @@
+/* hero.module */
+
+
+/* globals.css など、グローバルに効くCSSファイル */
+
+/***************************************************
+ * HeroSection 全体
+ ***************************************************/
+.appHeroSection {
+  /* スライダーエリアが画面全体を使う想定の場合 */
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+  z-index: 1;
+  padding-block: 0px; /* 必要に応じて調整 */
+  padding-top: 40px;
+}
+
+.appTextCenter {
+  text-align: center;
+}
+
+/***************************************************
+ * スライドリスト (ul)
+ ***************************************************/
+.appHeroSlider {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  width: 100%;
+  height: 100vh; /* 親コンテナと同じ高さ */
+  overflow: hidden; /* 要素がはみ出さないように */
+}
+
+/***************************************************
+ * 個々のスライド (li)
+ ***************************************************/
+/*
+  全スライドを絶対配置し、重ねる。
+  それぞれフェード切替するのでDOMからは消さない。
+*/
+.appHeroSliderItem {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  transform: translate(-50%, -50%);
+  display: grid;
+  place-content: center;
+  opacity: 0;
+  z-index: 1;
+
+  /* フェードアウト/イン用トランジション */
+  transition: opacity 2s ease;
+}
+
+/* アクティブスライドは不透明度 1 & z-index を上に */
+.appActiveSlide {
+  opacity: 1;
+  z-index: 2;
+}
+.appHeroTitle {
+  white-space: nowrap;
+}
+/***************************************************
+ * 背景コンテナ
+ ***************************************************/
+.appHeroSliderBg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  user-select: none;
+  z-index: -1;
+}
+
+/***************************************************
+ * 画像/動画 カバー表示
+ ***************************************************/
+.appHeroSliderImgCover,
+.appHeroSliderVideoCover {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/***************************************************
+ * アニメーション: テキストフェード (従来のまま)
+ ***************************************************/
+.appSliderReveal {
+  transform: translateY(30px);
+  opacity: 0;
+}
+
+/* アクティブ時に一度だけフェードイン */
+.appActiveSlide .appSliderReveal {
+  animation: appSliderReveal 1s ease forwards;
+}
+
+@keyframes appSliderReveal {
+  0% {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* フェードインの遅延タイミング */
+.appActiveSlide .appLabelSubtitle {
+  animation-delay: 0.5s;
+}
+.appActiveSlide .appHeroTitle {
+  animation-delay: 1s;
+}
+.appActiveSlide .appHeroText {
+  animation-delay: 1.5s;
+}
+.appActiveSlide .appBtnPrimary {
+  animation-delay: 2s;
+}
+
+/***************************************************
+ * テキストスタイル
+ ***************************************************/
+/* .appHeroTitle,
+.appHeroText,
+.appLabelSubtitle {
+  text-shadow: 0px 0px 1px rgba(255, 255, 255, 0.8); 
+  text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.8);
+  color: #fff;
+} */
+.appHeroTitle,
+.appHeroText,
+.appLabelSubtitle {
+  color: #fff;
+  /* 黒い影 + 白い影の2重指定 */
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8),
+    -3px -3px 6px rgba(255, 255, 255, 0.8);
+  filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.7));
+}
+
+.appLabelSubtitle {
+  margin-block: 14px 20px;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.appHeroTitle {
+  font-size: 42px;
+  font-weight: 700;
+  margin-block: 0.5em;
+}
+
+.appHeroText {
+  margin-block: 10px 40px;
+  font-size: 18px;
+  font-weight: 500;
+  max-width: 600px;
+  margin-inline: auto;
+}
+
+/***************************************************
+ * スライダー内のボタン (View Our Menu)
+ ***************************************************/
+.appBtnPrimary {
+  display: inline-block;
+  position: relative;
+  background-color: #333;
+  color: #fff;
+  text-decoration: none;
+  padding: 0.8em 1.5em;
+  margin-inline: auto;
+  overflow: hidden;
+  transition: background-color 0.3s;
+  border: none;
+  outline: none;
+  cursor: pointer;
+
+  /* テキストを多重シャドウで浮き立たせる */
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8),
+    /* 黒影：背景が淡い時でも文字が沈まない */ -3px -3px 6px
+      rgba(255, 255, 255, 0.8); /* 白影：背景が暗い時でも文字が埋もれない */
+
+  /* ボタン自体に白い光のにじみを加える (お好みで調整) */
+  filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.7));
+}
+
+.appBtnPrimary:hover {
+  background-color: #555;
+}
+
+.text1 {
+  position: relative;
+  z-index: 2;
+}
+
+.text2 {
+  display: none; /* 例えば重ね文字エフェクト用など */
+}
+
+@media (max-width: 768px) {
+  .appLabelSubtitle {
+    margin-block: 14px 20px;
+    font-size: 18px;
+    font-weight: 600;
+  }
+
+  .appHeroTitle {
+    font-size: 32px;
+    font-weight: 700;
+    margin-block: 8px;
+    padding: 0px 10px;
+  }
+
+  .appHeroText {
+    margin-block: 10px 40px;
+    font-size: 16px;
+    font-weight: 500;
+    max-width: 600px;
+    margin-inline: auto;
+    padding: 0px 10px;
+  }
+}
+
+@media (max-width: 500px) {
+  .appHeroTitle {
+    white-space: nowrap;
+    white-space: normal;
+  }
+}
+
+
+
