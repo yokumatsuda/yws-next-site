@@ -1,0 +1,33 @@
+/* styles/works.module.css */
+
+.gridContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-jump);
+  margin-top: var(--space-xs);
+  margin-bottom: var(--space-lg);
+}
+
+.work h2 {
+  margin-top: 8px;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.work figure {
+  position: relative;
+  aspect-ratio: 16/9;
+}
+
+.work .publishDate {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 5px;
+} 
+
+.excerpt {
+  font-size: 14px; 
+  color: #666;     
+  margin: 8px 0;
+  line-height: 1.4;
+}

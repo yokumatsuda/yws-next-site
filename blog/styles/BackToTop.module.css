@@ -1,0 +1,41 @@
+.fixedBackToTop {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 10;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s ease;
+}
+
+.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.hide {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.backToTopButton {
+  background-color: #b0b0b0;
+  color: #000;
+  padding: 7px 15px;
+  font-size: 0.9rem;
+  border: none;
+  border-radius: 1px;
+  cursor: pointer;
+}
+
+.backToTopButton:hover {
+  background-color: #fff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+/* モバイルで非表示にしたい場合 */
+@media (max-width: 768px) {
+  .fixedBackToTop {
+    display: none;
+  }
+}
