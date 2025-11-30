@@ -8,7 +8,7 @@ import ConvertExcerpt from "components/convert-excerpt";
 export default function WorksPosts({ works }) {
   return (
     <div className={styles.gridContainer}>
-      {works.map(({ title, slug, eyecatch, description, publishDate, content, contentHtml }) => (
+      {works.map(({ title, slug, eyecatch,  publishDate, content, contentHtml }) => (
         <article className={styles.work} key={slug}>
           <Link href={`/works/${slug}`}>
             <figure>

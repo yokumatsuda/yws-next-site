@@ -1,7 +1,7 @@
 // pages/works/[slug].js
 import { getAllWorks, getWorkBySlug } from "lib/api";
 import { extractText } from "lib/extract-text";
-import { prevNextPost } from "lib/prev-next-post"; // ブログ用と同じロジックを流用可
+import { prevNextPost } from "lib/prev-next-post"; 
 import Meta from "components/meta";
 import Container from "components/container";
 import PostHeader from "components/post-header";
