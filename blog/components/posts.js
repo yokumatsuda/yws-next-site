@@ -6,6 +6,7 @@ import ConvertExcerpt from "components/convert-excerpt";
 
 export default function Posts({ posts }) {
   return (
+    <section> <h2 className={styles.postsTitle}>News</h2>
     <div className={styles.gridContainer}>
       {posts.map(({ title, slug, eyecatch, publishDate, content, contentHtml }, index) => (
         <article className={styles.post} key={slug}>
@@ -30,5 +31,6 @@ export default function Posts({ posts }) {
         </article>
       ))}
     </div>
+    </section>
   );
 }

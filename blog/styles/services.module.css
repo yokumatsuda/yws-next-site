@@ -47,20 +47,36 @@ html {
   cursor: pointer;
 }
 
+
 .card:hover {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-/* 画像: ここを修正 */
-.cardImage {
+/* ラッパー div */
+.imageWrapper {
   width: 100%;
-  /* ↓ 高さを固定し、すべての画像が同じサイズに。 */
-  height: 200px;
-  object-fit: cover; /* 比率を保ちつつ、余白はトリミング */
-  display: block;
-  border-radius: 0;
-  margin-bottom: 12px;
+  height: 200px;   /* 好みの高さ */
+  overflow: hidden;
+  position: relative;
 }
+
+/* ラッパー内の img を global で確実にターゲット */
+.imageWrapper :global(img) {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+/* ホバー時に拡大 */
+.card:hover .imageWrapper :global(img) {
+  transform: scale(1.12);
+}
+
+
+
+
 
 /* タイトル */
 .cardTitle {

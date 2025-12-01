@@ -18,6 +18,7 @@ export default function WorksIndex({ works }) {
 
 export async function getStaticProps() {
   const works = await getAllWorks();
+  
 
   // eyecatchがない場合のフォールバックを追加
   for (const work of works) {
