@@ -12,7 +12,7 @@ import {
   TwoColumnSidebar,
 } from "components/two-column";
 import ConvertBody from "components/convert-body";
-import PostCategories from "components/post-categories";
+import WorkCategories from "components/work-categories";
 import Pagination from "components/pagination";
 import Image from "next/image";
 
@@ -60,7 +60,7 @@ export default function WorkDetail({
             </PostBody>
           </TwoColumnMain>
           <TwoColumnSidebar>
-            <PostCategories categories={categories} />
+            <WorkCategories categories={categories} />
           </TwoColumnSidebar>
         </TwoColumn>
 
