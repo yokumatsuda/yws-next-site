@@ -105,15 +105,25 @@ export async function getStaticProps({ params }) {
 
   return {
     props: {
-      title: work.title,
-      publish: work.publishDate,
-      content: work.content,
-      contentHtml: work.contentHtml,
-      eyecatch,
-      categories: work.categories,
-      description,
-      prevWork,
-      nextWork,
+      // title: work.title,
+      // publish: work.publishDate,
+      // content: work.content,
+      // contentHtml: work.contentHtml,
+      // eyecatch,
+      // categories: work.categories,
+      // description,
+      // prevWork,
+      // nextWork,
+
+        title: work.title ?? "",
+        publish: work.publishDate ?? "",
+        content: work.content ?? null,
+        contentHtml: work.contentHtml ?? null,
+        eyecatch,
+        categories: work.categories ?? [],
+        description,
+        prevWork,
+        nextWork,
     },
   };
 }

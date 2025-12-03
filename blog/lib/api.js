@@ -1,3 +1,5 @@
+// api.js
+
 import { createClient } from "microcms-js-sdk";
 
 export const client = createClient({
@@ -89,10 +91,6 @@ export async function getAllPostsByCategory(catID, limit = 100) {
 
  // ------ worksここから ------ //
 
- 
-
- // ------ worksここから ------ //
-
 
  // slug で1件取得
  export async function getWorkBySlug(slug) {
@@ -118,7 +116,7 @@ export async function getAllPostsByCategory(catID, limit = 100) {
      const works = await client.get({
        endpoint: "works",
        queries: {
-         fields: "title,slug,eyecatch,description,publishDate,content",
+         fields: "title,slug,eyecatch,description,publishDate,content,contentHtml",
          orders: "-publishDate",
          limit,
        },
@@ -186,3 +184,6 @@ export async function getAllWorksByCategory(catID, limit = 100) {
   }
 }
 
+
+
+ // ------ worksここまで ------ //

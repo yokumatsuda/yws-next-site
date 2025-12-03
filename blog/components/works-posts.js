@@ -9,9 +9,8 @@ export default function WorksPosts({ works }) {
   return (
     <section>
       <h2 className={styles.worksTitle}>Works</h2>
-
       <div className={styles.gridContainer}>
-        {works.map(({ title, slug, eyecatch, publishDate, content, contentHtml }) => (
+        {works.map(({ title, slug, eyecatch, publishDate, content, contentHtml }, index) => (
 
           <article className={styles.work} key={slug}>
             <Link href={`/works/${slug}`}>
@@ -23,19 +22,12 @@ export default function WorksPosts({ works }) {
                   width={eyecatch.width}
                   height={eyecatch.height}
                   sizes="(min-width: 1152px) 576px, 50vw"
+                  priority={index === 0} 
                 />
               </figure>
-              {publishDate && (
-                <p className={styles.publishDate}>
-                  <ConvertDate dateISO={publishDate} />
-                </p>
-              )}
-              <h2>{title}</h2>
-              <ConvertExcerpt
-                content={content}
-                contentHtml={contentHtml}
-                maxLength={40}
-              />
+              <p className={styles.publishDate}>{publishDate && <ConvertDate dateISO={publishDate} />}</p>
+            <h2>{title}</h2>
+           <ConvertExcerpt content={content} contentHtml={contentHtml} maxLength={40} />
             </Link>
           </article>
           

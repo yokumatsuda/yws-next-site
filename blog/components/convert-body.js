@@ -1,32 +1,29 @@
 // components/convert-body.js
-
 import parse from "html-react-parser";
 import Image from "next/image";
 
 export default function ConvertBody({ content, contentHtml }) {
   let html = "";
 
-  // --- リッチテキスト優先 ---
-  if (content?.raw) {
-    html = content.raw;
-  }
-  // --- 繰り返し HTML フィールド ---
-  else if (Array.isArray(contentHtml)) {
+  // --- ① contentHtml（繰り返しフィールド or HTMLフィールド）がある場合 ---
+  if (Array.isArray(contentHtml) && contentHtml.length > 0) {
     contentHtml.forEach((block) => {
-      if (!block) return;
-      if (block.fieldId === "html") {
-        html += block.html ?? "";
+      if (block?.fieldId === "html" && block.html) {
+        html += block.html;
       }
     });
   }
-  // --- string の場合（旧 HTML フィールド） ---
+  // --- ② contentHtml が無く content が文字列なら ---
   else if (typeof content === "string" && content.trim() !== "") {
     html = content;
   }
 
-  if (!html) return <p>内容がありません</p>;
+  // --- ③ どちらも無い場合 ---
+  if (!html || html.trim() === "") {
+    return <p>内容がありません</p>;
+  }
 
-  // --- HTML → React 要素に変換 ---
+  // --- HTML → React 変換 ---
   const contentReact = parse(html, {
     replace: (node) => {
       if (node.name === "img") {
