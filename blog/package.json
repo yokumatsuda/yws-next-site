@@ -5,7 +5,9 @@
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "rimraf .next && next build --turbopack",
-    "start": "next start"
+    "start": "next start",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^7.1.0",
@@ -14,6 +16,7 @@
     "@fortawesome/free-solid-svg-icons": "^7.1.0",
     "@fortawesome/react-fontawesome": "^3.1.0",
     "date-fns": "^4.1.0",
+    "gsap": "^3.13.0",
     "html-react-parser": "^5.2.6",
     "html-to-text": "^9.0.5",
     "microcms-js-sdk": "^3.2.0",
@@ -27,8 +30,9 @@
   "devDependencies": {
     "@tailwindcss/postcss": "^4.1.17",
     "autoprefixer": "^10.4.22",
-    "eslint": "^9.36.0",
-    "eslint-config-next": "^15.5.4",
+    "eslint": "^9.39.1",
+    "eslint-config-next": "^15.5.7",
+    "eslint-config-prettier": "^10.1.8",
     "postcss": "^8.5.6",
     "rimraf": "^6.0.1",
     "tailwindcss": "^4.1.17"

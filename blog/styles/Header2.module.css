@@ -1,0 +1,208 @@
+/* =========================
+   固定ヘッダー
+========================= */
+.customHeader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 50px;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* ロゴ左、ナビ右寄せならspace-between でもOK */
+  padding: 0 100px;
+  z-index: 1000;
+  border-bottom: solid 1px black;
+}
+
+/* ロゴ周り */
+.logoArea {
+  /* ロゴを左に配置 */
+  display: flex;
+  align-items: center;
+  margin-right: auto; /* 左寄りにして、残りのスペースを押しやる */
+}
+.logoImage {
+  max-width: 85px;
+  height: auto;
+  /* 拡大縮小削除 => no transform needed */
+}
+
+/* PC用ナビ (任意) */
+.customNav {
+  margin-right: 20px; /* example spacing */
+}
+.customNavMenu {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  align-items: baseline;
+}
+
+.customNavMenu ul {
+ gap: 100px;
+}
+
+.customNavMenu li {
+  display: flex;
+  margin-left: 40px;
+}
+.customNavMenu a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+ 
+}
+
+
+
+/* =========================
+   ハンバーガーボタン
+========================= */
+.hamburgerMenu {
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  margin-left: auto;
+  padding: 0;
+  position: relative;
+}
+.line {
+  display: block;
+  width: 100%;
+  height: 4px;
+  background: #333;
+  margin: 6px 0;
+  border-radius: 2px;
+  transition: 0.4s;
+  transform-origin: center;
+}
+.active .top {
+  transform: translateY(10px) rotate(45deg);
+}
+.active .middle {
+  opacity: 0;
+}
+.active .bottom {
+  transform: translateY(-10px) rotate(-45deg);
+}
+
+/* =========================
+   サイドパネル
+========================= */
+.sidePanel {
+  position: fixed;
+  top: 50px;
+  right: 0;
+  width: 100%;
+  height: calc(100% - 50px);
+  background-color: #fff;
+  z-index: 10000;
+  transform: translateX(100%);
+  transition: transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  border-top: solid 1px black;
+  /* ▼ ここで縦スクロールを可能にする ▼ */
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch; /* iOS等での慣性スクロール */
+}
+.sidePanel.active {
+  transform: translateX(0);
+}
+
+.sidePanel ul {
+  list-style: none;
+  margin: 0;
+  padding: 20px;
+}
+.sidePanel li {
+  /* margin-bottom: 12px; */
+}
+
+/* サイドパネルのテキスト (GSAP) */
+.navText {
+  display: block;
+  color: #333;
+  text-decoration: none;
+  transition: color 0.3s ease-in-out;
+  font-family: acumin-pro, Noto Sans JP, sans-serif !important;
+  font-size: 98px;
+  font-weight: 900;
+  transform: none; /* remove scroll transform code */
+  opacity: 0; /* GSAP fade in */
+  line-height: 1;
+}
+
+/* ホバー時の色 */
+.sidePanel ul:hover .navText:not(:hover) {
+  color: #bbb;
+}
+.navText:hover {
+  color: #000;
+}
+
+/* =========================
+   サブメニュー(クリック開閉)
+========================= */
+.menuItemWithSub {
+  position: relative;
+}
+
+.subMenu {
+  list-style: none;
+  margin: 10px 0 0 20px;
+  padding: 0;
+  display: none; /* JSで切り替え */
+}
+.subMenuLink {
+  display: block;
+  font-size: 48px;
+  color: #666;
+  margin-bottom: 10px;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+.subMenuLink:hover {
+  color: #000;
+}
+
+/* =========================
+   レスポンシブ例
+========================= */
+@media (max-width: 1040px) {
+  .customHeader {
+    padding: 0 20px;
+  }
+  .logoImage {
+    max-width: 90px;
+  }
+}
+@media (max-width: 768px) {
+  .navText {
+    font-size: 72px;
+  }
+  .subMenuLink {
+    font-size: 36px;
+  }
+}
+@media (max-width: 480px) {
+  .navText {
+    font-size: 64px;
+  }
+  .subMenuLink {
+    font-size: 24px;
+  }
+  .logoImage {
+    max-width: 80px;
+  }
+  .hideOnMobile {
+    display: none !important;
+  }
+}

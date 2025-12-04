@@ -44,7 +44,8 @@ export default function Meta({
 
       <link rel="icon" href={siteIcon} />
       <link rel="apple-touch-icon" href={siteIcon} />
-
+      
+      <link rel="stylesheet" href="https://use.typekit.net/mxz8fbe.css"></link>
       <meta property="og:image" content={imgUrl} />
       <meta property="og:image:width" content={imgW} />
       <meta property="og:image:height" content={imgH} />
