@@ -1,5 +1,9 @@
 /* styles/posts.module.css */
 
+.section {
+  margin-top: 56px;
+}
+
 .gridContainer {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -22,56 +26,61 @@
   cursor: pointer;
 }
 
-
 .post:hover {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .post h2 {
   margin-top: 8px;
-  font-size: 18px;
-  font-weight: 400;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.postsTitle {
+  padding: 0 20px 0 20px;
+  font-size: 32px;
+  margin-bottom: 20px;
 }
 
 .post figure {
   position: relative;
   aspect-ratio: 16/9;
-  overflow: hidden; 
+  overflow: hidden;
 }
-
 
 .post figure img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.3s ease; 
+  transition: transform 0.3s ease;
 }
 
 .post:hover figure img {
-  transform: scale(1.05); 
+  transform: scale(1.05);
 }
 
 .post .publishDate {
   font-size: 14px;
   color: #666;
+  margin-top: 5px;
   margin-bottom: 5px;
-} 
+}
 
 .excerpt {
-  font-size: 14px; 
-  color: #666;     
+  font-size: 14px;
+  color: #666;
   margin: 8px 0;
   line-height: 1.4;
 }
 @media (max-width: 1023px) {
   .gridContainer {
-    grid-template-columns: repeat(2, 1fr); 
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (max-width: 767px) {
   .gridContainer {
-    grid-template-columns: 1fr; 
+    grid-template-columns: 1fr;
   }
 }
 

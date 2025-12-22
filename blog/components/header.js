@@ -109,7 +109,7 @@ const Header2 = () => {
       <nav className={styles.customNav}>
         <ul className={styles.customNavMenu}>
           <li>
-            <Link href="/News">Blog</Link>
+            <Link href="/blog">Blog</Link>
           </li>
           <li>
             <Link href="/contact">Contact</Link>
@@ -274,7 +274,7 @@ const Header2 = () => {
             </li>
             <li>
               <Link
-                href="/News"
+                href="/blog"
                 ref={(el) => el && (navLinksRef.current[4] = el)}
                 className={styles.navText}
                 onClick={() => setPanelOpen(false)}
@@ -284,7 +284,7 @@ const Header2 = () => {
             </li>
             <li>
               <Link
-                href="/Works"
+                href="/works"
                 ref={(el) => el && (navLinksRef.current[5] = el)}
                 className={styles.navText}
                 onClick={() => setPanelOpen(false)}

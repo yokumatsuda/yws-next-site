@@ -7,11 +7,10 @@ import ConvertExcerpt from "components/convert-excerpt";
 
 export default function WorksPosts({ works }) {
   return (
-    <section>
+    <section className={styles.section}>
       <h2 className={styles.worksTitle}>Works</h2>
       <div className={styles.gridContainer}>
         {works.map(({ title, slug, eyecatch, publishDate, content, contentHtml }, index) => (
-
           <article className={styles.work} key={slug}>
             <Link href={`/works/${slug}`}>
               <figure>
@@ -22,15 +21,16 @@ export default function WorksPosts({ works }) {
                   width={eyecatch.width}
                   height={eyecatch.height}
                   sizes="(min-width: 1152px) 576px, 50vw"
-                  priority={index === 0} 
+                  priority={index === 0}
                 />
               </figure>
-              <p className={styles.publishDate}>{publishDate && <ConvertDate dateISO={publishDate} />}</p>
-            <h2>{title}</h2>
-           <ConvertExcerpt content={content} contentHtml={contentHtml} maxLength={40} />
+              <p className={styles.publishDate}>
+                {publishDate && <ConvertDate dateISO={publishDate} />}
+              </p>
+              <h2>{title}</h2>
+              <ConvertExcerpt content={content} contentHtml={contentHtml} maxLength={40} />
             </Link>
           </article>
-          
         ))}
       </div>
     </section>

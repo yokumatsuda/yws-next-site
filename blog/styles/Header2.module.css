@@ -42,7 +42,7 @@
 }
 
 .customNavMenu ul {
- gap: 100px;
+  gap: 100px;
 }
 
 .customNavMenu li {
@@ -53,10 +53,7 @@
   text-decoration: none;
   color: #333;
   font-weight: bold;
- 
 }
-
-
 
 /* =========================
    ハンバーガーボタン
@@ -137,7 +134,7 @@
   font-weight: 900;
   transform: none; /* remove scroll transform code */
   opacity: 0; /* GSAP fade in */
-  line-height: 1;
+  line-height: 1.05;
 }
 
 /* ホバー時の色 */

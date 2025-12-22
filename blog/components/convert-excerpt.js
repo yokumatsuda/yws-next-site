@@ -19,8 +19,8 @@ export default function ConvertExcerpt({ content, contentHtml, maxLength = 100 }
   // --- ① contentHtml が配列かつ HTML がある場合を優先 ---
   if (Array.isArray(contentHtml)) {
     const htmlParts = contentHtml
-      .filter(block => block?.html && block.html.trim() !== "")
-      .map(block => block.html);
+      .filter((block) => block?.html && block.html.trim() !== "")
+      .map((block) => block.html);
 
     if (htmlParts.length > 0) {
       html = htmlParts.join("");

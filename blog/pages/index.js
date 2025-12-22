@@ -11,11 +11,10 @@ import Services from "components/services";
 import { eyecatchLocal } from "lib/constants";
 import { getAllPosts, getAllWorks } from "lib/api";
 
-
 export default function Home({ works, posts }) {
-  const loading = useLoading(1000);  // ← 1行だけ
+  const loading = useLoading(1000); // ← 1行だけ
 
-  if (loading) return <Loading show={loading} />
+  if (loading) return <Loading show={loading} />;
 
   return (
     <>
@@ -23,11 +22,7 @@ export default function Home({ works, posts }) {
 
       {!loading && (
         <>
-          <Hero
-            title="YWS"
-            subtitle="アウトプットしていくサイト"
-            imageOn
-          />
+          <Hero title="YWS" subtitle="アウトプットしていくサイト" imageOn />
 
           <Container>
             <Meta
@@ -37,6 +32,7 @@ export default function Home({ works, posts }) {
 
             <Services />
             <WorksPosts works={works} />
+            <Pagination nextUrl="/works" nextText="More Works" />
             <Posts posts={posts} />
             <Pagination nextUrl="/blog" nextText="More Posts" />
           </Container>
@@ -45,7 +41,6 @@ export default function Home({ works, posts }) {
     </>
   );
 }
-
 
 export async function getStaticProps() {
   const works = await getAllWorks(8);

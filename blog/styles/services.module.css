@@ -18,9 +18,10 @@ html {
 
 /* 見出し */
 .sectionTitle {
-  font-size: 1.8rem;
+  padding: 0 20px 0 20px;
+  font-size: 28px;
   margin-bottom: 20px;
-  text-align: center;
+  /* text-align: center; */
 }
 
 /* カードの外側コンテナ */
@@ -47,7 +48,6 @@ html {
   cursor: pointer;
 }
 
-
 .card:hover {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
@@ -55,7 +55,7 @@ html {
 /* ラッパー div */
 .imageWrapper {
   width: 100%;
-  height: 200px;   /* 好みの高さ */
+  height: 200px; /* 好みの高さ */
   overflow: hidden;
   position: relative;
 }
@@ -74,21 +74,17 @@ html {
   transform: scale(1.12);
 }
 
-
-
-
-
 /* タイトル */
 .cardTitle {
-  font-size: 1.25rem;
-  margin: 0 0 12px 0;
+  font-size: 18px;
+  margin: 12px 0 12px 0;
 }
 
 /* 説明文 */
 .cardDesc {
-  font-size: 0.95rem;
+  margin: 0 0 16px 0;
+  font-size: 15px;
   line-height: 1.5;
-  margin-bottom: 16px;
 }
 
 /* ボタン */
@@ -119,11 +115,7 @@ html {
   margin-right: auto;
   /* background-color: #eee;
   background-image: url("https://ywd-digital-contents.s3.ap-northeast-1.amazonaws.com/yws-wp/services/paper_less30.png"); */
-  background-image: linear-gradient(
-      to right,
-      rgba(0, 255, 255, 0.2),
-      rgba(0, 128, 255, 0.2)
-    ),
+  background-image: linear-gradient(to right, rgba(0, 255, 255, 0.2), rgba(0, 128, 255, 0.2)),
     url("/services-img/paper_less30.png");
 
   background-repeat: no-repeat;
@@ -137,11 +129,7 @@ html {
   padding: 60px 20px;
   /* max-width: 90%; */
   margin: 0 auto;
-  background-image: linear-gradient(
-      to right,
-      rgba(0, 255, 255, 0.2),
-      rgba(0, 128, 255, 0.2)
-    ),
+  background-image: linear-gradient(to right, rgba(0, 255, 255, 0.2), rgba(0, 128, 255, 0.2)),
     url("/services-img/paper_less101.png");
   background-repeat: no-repeat;
   background-position: right center;

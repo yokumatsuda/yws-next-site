@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export default function Services() {
   return (
-   <>
+    <>
       {/* ▼ 1. 4枚のカードを表示するセクション */}
       <section className={styles.servicesSection} id="sectionTitle1">
         <h2 className={styles.sectionTitle}> AI × 自動化</h2>
@@ -11,21 +11,20 @@ export default function Services() {
         <div className={styles.cardContainer}>
           {/* カード1 */}
           <a href="/dx" className={styles.card}>
-           <figure>
-            <div className={styles.imageWrapper}>
-              <Image
-                src="/services-img/top_pageimg9.jpeg"
-                alt="業務効率化 & DX化"
-                width={400}
-                height={225}
-                priority
-              />
-            </div>
-           </figure>
+            <figure>
+              <div className={styles.imageWrapper}>
+                <Image
+                  src="/services-img/top_pageimg9.jpeg"
+                  alt="業務効率化 & DX化"
+                  width={400}
+                  height={225}
+                  priority
+                />
+              </div>
+            </figure>
             <h3 className={styles.cardTitle}>業務効率化 &amp; DX化</h3>
             <p className={styles.cardDesc}>
-              話題のChatGPTやAIツールを活用し、
-              DX支援からペーパーレス化まで一挙に推進。
+              話題のChatGPTやAIツールを活用し、 DX支援からペーパーレス化まで一挙に推進。
               生産性向上を加速させます。
             </p>
             <span className={styles.cardButton}>詳しく見る</span>
@@ -33,15 +32,17 @@ export default function Services() {
 
           {/* カード2 */}
           <a href="/system" className={styles.card}>
-           <figure>
-             <div className={styles.imageWrapper}>
-            <Image
-              src="/services-img/top_pageimg7.jpeg"
-              alt="システム構築 & アプリ開発"
-              width={400}
-              height={225}
-              priority
-            /></div></figure>
+            <figure>
+              <div className={styles.imageWrapper}>
+                <Image
+                  src="/services-img/top_pageimg7.jpeg"
+                  alt="システム構築 & アプリ開発"
+                  width={400}
+                  height={225}
+                  priority
+                />
+              </div>
+            </figure>
             <h3 className={styles.cardTitle}>システム構築 &amp; アプリ開発</h3>
             <p className={styles.cardDesc}>
               オンプレからクラウドまで、幅広い業務システムを迅速に構築。
@@ -52,20 +53,20 @@ export default function Services() {
 
           {/* カード3 */}
           <a href="/officework" className={styles.card}>
-           <figure>
-            <div className={styles.imageWrapper}>
-            <Image
-              src="/services-img/top_pageimg3.jpeg"
-              alt="事務作業代行"
-              width={400}
-              height={225}
-               priority
-    />
-           </div></figure>
+            <figure>
+              <div className={styles.imageWrapper}>
+                <Image
+                  src="/services-img/top_pageimg3.jpeg"
+                  alt="事務作業代行"
+                  width={400}
+                  height={225}
+                  priority
+                />
+              </div>
+            </figure>
             <h3 className={styles.cardTitle}>事務作業代行</h3>
             <p className={styles.cardDesc}>
-              給与計算や勤怠集計などのデータ処理を代行。
-              当事業所の自動化システムで手間を省き、
+              給与計算や勤怠集計などのデータ処理を代行。 当事業所の自動化システムで手間を省き、
               結果をスピーディーに返却します。
             </p>
             <span className={styles.cardButton}>詳しく見る</span>
@@ -73,19 +74,20 @@ export default function Services() {
 
           {/* カード4 */}
           <a href="/web" className={styles.card}>
-           <figure>
-             <div className={styles.imageWrapper}>
-            <Image
-              src="/services-img/top_pageimg14.jpeg"
-              alt="Web制作"
-              width={400}
-              height={225} priority
-    />
-              </div></figure>
+            <figure>
+              <div className={styles.imageWrapper}>
+                <Image
+                  src="/services-img/top_pageimg14.jpeg"
+                  alt="Web制作"
+                  width={400}
+                  height={225}
+                  priority
+                />
+              </div>
+            </figure>
             <h3 className={styles.cardTitle}>Web制作</h3>
             <p className={styles.cardDesc}>
-              企業サイトからECサイトまで、目的に合わせたWebを最適化。
-              ブランド力向上にも役立ちます。
+              企業サイトからECサイトまで、目的に合わせたWebを最適化。 ブランド力向上にも役立ちます。
             </p>
             <span className={styles.cardButton}>詳しく見る</span>
           </a>
@@ -95,14 +97,12 @@ export default function Services() {
       {/* ▼ 2. キャッチフレーズ＋背景イラストのセクション */}
       <section className={styles.heroSection}>
         <div className={styles.heroContent}>
-          <h2 className={styles.catchPhrase}>
-            AI × DXで、時代に合わせた成長を。
-          </h2>
+          <h2 className={styles.catchPhrase}>AI × DXで、時代に合わせた成長を。</h2>
           <p className={styles.subCatch}>
             デジタル変革を通じて、より効率的で革新的な働き方を実現。
           </p>
           <a href="/dx" className={styles.heroButton}>
-            DX・AIについて
+            AI・DXについて
           </a>
         </div>
       </section>
@@ -116,14 +116,14 @@ export default function Services() {
           <a href="/dx" className={styles.card}>
             <figure>
               <div className={styles.imageWrapper}>
-              <Image
-              src="/services-img/dx-image65.jpeg"
-              alt="DXをもっと身近に"
-              width={400}  // 適切な幅
-              height={225} // 16:9 のアスペクト比
-              priority
-              />
-            </div>
+                <Image
+                  src="/services-img/dx-image65.jpeg"
+                  alt="DXをもっと身近に"
+                  width={400} // 適切な幅
+                  height={225} // 16:9 のアスペクト比
+                  priority
+                />
+              </div>
             </figure>
             <h3 className={styles.cardTitle}>DXをもっと身近に</h3>
             <p className={styles.cardDesc}>
@@ -136,14 +136,16 @@ export default function Services() {
           {/* カード2: システム構築 & アプリ開発 */}
           <a href="/system" className={styles.card}>
             <figure>
-             <div className={styles.imageWrapper}>
-              <Image
-              src="/services-img/dx-image57.jpeg"
-                alt="本格的なシステム導入"
-                width={400}  // 適切な幅
-                height={225} // 16:9 のアスペクト比
-                priority
-              /></div></figure>
+              <div className={styles.imageWrapper}>
+                <Image
+                  src="/services-img/dx-image57.jpeg"
+                  alt="本格的なシステム導入"
+                  width={400} // 適切な幅
+                  height={225} // 16:9 のアスペクト比
+                  priority
+                />
+              </div>
+            </figure>
 
             <h3 className={styles.cardTitle}>本格的なシステム導入</h3>
             <p className={styles.cardDesc}>
@@ -157,14 +159,16 @@ export default function Services() {
           {/* カード3: 事務作業代行 */}
           <a href="/officework" className={styles.card}>
             <figure>
-               <div className={styles.imageWrapper}>
+              <div className={styles.imageWrapper}>
                 <Image
                   src="/services-img/dx-image71.jpeg"
                   alt="あなたのIT部門代行"
-                  width={400}  // 適切な幅
+                  width={400} // 適切な幅
                   height={225} // 16:9 のアスペクト比
                   priority
-                /></div></figure>
+                />
+              </div>
+            </figure>
 
             <h3 className={styles.cardTitle}>あなたのIT部門代行</h3>
             <p className={styles.cardDesc}>
@@ -176,20 +180,22 @@ export default function Services() {
 
           {/* カード4: Web制作（ECサイト含む） */}
           <a href="/web" className={styles.card}>
-             <figure>
-               <div className={styles.imageWrapper}>
+            <figure>
+              <div className={styles.imageWrapper}>
                 <Image
-                src="/services-img/Web-img17.jpeg"
-                alt="サイト作成から管理まで"
-                width={400}  // 適切な幅
-                height={225} // 16:9 のアスペクト比
-                priority
-              /></div></figure>
+                  src="/services-img/Web-img17.jpeg"
+                  alt="サイト作成から管理まで"
+                  width={400} // 適切な幅
+                  height={225} // 16:9 のアスペクト比
+                  priority
+                />
+              </div>
+            </figure>
 
             <h3 className={styles.cardTitle}>サイト作成から管理まで</h3>
             <p className={styles.cardDesc}>
-              制作費だけでなく、一定期間のサポートも付帯可能。
-              運用代行に切り替えれば、 更新作業も負担なく続けられます。
+              制作費だけでなく、一定期間のサポートも付帯可能。 運用代行に切り替えれば、
+              更新作業も負担なく続けられます。
             </p>
             <span className={styles.cardButton}>詳しく見る</span>
           </a>
@@ -199,12 +205,8 @@ export default function Services() {
       {/* ▼ 2. キャッチフレーズ＋背景イラストのセクション */}
       <section className={styles.heroSection2}>
         <div className={styles.heroContent}>
-          <h2 className={styles.catchPhrase}>
-            DXからWeb制作までトータルサポート。
-          </h2>
-          <p className={styles.subCatch}>
-            効率化、デザイン、自動化で次のレベルへ。
-          </p>
+          <h2 className={styles.catchPhrase}>DXからWeb制作までトータルサポート。</h2>
+          <p className={styles.subCatch}>効率化、デザイン、自動化で次のレベルへ。</p>
           <a href="/system" className={styles.heroButton2}>
             システム開発
           </a>
