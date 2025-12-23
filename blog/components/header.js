@@ -97,11 +97,7 @@ const Header2 = () => {
       {/* ロゴ */}
       <div className={styles.logoArea}>
         <Link href="/">
-          <img
-            src="https://ywd-digital-contents.s3.ap-northeast-1.amazonaws.com/yws-wp/icon/logo.png"
-            alt="YWS"
-            className={styles.logoImage}
-          />
+          <img src="/logo.png" alt="YWS" className={styles.logoImage} />
         </Link>
       </div>
 

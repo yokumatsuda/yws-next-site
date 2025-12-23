@@ -1,3 +1,4 @@
+/* Header2.module.css */
 /* =========================
    固定ヘッダー
 ========================= */
@@ -23,6 +24,7 @@
   align-items: center;
   margin-right: auto; /* 左寄りにして、残りのスペースを押しやる */
 }
+
 .logoImage {
   max-width: 85px;
   height: auto;
@@ -33,6 +35,7 @@
 .customNav {
   margin-right: 20px; /* example spacing */
 }
+
 .customNavMenu {
   display: flex;
   list-style: none;
@@ -69,6 +72,7 @@
   padding: 0;
   position: relative;
 }
+
 .line {
   display: block;
   width: 100%;
@@ -79,12 +83,15 @@
   transition: 0.4s;
   transform-origin: center;
 }
+
 .active .top {
   transform: translateY(10px) rotate(45deg);
 }
+
 .active .middle {
   opacity: 0;
 }
+
 .active .bottom {
   transform: translateY(-10px) rotate(-45deg);
 }
@@ -110,6 +117,7 @@
   overflow-y: auto;
   -webkit-overflow-scrolling: touch; /* iOS等での慣性スクロール */
 }
+
 .sidePanel.active {
   transform: translateX(0);
 }
@@ -119,6 +127,7 @@
   margin: 0;
   padding: 20px;
 }
+
 .sidePanel li {
   /* margin-bottom: 12px; */
 }
@@ -131,7 +140,7 @@
   transition: color 0.3s ease-in-out;
   font-family: acumin-pro, Noto Sans JP, sans-serif !important;
   font-size: 98px;
-  font-weight: 900;
+  font-weight: 100;
   transform: none; /* remove scroll transform code */
   opacity: 0; /* GSAP fade in */
   line-height: 1.05;

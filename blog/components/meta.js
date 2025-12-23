@@ -1,21 +1,16 @@
+// meta.js
+
 import Head from "next/head";
 import { useRouter } from "next/router";
 
 // サイトに関する情報
 import { siteMeta } from "lib/constants";
-const { siteTitle, siteDesc, siteUrl, siteLocale, siteType, siteIcon } =
-  siteMeta;
+const { siteTitle, siteDesc, siteUrl, siteLocale, siteType, siteIcon } = siteMeta;
 
 // 汎用OGP画像
 import siteImg from "public/images-post/ogp.jpg";
 
-export default function Meta({
-  pageTitle,
-  pageDesc,
-  pageImg,
-  pageImgW,
-  pageImgH,
-}) {
+export default function Meta({ pageTitle, pageDesc, pageImg, pageImgW, pageImgH }) {
   // ページのタイトル
   const title = pageTitle ? `${pageTitle} | ${siteTitle}` : siteTitle;
   //   ページの説明
@@ -44,8 +39,7 @@ export default function Meta({
 
       <link rel="icon" href={siteIcon} />
       <link rel="apple-touch-icon" href={siteIcon} />
-      
-      <link rel="stylesheet" href="https://use.typekit.net/mxz8fbe.css"></link>
+
       <meta property="og:image" content={imgUrl} />
       <meta property="og:image:width" content={imgW} />
       <meta property="og:image:height" content={imgH} />
