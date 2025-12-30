@@ -10,7 +10,7 @@ body {
 }
 
 /* 全体ラッパ (背景色アニメをつける) */
-.DxContainer {
+.Container {
   background-color: #f2fff2;
   height: 100vh;
   margin: 0;

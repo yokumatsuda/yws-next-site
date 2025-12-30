@@ -1,50 +1,50 @@
+"use client";
+
 import React, { useEffect, useRef, useState } from "react";
 import styles from "styles/details.module.css";
 
-function dx() {
+export default function SystemPage() {
   /* =============================
    * 1) スライダー用ロジック
    * ============================= */
   const slides = [
     {
-      title: "DX推進",
-      text: "DXを推進することで、紙の業務から脱却し、デジタル化と業務最適化を加速。",
+      title: "システム開発",
+      text: "業務システム・管理システムの開発を通じて、業務の効率化とデジタル化を推進します。",
       buttonText: "詳しく見る",
       bgImage:
-        "https://ywd-digital-contents.s3.ap-northeast-1.amazonaws.com/yws-wp/services/Dx_img1.png",
-      scrollTargetId: "dxSection",
+        "https://ywd-digital-contents.s3.ap-northeast-1.amazonaws.com/yws-wp/services/dx-image30.jpeg",
+      scrollTargetId: "dxSection", // ← システム開発 へスクロール
     },
     {
-      title: "業務効率化・自動化",
-      text: "DXを活用し、電子契約やデジタル書類管理を導入すれば、業務フローが簡素化されます。",
+      title: "アプリ開発",
+      text: "Webアプリ・スマホアプリの開発を行い、直感的な操作性と高いパフォーマンスを提供します。",
       buttonText: "詳しく見る",
       bgImage:
-        "https://ywd-digital-contents.s3.ap-northeast-1.amazonaws.com/yws-wp/services/dx-image33.jpeg",
-      scrollTargetId: "efficiencySection",
+        "https://ywd-digital-contents.s3.ap-northeast-1.amazonaws.com/yws-wp/services/dx-image11.jpeg",
+      scrollTargetId: "efficiencySection", // ← アプリ開発 へスクロール
     },
     {
-      title: "ペーパーレス化",
-      text: "AIやOCRで紙の書類を自動データ化し、分類・検索も瞬時に完了。業務効率と生産性を同時に向上させます。",
+      title: "クラウド導入・AWS活用",
+      text: "AWSやクラウドを活用したインフラ構築、サーバーレスアーキテクチャの設計・開発を支援します。",
       buttonText: "詳しく見る",
       bgImage:
-        "https://ywd-digital-contents.s3.ap-northeast-1.amazonaws.com/yws-wp/services/paperless_10.jpeg",
-      scrollTargetId: "paperlessSection",
+        "https://ywd-digital-contents.s3.ap-northeast-1.amazonaws.com/yws-wp/services/dx-image2.jpeg",
+      scrollTargetId: "paperlessSection", // ← クラウド導入・AWS活用 へスクロール
     },
   ];
 
+  // スライダーの状態管理
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  // DOM参照
+  // TSの <HTMLDivElement[]> を消した版
   const cardRefs = useRef([]);
   const dotRefs = useRef([]);
-
-  // オートスクロール
   const autoScrollRef = useRef(null);
+
   const autoScrollDelay = 3500;
 
-  // スワイプ開始位置（useRefで保持）
-  const xDownRef = useRef(null);
-
+  // 背景色を変化させる用
   const bgColors = ["#FDE2E2", "#FAF7B6", "#B8F2E6"];
 
   useEffect(() => {
@@ -65,7 +65,7 @@ function dx() {
     const left = (newIndex - 1 + slides.length) % slides.length;
     const right = (newIndex + 1) % slides.length;
 
-    // 全カード初期化
+    // 全カードを初期化
     cardRefs.current.forEach((card) => {
       if (card) {
         card.style.opacity = "0";
@@ -82,7 +82,7 @@ function dx() {
       centerCard.style.zIndex = "2";
     }
 
-    // 左右カード
+    // 左右のカード
     const translateValue = "120%";
     const leftCard = cardRefs.current[left];
     if (leftCard) {
@@ -97,10 +97,10 @@ function dx() {
       rightCard.style.zIndex = "1";
     }
 
-    // ドット更新
+    // ドットを更新
     updateDots(newIndex);
 
-    // 背景色更新
+    // 背景色を更新
     const wrapper = document.getElementById("my-slider1-wrapper");
     if (wrapper) {
       wrapper.style.backgroundColor = bgColors[newIndex % bgColors.length];
@@ -121,13 +121,10 @@ function dx() {
   /** オートスクロール */
   function startAutoScroll() {
     stopAutoScroll();
-    // クリック直後に1枚進む挙動は元コード踏襲
     setCurrentIndex((prev) => prev + 1);
-
     const id = window.setInterval(() => {
       setCurrentIndex((prev) => prev + 1);
     }, autoScrollDelay);
-
     autoScrollRef.current = id;
   }
 
@@ -138,7 +135,9 @@ function dx() {
     }
   }
 
-  /** スワイプ操作 */
+  /** スワイプ操作（レンダーで値が消えないように useRef へ） */
+  const xDownRef = useRef(null);
+
   function handleTouchStart(e) {
     stopAutoScroll();
     if (e.touches && e.touches.length > 0) {
@@ -182,7 +181,7 @@ function dx() {
     setCurrentIndex(i);
   }
 
-  /** ページ内スクロール用 */
+  /** ページ内スクロール用 (詳しく見る押下時) */
   function scrollWithOffset(id, offset = 10) {
     const el = document.getElementById(id);
     if (!el) return;
@@ -195,76 +194,79 @@ function dx() {
    * 2) アコーディオン（カテゴリ別）
    * ============================= */
 
+  /* --- カテゴリA: DX推進 --- */
   const accordionItemsDX = [
     {
-      title: "DXの推進",
+      title: "業務自動化システム開発",
       subtitle:
-        "業務のデジタル化と自動化でコスト削減と生産性向上を実現し、企業のDX推進をサポートします。",
+        "業務の効率化・自動化を実現するシステム開発で、生産性向上とコスト削減を支援します。",
       desc: `
-      ■ サービス概要
-      - 紙の書類や非効率な業務フローをデジタル化し、契約・承認プロセスをオンラインで完結
-      - AIやスクリプトによる自動化により、作業時間を短縮し業務負担を軽減
-      - 既存の社内システムやクラウドサービスとの柔軟な連携が可能
-    
-      ■ 導入メリット
-      - **コスト削減**：電子契約・デジタル文書管理で印刷・郵送コストを削減
-      - **業務効率化**：社内承認・契約業務のリードタイムを短縮し、スピーディーな意思決定を支援
-      - **セキュリティ強化**：データの暗号化やアクセス管理により、安全な情報共有を実現
-    
-      ■ システム概要（技術情報）
-      - **フロントエンド**：React / Next.js（モダンで直感的なUI設計）
-      - **バックエンド**：Node.js + TypeScript（セキュアなAPIとスケーラブルなサーバー設計）
-      - **クラウド基盤**：AWS / GCP（高可用性と拡張性を確保）
-      - **AI & 自動化**：AI-OCR / Python（データ処理の自動化 & 業務最適化）
-    
-      ■ 導入事例
-      1️⃣ 「契約締結・請求書発行を電子化し、業務の効率化と負担軽減を実現」
-      2️⃣ 「AI-OCRを活用し、紙書類のデータ入力ミスを大幅に削減」
-      3️⃣ 「AIチャットボットを導入し、問い合わせ対応の自動化を実現」
-    
-      **📢 まずは無料相談から！**  
-      DX導入の具体的なシナリオを提案し、業務効率化の実現をサポートします。
-      `,
+  ■ サービス概要
+- データ入力・メール対応・帳票作成・承認フローなどの業務効率化
+- API連携やクラウドシステムとの統合により、既存の業務環境を最適化
+- カスタマイズ可能な業務自動化ツールの開発・導入
+
+■ 導入メリット
+- **作業時間の削減**：人手を介した業務を自動化し、作業時間を短縮
+- **コスト削減**：人件費の削減と、業務プロセスの最適化によるコストダウン
+- **業務の正確性向上**：AI・スクリプトによる処理で、ヒューマンエラーを削減
+- **データの一元管理**：クラウドを活用し、リアルタイムでのデータ更新・共有が可能
+
+■ システム概要（技術情報）
+- **フロントエンド**：React / Next.js（直感的なUI設計）
+- **バックエンド**：Node.js / Python（スクリプト・業務ロジック構築）
+- **データベース**：MySQL（データ管理）
+- **クラウド基盤**：AWS / GCP（クラウドインフラ・セキュリティ対策）
+- **AI & 自動化**：AI-OCR / Google Apps Script（業務最適化・自動化ツール）
+
+■ 導入事例
+1️⃣ 「AI-OCRを活用し、請求書のデータ入力を自動化」
+2️⃣ 「ECサイトの受注処理を自動化し、オペレーションコストを削減」
+3️⃣ 「Pythonスクリプトを導入し、定型業務の自動処理を実現」
+
+**📢 まずは無料相談から！**
+業務の自動化・効率化を実現する最適なシステムをご提案します。`,
       image:
-        "https://ywd-digital-contents.s3.ap-northeast-1.amazonaws.com/yws-wp/services/dx-image22.jpeg",
+        "https://ywd-digital-contents.s3.ap-northeast-1.amazonaws.com/yws-wp/services/dx-image30.jpeg",
     },
     {
-      title: "業務自動化",
+      title: "社内システム開発",
       subtitle:
-        "データ入力、メール対応、書類管理、Excel作業を自動化し、時間とコストを削減。DXで生産性向上と業務負担を軽減します。",
-      desc: `
-      ■ サービス概要
-      - AI-OCR、Pythonなどを活用し、業務の自動化を実現
-      - 定型的なデータ入力、メール対応、承認フローなどの手作業を削減
-      - クラウド連携やAPI統合により、スムーズなワークフローを構築
-    
-      ■ 導入メリット
-      - **業務効率化**：手作業を大幅に削減し、作業時間を短縮
-      - **コスト削減**：人的リソースの最適化により、運用コストを削減
-      - **エラー低減**：AIによるデータ処理で、入力ミスやオペレーションミスを防止
-      - **柔軟な拡張性**：既存システムとの統合により、幅広い業務に適用可能
-    
-      ■ システム概要（技術情報）
-      - **フロントエンド**：React / Next.js（直感的なUIと操作性を実現）
-      - **バックエンド**：Node.js + TypeScript（APIとデータ処理を最適化）
-      - **RPA & 自動化**：AI-OCR、Python、Google Apps Script（定型業務を自動化）
-      - **クラウド基盤**：AWS / GCP（高可用性・拡張性を確保）
-    
-      ■ 導入事例
-      1️⃣ 「メール問い合わせの自動返信を導入し、対応時間を短縮」
-      2️⃣ 「AI-OCRと自動仕分けを活用し、請求書処理の効率を向上」
-      3️⃣ 「Excelマクロを活用し、レポート作成の業務負担を軽減」
-    
-      **📢 まずは無料相談から！**  
-      自動化の導入事例や適用シナリオをご提案し、業務効率化をサポートします。
+        "企業の業務管理を効率化し、データ活用と業務の最適化を実現する社内システムを構築します。",
+      desc: `■ サービス概要
+- 企業の業務フローを管理する社内システムの開発（勤怠管理 / 在庫管理 /生産管理など）
+- 既存システムとの連携・データ移行のサポート
+- クラウド対応により、社内外からの安全なアクセスを確保
+- 各種API連携（勤怠管理など）
+
+■ 導入メリット
+- **業務の可視化**：データを一元管理し、リアルタイムの分析・レポート作成が可能
+- **業務効率化**：情報共有・承認フローの最適化により、作業のスピードを向上
+- **コスト削減**：紙の書類や手作業での処理を減らし、運用コストを低減
+- **セキュリティ強化**：権限管理・アクセス制御を導入し、安全な運用環境を確保
+
+■ システム概要（技術情報）
+- **フロントエンド**：React / Next.js（モダンなUI設計）
+- **バックエンド**：Node.js / PHP / Python（柔軟な業務ロジック構築）
+- **データベース**：MySQL（業務データの最適管理）
+- **クラウド基盤**：AWS（スケーラブルなシステム構築）
+- **API & 連携**：Slack / Google Workspace / ChatGPT API（業務ツールとの統合）
+
+■ 導入事例
+1️⃣ 「営業管理システムを構築し、顧客情報の一元管理を実現」
+2️⃣ 「社内の勤怠管理をデジタル化し、給与計算との連携をスムーズに」
+3️⃣ 「社内ポータルサイトを開発し、情報共有と社内コミュニケーションを活性化」
+
+**📢 まずは無料相談から！**
+社内の業務最適化を実現するシステム開発をサポートします。
+
       `,
       image:
-        "https://ywd-digital-contents.s3.ap-northeast-1.amazonaws.com/yws-wp/services/dx-image26.jpeg",
+        "https://ywd-digital-contents.s3.ap-northeast-1.amazonaws.com/yws-wp/services/dx-image46.jpeg",
     },
     {
-      title: "ペーパーレス化",
-      subtitle:
-        "紙書類を電子化し、デジタル文書管理・電子契約の導入で業務効率化。クラウド活用で安全にデータを管理し、スムーズな業務環境を実現します。",
+      title: "小規模ビジネス向けシステム開発",
+      subtitle: "スタートアップ・中小企業向けに、低コストで導入できるシステム開発を提供します。",
       desc: `
       ■ サービス概要
       - 紙の契約書・申請書・報告書などを電子化し、ペーパーレス環境を実現
@@ -279,148 +281,123 @@ function dx() {
       ■ システム概要（技術情報）
       - **フロントエンド**：React / Next.js（直感的なUIで文書管理をサポート）
       - **バックエンド**：Node.js + TypeScript（APIによる安全なデータ処理）
-      - **クラウドストレージ**：AWS S3 / Google Drive / Firebase（セキュアな文書管理）
+      - **クラウドストレージ**：AWS S3 / Google Drive（セキュアな文書管理）
       - **電子署名・承認ワークフロー**：DocuSign / Adobe Sign（法的に有効な電子契約）
     
       ■ 導入事例
-      1️⃣ 「電子契約を導入し、紙の契約書を削減し、承認業務を効率化」  
-      2️⃣ 「クラウド文書管理システムを導入し、書類検索や管理の手間を削減」  
-      3️⃣ 「ペーパーレス会議を実施し、印刷コストと紙の使用量を削減」  
-    
+     1️⃣ 「電子契約を導入し、紙の契約書を削減し、承認業務を効率化」  
+2️⃣ 「クラウド文書管理システムを導入し、書類検索や管理の手間を削減」  
+3️⃣ 「モバイル対応の電子承認システムを導入し、外出先でも決裁が可能に」 
+
       **📢 まずは無料相談から！**  
       ペーパーレス化の導入事例や適用シナリオをご提案し、業務効率化をサポートします。
       `,
       image:
-        "https://ywd-digital-contents.s3.ap-northeast-1.amazonaws.com/yws-wp/services/paperless_10.jpeg",
+        "https://ywd-digital-contents.s3.ap-northeast-1.amazonaws.com/yws-wp/services/dx-image41.jpeg",
     },
   ];
 
+  // ステート: どのパネルを開いているか (DX)
   const [openIndexDX, setOpenIndexDX] = useState(null);
 
   function handleToggleDX(index) {
+    // 同じパネル => 閉じる
     if (openIndexDX === index) {
       setOpenIndexDX(null);
       return;
     }
 
+    // 別パネルを開こうとした場合
     if (openIndexDX !== null) {
+      // 既に開いているパネルを閉じる
       const nextIndex = index;
       setOpenIndexDX(null);
 
+      // 閉じアニメ時間: 0.4s => 500ms余裕
       setTimeout(() => {
+        // スクロール先 = "dx-header-<nextIndex>"
         const targetHeaderId = `dx-header-${nextIndex}`;
         const targetEl = document.getElementById(targetHeaderId);
         if (targetEl) {
           targetEl.scrollIntoView({ behavior: "smooth", block: "start" });
         }
 
+        // スクロール完了待ち: 300ms後に新パネルを開く
         setTimeout(() => {
           setOpenIndexDX(nextIndex);
         }, 300);
       }, 500);
     } else {
+      // 何も開いていない => すぐ開く
       setOpenIndexDX(index);
     }
   }
 
+  /* --- カテゴリB: 業務効率化・自動化 --- */
   const accordionItemsEfficiency = [
     {
-      title: "データ入力の自動化",
+      title: "Webアプリ開発",
       subtitle:
-        "AI-OCRとPythonなどを活用し、手作業のデータ入力を自動化。業務効率を向上させ、人的ミスを削減することで、正確かつ迅速なデータ処理を実現します。",
+        "ブラウザ上で動作するWebアプリを開発し、業務のDX化・サービスのオンライン化を支援します。",
       desc: `
-      ■ サービス概要
-      - 紙媒体やPDFの書類をOCRでデータ化し、入力業務を自動化
-      - AIによる文字認識精度の向上とエラー検知で、誤入力を最小限に
-      - 既存の業務システムやクラウドサービスとの柔軟な連携が可能
-    
-      ■ 導入メリット
-      - **コスト削減**：手作業の入力時間を短縮し、業務リソースの最適化
-      - **業務効率化**：AI-OCRを活用し、データ処理スピードを大幅に向上
-      - **ヒューマンエラーの削減**：データ入力のミスを自動検出し、修正プロセスを簡素化
-      - **業務フローの標準化**：ルールベースの自動入力により、作業のばらつきを低減
-    
-      ■ システム概要（技術情報）
-      - **フロントエンド**：React / Next.js（シンプルで直感的なデータ入力UI）
-      - **バックエンド**：Node.js + TypeScript（セキュアなデータ処理 & API連携）
-      - **クラウド連携**：Google Sheets / Excel Online（データ同期 & 自動反映）
-    
-      ■ 導入事例
-      1️⃣ 「受領した注文書をスキャン・OCR解析し、仕分け作業を自動化」  
-      2️⃣ 「紙の申込書をOCRデータ化し、顧客情報の登録を効率化」  
-      3️⃣ 「PDF請求書の金額・日付情報を自動抽出し、経理業務の処理をスムーズに」  
-    
-      **📢 まずは無料相談から！**  
-      業務に最適なデータ入力の自動化ソリューションを提案し、DXの推進を支援します。
+     ■ サービス概要
+- 業務システム、SaaS、予約管理、ECサイトなどのWebアプリを開発
+- クロスプラットフォーム対応で、PC・タブレット・スマホで利用可能
+- クラウド対応により、スケーラブルなシステムを実現
+- API連携で、既存システムとの統合もスムーズに対応可能
+
+■ 導入メリット
+- **導入の容易さ**：インストール不要で、URLにアクセスするだけで利用可能
+- **高い拡張性**：機能追加やカスタマイズが容易で、スモールスタートが可能
+- **マルチデバイス対応**：デスクトップ・モバイルどちらからでもアクセス可能
+
+■ システム概要（技術情報）
+- **フロントエンド**：React / Next.js / Vue.js（モダンで直感的なUI設計）
+- **バックエンド**：Node.js / Python / PHP（API開発 & データ処理）
+- **データベース**：MySQL（クラウドデータ管理）
+- **クラウド基盤**：AWS / Google Cloud（スケーラブルなインフラ構築）
+
+■ 導入事例
+1️⃣ 「SaaS型の業務管理Webアプリを開発し、社内のDX化を推進」  
+2️⃣ 「ECサイトを開発し、オンライン販売の売上を向上」  
+3️⃣ 「予約管理システムを構築し、業務の自動化と顧客対応の最適化を実現」  
+
+**📢 まずは無料相談から！**
+Webアプリの設計・開発・運用をワンストップでサポートします。
       `,
       image:
-        "https://ywd-digital-contents.s3.ap-northeast-1.amazonaws.com/yws-wp/services/dx-image26.jpeg",
+        "https://ywd-digital-contents.s3.ap-northeast-1.amazonaws.com/yws-wp/services/dx-image73.jpeg",
     },
     {
-      title: "ブラウザ操作を自動化",
-      subtitle:
-        "PythonやAIを活用し、ブラウザ上の定型業務を自動化。データ入力・情報収集・フォーム送信を効率化し、手作業の負担を軽減します。",
-      desc: `
-      ■ サービス概要
-      - Pythonスクリプトでブラウザ操作を自動化し、業務の効率化とミス削減を実現
-      - ログイン、フォーム入力、クリック操作、データ収集などの反復作業を省力化
-      - 業務フローを標準化し、人的ミスの削減と作業時間の短縮を実現
-    
-      ■ 導入メリット
-      - **作業時間の短縮**：データ入力や情報収集を自動化し、業務負担を軽減
-      - **人的ミスの削減**：スクリプト化による一貫した処理でエラー発生を抑制
-      - **業務フローの最適化**：反復作業を自動化し、社員が戦略的業務に集中できる環境を構築
-      - **スケーラブルな対応**：大量のデータ処理や大規模な情報収集も効率よく実行可能
-    
-      ■ システム概要（技術情報）
-      - **フロントエンド**：React / Next.js（直感的なUIでスクリプト管理を簡易化）
-      - **バックエンド**：Node.js + TypeScript（安全でスケーラブルなデータ処理）
-      - **業務自動化**：Pythonスクリプト / API連携（定型作業の省力化とデータ処理の最適化）
-    
-      ■ 導入事例
-      1️⃣ 「ECサイトの商品情報を定期的に自動取得し、在庫管理を効率化」  
-      2️⃣ 「複数のWebシステムへの日報転記作業を自動化し、業務負担を軽減」  
-      3️⃣ 「顧客登録フォーム入力をスクリプト化し、入力作業をスムーズに」 
-    
-      **📢 まずは無料相談から！**  
-      業務に最適なブラウザ自動化ソリューションを提案し、DXの推進を支援します。
-      `,
+      title: "モバイルアプリ開発",
+      subtitle: "業務の効率化・自動化を実現するモバイルアプリで、DXを加速。",
+      desc: `■ サービス概要
+- 契約書・請求書・報告書などの書類をデジタル管理できるモバイルアプリを開発
+- 勤怠管理・在庫管理・プロジェクト管理・営業支援ツールに対応
+- 直感的なUI/UX設計で、誰でも簡単に操作できるアプリを提供
+
+■ 導入メリット
+- **業務効率化**：手作業を削減し、社内の業務フローをデジタル化
+- **業務効率化**：紙の書類を電子化し、検索・分類を簡単に
+- **ペーパーレス化**：スマホやタブレットから文書を管理
+- **自動化**：AI・スクリプトを活用し、データ入力や集計を自動化
+
+■ システム概要（技術情報）
+- **フロントエンド**：React（クロスプラットフォーム対応）
+- **バックエンド**：Node.js（リアルタイムデータ管理）
+- **データベース**：MySQL
+- **クラウド基盤**：AWS Lambda
+
+■ 導入事例
+1️⃣ 「AI-OCRを活用し、紙の請求書を自動データ化」    
+2️⃣ 「社内の勤怠管理アプリを開発し、打刻・休暇申請をモバイル化」  
+3️⃣ 「在庫管理アプリを導入し、入出庫データをリアルタイム共有」  
+
+**📢 まずは無料相談から！**
+業務のDXを支援する最適なモバイルアプリを提供します。
+`,
       image:
-        "https://ywd-digital-contents.s3.ap-northeast-1.amazonaws.com/yws-wp/services/dx-image29.jpeg",
-    },
-    {
-      title: "メール・コミュニケーションの自動化",
-      subtitle:
-        "メールやチャットツールの自動化で、問い合わせ対応を効率化。定型メッセージの送信、通知の自動管理を通じて業務負担を軽減し、対応スピードを向上させます。",
-      desc: `
-      ■ サービス概要
-      - カスタマーサポート向けの定型返信を自動化し、初期対応を迅速化
-      - チャットツールやメール通知を一元管理し、担当者の対応ミスや遅延を防止
-      - AIチャットボットを活用し、24時間対応の顧客サポートを実現
-    
-      ■ 導入メリット
-      - **顧客満足度の向上**：迅速な自動返信と適切な情報提供で、問い合わせ対応品質を向上
-      - **業務負担の軽減**：自動化により、サポート担当者の業務負担を大幅削減
-      - **対応スピードの向上**：重要な問い合わせにリソースを集中し、業務効率化を実現
-      - **履歴管理と分析**：過去の問い合わせデータを可視化し、改善や予測に活用
-    
-      ■ システム概要（技術情報）
-      - **フロントエンド**：React / Next.js（問い合わせ管理システムのUIを構築）
-      - **バックエンド**：Node.js + TypeScript（安定したメール送信APIと自動化処理）
-      - **コミュニケーション自動化**：Gmail API / Outlook API（メールの送受信をプログラムで制御）
-      - **チャットツール連携**：Slack API / Microsoft Teams API（自動通知・メッセージ送信）
-      - **AI & 自動応答**：Chatbot（NLP技術を活用した問い合わせ対応の最適化）
-    
-      ■ 導入事例
-      1️⃣ 「メール問い合わせを管理システムに自動取り込みし、担当者への通知を最適化」  
-      2️⃣ 「定型文の自動返信を導入し、問い合わせ対応を効率化」  
-      3️⃣ 「チャットボットを活用し、よくある質問の対応を自動化」  
-    
-      **📢 まずは無料相談から！**  
-      メール・チャットの業務自動化で、カスタマー対応の効率化とDX推進を支援します。
-      `,
-      image:
-        "https://ywd-digital-contents.s3.ap-northeast-1.amazonaws.com/yws-wp/services/dx-image17.jpeg",
+        "https://ywd-digital-contents.s3.ap-northeast-1.amazonaws.com/yws-wp/services/dx-image11.jpeg",
     },
   ];
 
@@ -436,6 +413,7 @@ function dx() {
       const nextIndex = index;
       setOpenIndexEfficiency(null);
 
+      // 閉じてからスクロール → 開く (同じパターン)
       setTimeout(() => {
         const targetId = `efficiency-header-${nextIndex}`;
         const el = document.getElementById(targetId);
@@ -451,45 +429,43 @@ function dx() {
     }
   }
 
+  /* --- カテゴリC: ペーパーレス --- */
   const accordionItemsPaperless = [
     {
-      title: "書類管理のデジタル化",
+      title: "クラウド環境構築・インフラ最適化",
       subtitle:
-        "書類の電子化とクラウド管理で、検索・分類・共有を効率化。アクセス管理やデータのバックアップ機能を備え、ペーパーレス化を促進します。",
-      desc: `
-      ■ サービス概要
-      - 紙の書類やPDFをスキャン・デジタル化し、クラウドで一元管理
-      - **OCR技術** を活用し、書類内容をデータ化・検索可能に
-      - **タグ付け・メタデータ管理** で、必要な書類をすぐに見つけられる環境を構築
-      - アクセス制御やバージョン管理を実装し、安全な情報共有を実現
-    
-      ■ 導入メリット
-      - **業務効率化**：検索・分類の自動化により、書類管理の手間を削減
-      - **コスト削減**：印刷・保管スペースのコストを削減し、ペーパーレス化を推進
-      - **情報の安全性向上**：アクセス管理・ログ追跡機能により、情報漏えいを防止
-      - **リモート対応**：どこからでもセキュアにアクセスでき、働き方改革を支援
-    
-      ■ システム概要（技術情報）
-      - **フロントエンド**：React / Next.js（直感的なUIで簡単に書類を管理）
-      - **バックエンド**：Node.js + TypeScript（安全で拡張性の高いデータ処理）
-      - **クラウドストレージ**：AWS S3 / Firebase Storage（大容量の書類データを管理）
-      - **OCR & 自動分類**：AI-OCR（書類のテキスト抽出・データ検索を可能に）
-    
-      ■ 導入事例
-      1️⃣ 「社内契約書をデジタル化し、検索作業をスムーズに」  
-      2️⃣ 「電子文書のアクセス管理を強化し、部門間の情報共有を最適化」  
-      3️⃣ 「書類のバックアップを導入し、データロスのリスクを軽減」  
-    
-      **📢 まずは無料相談から！**  
-      書類管理のデジタル化で、効率的な業務フローを実現し、DX推進をサポートします。
-      `,
+        "AWSを活用し、安定したクラウド環境を構築。最適なインフラ設計でコストを削減し、パフォーマンスを最大化。",
+      desc: `■ サービス概要
+- AWS / GCPを活用したクラウドインフラ設計・構築
+- サーバーレスアーキテクチャ（AWS Lambda）を導入し、運用コストを最適化
+- データベース（Amazon RDS）を最適化し、高速かつ安全なデータ管理を実現
+
+■ 導入メリット
+- **高可用性の確保**：マルチリージョン対応により、障害発生時でもシステムの安定稼働が可能
+- **運用コストの最適化**：AWSのリソースを最適化し、無駄なコストを削減
+- **スケーラブルな環境構築**：アクセス数の変動に応じて柔軟にスケール調整
+
+■ システム概要（技術情報）
+- **クラウド基盤**：AWS（EC2, Lambda, S3, RDS）
+- **ネットワーク管理**：VPC / Cloudflare / CloudFront（CDN）
+- **データベース管理**：Amazon RDS（MySQL）
+- **セキュリティ対策**：AWS / IAM（アクセス管理）
+
+■ 導入事例
+1️⃣ 「ECサイトのAWS環境を構築し、スケーラブルなサーバー運用を実現」  
+2️⃣ 「業務システムのサーバーレス化を推進し、管理コストと運用負担を軽減」  
+3️⃣ 「データベースをAWS RDSに移行し、バックアップ自動化とパフォーマンス向上を実現」  
+
+**📢 まずは無料相談から！**
+クラウド環境の最適化・インフラ構築をトータルでサポートします。
+ `,
       image:
-        "https://ywd-digital-contents.s3.ap-northeast-1.amazonaws.com/yws-wp/services/dx-image3.jpeg",
+        "https://ywd-digital-contents.s3.ap-northeast-1.amazonaws.com/yws-wp/services/cloud1.jpeg",
     },
     {
-      title: "電子契約サービス",
+      title: "業務システムのクラウド移行",
       subtitle:
-        "契約の電子化で、署名・承認プロセスをオンライン化。コスト削減・業務効率化・法的安全性を確保し、スムーズな契約フローを実現します。",
+        "既存のオンプレミス環境からクラウドへ移行し、業務システムの運用負荷を軽減・DXを推進。",
       desc: `
       ■ サービス概要
       - **契約書の作成・送信・署名・管理** をすべてオンラインで完結
@@ -512,49 +488,14 @@ function dx() {
     
       ■ 導入事例
       1️⃣ 「契約締結をオンライン化し、業務負担を軽減」  
-      2️⃣ 「紙の契約書をデジタル化し、署名手続きをスムーズに」  
-      3️⃣ 「承認フローをデジタル化し、契約手続きを効率化」  
+2️⃣ 「紙の契約書をデジタル化し、署名手続きをスムーズに」  
+3️⃣ 「承認フローをデジタル化し、契約手続きを効率化」  
     
       **📢 まずは無料相談から！**  
       電子契約サービスの導入で、契約業務のDXをサポートします。
       `,
       image:
-        "https://ywd-digital-contents.s3.ap-northeast-1.amazonaws.com/yws-wp/services/cloud2.jpeg",
-    },
-    {
-      title: "デジタル書類の共有",
-      subtitle:
-        "チームや部門間の情報共有をスムーズに。クラウドを活用したデジタル書類管理で、安全・迅速なファイル共有を実現します。",
-      desc: `
-      ■ サービス概要
-      - **オンラインで書類を一元管理** し、どこからでもアクセス可能に
-      - **フォルダ構成・アクセス権限の設定** により、適切なセキュリティ管理を実現
-      - **バージョン管理機能** を搭載し、変更履歴や承認フローを可視化
-      - **マルチデバイス対応** で、PC・スマホ・タブレットからの操作が可能
-    
-      ■ 導入メリット
-      - **書類管理の効率化**：ファイルの検索・分類が容易になり、業務の生産性を向上
-      - **セキュリティ強化**：アクセス制御・ログ管理により、情報の不正閲覧を防止
-      - **リモートワーク対応**：社内外のチームがリアルタイムで文書を確認・編集
-      - **情報共有の最適化**：ドキュメントの一元管理で、重複や紛失リスクを削減
-    
-      ■ システム概要（技術情報）
-      - **フロントエンド**：React / Next.js（直感的なUIとスムーズな操作性）
-      - **バックエンド**：Node.js + TypeScript（安全かつスケーラブルなAPI構築）
-      - **クラウドストレージ**：AWS S3 / Firebase Storage（高い可用性とセキュリティを確保）
-      - **ファイル共有・アクセス管理**：ユーザー権限設定・ログ管理で、適切なデータ保護を実現
-      - **ワークフロー管理**：Google Drive / OneDrive / Box との連携でファイルの一元管理
-    
-      ■ 導入事例
-      1️⃣ 「全社のドキュメントをデジタル化し、ファイル管理をスムーズに」  
-      2️⃣ 「クラウドストレージと連携し、書類の誤送信や紛失リスクを低減」  
-      3️⃣ 「バージョン管理機能を活用し、業務ファイルの変更履歴を適切に管理」  
-    
-      **📢 まずは無料相談から！**  
-      デジタル書類管理で、スムーズな情報共有とセキュリティ強化を実現します。
-      `,
-      image:
-        "https://ywd-digital-contents.s3.ap-northeast-1.amazonaws.com/yws-wp/services/dx-image46.jpeg",
+        "https://ywd-digital-contents.s3.ap-northeast-1.amazonaws.com/yws-wp/services/dx-image44.jpeg",
     },
   ];
 
@@ -617,7 +558,6 @@ function dx() {
                     </React.Fragment>
                   ))}
                 </p>
-
                 {slide.buttonText && slide.scrollTargetId && (
                   <button
                     className={styles.cardButton}
@@ -630,6 +570,7 @@ function dx() {
             </div>
           ))}
 
+          {/* 前・次ボタン */}
           <button className={styles.mySlider1Prev} onClick={handlePrev}>
             &lt;
           </button>
@@ -638,6 +579,7 @@ function dx() {
           </button>
         </div>
 
+        {/* ドットナビ */}
         <div className={styles.mySlider1Dots}>
           {slides.map((_, i) => (
             <span
@@ -651,6 +593,7 @@ function dx() {
           ))}
         </div>
 
+        {/* Play/Stop ボタン */}
         <div className={styles.mySlider1Controls}>
           <button onClick={startAutoScroll}>Play</button>
           <button onClick={stopAutoScroll}>Stop</button>
@@ -663,9 +606,8 @@ function dx() {
           {/* === カテゴリA: DX推進 === */}
           <div className={styles.categoryBlock}>
             <h2 id="dxSection" className={styles.categoryTitle}>
-              DX推進
+              システム開発
             </h2>
-
             {accordionItemsDX.map((item, idx) => {
               const isOpen = openIndexDX === idx;
               return (
@@ -703,7 +645,6 @@ function dx() {
                           </button>
                         </div>
                       </div>
-
                       <div className={styles.cardImageWrapper}>
                         <img src={item.image} alt={item.title} className={styles.cardImage} />
                       </div>
@@ -717,9 +658,8 @@ function dx() {
           {/* === カテゴリB: 業務効率化・自動化 === */}
           <div className={styles.categoryBlock}>
             <h2 id="efficiencySection" className={styles.categoryTitle}>
-              業務効率化・自動化
+              アプリ開発
             </h2>
-
             {accordionItemsEfficiency.map((item, idx) => {
               const isOpen = openIndexEfficiency === idx;
               return (
@@ -757,7 +697,6 @@ function dx() {
                           </button>
                         </div>
                       </div>
-
                       <div className={styles.cardImageWrapper}>
                         <img src={item.image} alt={item.title} className={styles.cardImage} />
                       </div>
@@ -771,9 +710,8 @@ function dx() {
           {/* === カテゴリC: ペーパーレス === */}
           <div className={styles.categoryBlock}>
             <h2 id="paperlessSection" className={styles.categoryTitle}>
-              ペーパーレス
+              クラウド導入・AWS活用
             </h2>
-
             {accordionItemsPaperless.map((item, idx) => {
               const isOpen = openIndexPaperless === idx;
               return (
@@ -811,7 +749,6 @@ function dx() {
                           </button>
                         </div>
                       </div>
-
                       <div className={styles.cardImageWrapper}>
                         <img src={item.image} alt={item.title} className={styles.cardImage} />
                       </div>
@@ -826,5 +763,3 @@ function dx() {
     </>
   );
 }
-
-export default dx;
