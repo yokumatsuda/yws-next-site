@@ -1,7 +1,7 @@
 .flowContainer {
   text-align: center;
   padding: 50px 20px;
-  background-color: #ffffff;
+  background-color: #000000;
   position: relative; /* タイムラインのabsolute配置用 */
 }
 
@@ -31,7 +31,7 @@
   left: 50%;
   transform: translateX(-50%);
   width: 2px;
-  height: calc(100% - 400px); /* 下に少し余白を空ける */
+  height: calc(100% - 400px);
   z-index: 1;
 
   /* ▼ ベースラインとして薄い色を敷く例 ▼ */
@@ -264,7 +264,7 @@
 
   /* タイムラインを左側に表示し続ける */
   .timelineLine {
-    display: block; /* 非表示を解除 */
+    display: block;
     top: 160px;
     left: 38px; /* 左寄せに変更 */
     transform: none;

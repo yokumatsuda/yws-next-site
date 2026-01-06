@@ -260,7 +260,7 @@ const Header2 = () => {
 
             <li>
               <Link
-                href="/Contact"
+                href="/contact"
                 ref={(el) => el && (navLinksRef.current[3] = el)}
                 className={styles.navText}
                 onClick={() => setPanelOpen(false)}
