@@ -212,7 +212,7 @@ const Header2 = () => {
               <ul className={styles.subMenu} style={{ display: aboutOpen ? "block" : "none" }}>
                 <li>
                   <Link
-                    href="/about#sectionTitle1"
+                    href="/about#top"
                     className={styles.subMenuLink}
                     onClick={() => setPanelOpen(false)}
                   >
@@ -221,7 +221,7 @@ const Header2 = () => {
                 </li>
                 <li>
                   <Link
-                    href="/about#sectionTitle2"
+                    href="/about#greeting"
                     className={styles.subMenuLink}
                     onClick={() => setPanelOpen(false)}
                   >
@@ -239,7 +239,7 @@ const Header2 = () => {
                 </li>
                 <li>
                   <Link
-                    href="/about#tools"
+                    href="/about#techList"
                     className={styles.subMenuLink}
                     onClick={() => setPanelOpen(false)}
                   >
