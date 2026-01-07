@@ -47,12 +47,7 @@ export default function LinkUsSection() {
           rel="noopener noreferrer"
           aria-label="Instagram"
         >
-          <img
-            src="https://ywd-digital-contents.s3.ap-northeast-1.amazonaws.com/yws-wp/icon/instagram.png"
-            alt="Instagram"
-            width="20"
-            height="20"
-          />
+          <img src="/icon/Instagram_Glyph_Gradient.png" alt="Instagram" width="20" height="20" />
         </a>
       </div>
     </section>
