@@ -24,13 +24,13 @@ export default function Footer() {
           </h3>
           <ul>
             <li>
-              <Link href="/about#sectionTitle2">代表挨拶</Link>
+              <Link href="/about#greeting">代表挨拶</Link>
             </li>
             <li>
               <Link href="/about#services">事業内容</Link>
             </li>
             <li>
-              <Link href="/about#tools">主要ツール・技術スタック</Link>
+              <Link href="/about#techList">主要ツール・技術スタック</Link>
             </li>
             <li>
               <Link href="/about#info">基本情報</Link>
