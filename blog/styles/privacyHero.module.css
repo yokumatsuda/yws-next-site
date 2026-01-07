@@ -1,0 +1,43 @@
+.privacyHero {
+  position: relative; /* オーバーレイの配置に必要 */
+  background: url("https://ywd-digital-contents.s3.ap-northeast-1.amazonaws.com/yws-wp/services/dx-image25.jpeg")
+    center/cover no-repeat;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+/* オーバーレイ用の疑似要素 */
+.privacyHero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.4); /* 半透明の黒背景 */
+  z-index: 1;
+}
+
+/* ヒーロー内のテキストをオーバーレイより前面に */
+.privacyHero > * {
+  position: relative;
+  z-index: 2;
+  color: #fff; /* 文字色は白が定番 */
+}
+
+.heroContainer {
+  /* コンテンツ幅を制限したい場合 */
+  max-width: 800px; /* 必要に応じて調整 */
+  margin: 0 auto; /* 左右中央寄せ */
+}
+
+.heroContainer h1 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.heroContainer p {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #fff;
+}
