@@ -11,15 +11,16 @@ function dx() {
       text: "DXを推進することで、紙の業務から脱却し、デジタル化と業務最適化を加速。",
       textMobile: "デジタル化と業務最適化を加速。",
       buttonText: "詳しく見る",
-      bgImage: "/services-img/slider/blob.gif",
+      bgImage: "/services-img/slider/dx-blob3.gif",
       scrollTargetId: "dxSection",
     },
     {
       title: "業務効率化・自動化",
+      titleMobile: ["業務効率化・", "自動化"],
       text: "DXを活用し、電子契約やデジタル書類管理を導入すれば、業務フローが簡素化されます。",
       textMobile: "電子契約・書類管理で業務を効率化。",
       buttonText: "詳しく見る",
-      bgImage: "/services-img/dx-image33.jpeg",
+      bgImage: "/services-img/slider/dx-blob1.gif",
       scrollTargetId: "efficiencySection",
     },
     {
@@ -27,7 +28,7 @@ function dx() {
       text: "AIやOCRで紙の書類を自動データ化し、分類・検索も瞬時に完了。業務効率と生産性を同時に向上させます。",
       textMobile: "AI/OCRで書類を自動データ化。",
       buttonText: "詳しく見る",
-      bgImage: "/services-img/paperless_10.jpeg",
+      bgImage: "/services-img/slider/dx-blob2.gif",
       scrollTargetId: "paperlessSection",
     },
   ];
@@ -40,7 +41,7 @@ function dx() {
 
   // オートスクロール
   const autoScrollRef = useRef(null);
-  const autoScrollDelay = 3500;
+  const autoScrollDelay = 6000;
 
   // スワイプ開始位置（useRefで保持）
   const xDownRef = useRef(null);
@@ -611,7 +612,20 @@ function dx() {
               {/* <div className={styles.cardOverlay} /> */}
 
               <div className={styles.mySlider1CardContent}>
-                <h2>{slide.title}</h2>
+                {/* PC用タイトル */}
+                <h2 className={styles.slideTitleDesktop}>{slide.title}</h2>
+
+                {/* モバイル用タイトル（配列なら改行して表示） */}
+                <h2 className={styles.slideTitleMobile}>
+                  {Array.isArray(slide.titleMobile)
+                    ? slide.titleMobile.map((line, idx) => (
+                        <React.Fragment key={idx}>
+                          {line}
+                          {idx !== slide.titleMobile.length - 1 && <br />}
+                        </React.Fragment>
+                      ))
+                    : slide.titleMobile ?? slide.title}
+                </h2>
 
                 {/* ✅ PC用（長い文） */}
                 <p className={styles.slideTextDesktop}>
