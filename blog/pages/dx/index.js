@@ -9,25 +9,25 @@ function dx() {
     {
       title: "DX推進",
       text: "DXを推進することで、紙の業務から脱却し、デジタル化と業務最適化を加速。",
+      textMobile: "デジタル化と業務最適化を加速。",
       buttonText: "詳しく見る",
-      bgImage:
-        "https://ywd-digital-contents.s3.ap-northeast-1.amazonaws.com/yws-wp/services/Dx_img1.png",
+      bgImage: "/services-img/slider/blob.gif",
       scrollTargetId: "dxSection",
     },
     {
       title: "業務効率化・自動化",
       text: "DXを活用し、電子契約やデジタル書類管理を導入すれば、業務フローが簡素化されます。",
+      textMobile: "電子契約・書類管理で業務を効率化。",
       buttonText: "詳しく見る",
-      bgImage:
-        "https://ywd-digital-contents.s3.ap-northeast-1.amazonaws.com/yws-wp/services/dx-image33.jpeg",
+      bgImage: "/services-img/dx-image33.jpeg",
       scrollTargetId: "efficiencySection",
     },
     {
       title: "ペーパーレス化",
       text: "AIやOCRで紙の書類を自動データ化し、分類・検索も瞬時に完了。業務効率と生産性を同時に向上させます。",
+      textMobile: "AI/OCRで書類を自動データ化。",
       buttonText: "詳しく見る",
-      bgImage:
-        "https://ywd-digital-contents.s3.ap-northeast-1.amazonaws.com/yws-wp/services/paperless_10.jpeg",
+      bgImage: "/services-img/paperless_10.jpeg",
       scrollTargetId: "paperlessSection",
     },
   ];
@@ -607,10 +607,24 @@ function dx() {
                 if (el) cardRefs.current[i] = el;
               }}
             >
+              {/* ★ここが「CSSオーバーレイ用レイヤー」 */}
+              {/* <div className={styles.cardOverlay} /> */}
+
               <div className={styles.mySlider1CardContent}>
                 <h2>{slide.title}</h2>
-                <p>
+
+                {/* ✅ PC用（長い文） */}
+                <p className={styles.slideTextDesktop}>
                   {slide.text.split("\n").map((part, idx) => (
+                    <React.Fragment key={idx}>
+                      {part}
+                      <br />
+                    </React.Fragment>
+                  ))}
+                </p>
+
+                <p className={styles.slideTextMobile}>
+                  {(slide.textMobile ?? slide.text).split("\n").map((part, idx) => (
                     <React.Fragment key={idx}>
                       {part}
                       <br />

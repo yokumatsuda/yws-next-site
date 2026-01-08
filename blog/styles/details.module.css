@@ -35,14 +35,17 @@ body {
 
 /* スライドカード */
 .mySlider1Card {
+  padding: 15px;
   position: absolute;
   width: 80%;
   height: 85%;
-
   border-radius: 12px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-  color: #fff;
-  /* font-weight: bold; */
+  color: #333333;
+
+  /* text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8);
+  filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.7)); */
+
   transition: transform 2s, opacity 0.5s;
   left: 50%;
   top: 50%;
@@ -54,18 +57,16 @@ body {
   box-sizing: border-box;
   border: none;
 
-  background-position: center; /* 画像の中心をカードの中心に */
-  background-repeat: no-repeat; /* 繰り返しなし */
-  background-size: cover; /* カードを覆うように拡大縮小 */
+  background-position: right;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-color: white;
 
   /* background-color: rgba(255, 255, 255, 0.9); 
   background-blend-mode: lighten;  */
 
-  background-color: rgba(0, 0, 0, 0.3);
-  background-blend-mode: darken;
-
-  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8);
-  filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.7));
+  /* background-color: rgba(0, 0, 0, 0.8);
+  background-blend-mode: darken; */
 }
 
 /* スライド内部テキスト */
@@ -75,7 +76,31 @@ body {
   text-align: left;
   max-width: 50%;
   margin-left: 5%;
+  z-index: 2;
 }
+
+.slideTextDesktop {
+  display: block;
+}
+.slideTextMobile {
+  display: none;
+}
+
+/* ここがオーバーレイレイヤー */
+.mySlider1Card::before {
+  /* content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("/services-img/プレゼンテーション1.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  opacity: 0.35; 
+  pointer-events: none; 
+  z-index: 1; */
+}
+
 .mySlider1CardContent h2 {
   margin-bottom: 0.5em;
   font-weight: bold;
@@ -85,6 +110,7 @@ body {
   margin-bottom: 1.2em;
   line-height: 1.6;
   font-size: 24px;
+  font-weight: 500;
 }
 
 /* 前・次ボタン */
@@ -347,7 +373,8 @@ body {
 @media (max-width: 1200px) {
   .mySlider1Card {
     width: 80%;
-    height: 85%;
+    height: 80%;
+    background-size: contain;
   }
   .mySlider1Prev,
   .mySlider1Next {
@@ -364,7 +391,7 @@ body {
   }
   .mySlider1Card {
     width: 80%;
-    height: 85%;
+    height: 70%;
   }
   .mySlider1Controls button {
     padding: 4px 8px;
@@ -387,10 +414,14 @@ body {
 }
 
 @media (max-width: 992px) {
-  .mySlider1Card {
-    width: 80%;
-    height: 85%;
+  .Container {
+    padding-top: 0px;
+    height: 60vh;
   }
+
+  .mySlider1Card {
+  }
+
   .mySlider1Prev,
   .mySlider1Next {
     font-size: 24px;
@@ -401,14 +432,13 @@ body {
 
 @media (max-width: 768px) {
   .mySlider1Card {
-    width: 80%;
-    height: 85%;
   }
 
   .mySlider1CardContent {
-    max-width: 100%;
+    /* max-width: 50%; */
     margin-left: 5%;
   }
+
   .mySlider1Prev,
   .mySlider1Next {
     font-size: 22px;
@@ -464,17 +494,34 @@ body {
 }
 
 @media (max-width: 480px) {
-  .mySlider1Container {
-    height: 300px;
+  .Container {
+    padding-top: 0px;
+    height: 60vh;
   }
+
+  .mySlider1Container {
+    /* width: 80%; */
+    height: 65%;
+    /* height: 300px; */
+  }
+
   .mySlider1Card {
     width: 80%;
     height: 85%;
   }
+
   .mySlider1CardContent {
+    max-width: 60%;
     margin-left: 0;
     padding: 15px;
   }
+  .slideTextDesktop {
+    display: none;
+  }
+  .slideTextMobile {
+    display: block;
+  }
+
   .mySlider1Prev,
   .mySlider1Next {
     font-size: 20px;
