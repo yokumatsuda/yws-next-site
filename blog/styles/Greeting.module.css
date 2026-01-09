@@ -8,9 +8,9 @@ html {
   width: 100%;
   max-width: 1200px;
   margin: 96px auto 0 auto;
-  padding: 60px 20px;
+  padding: 60px 10px;
   box-sizing: border-box;
-  background-color: #f9f9f9;
+  /* background-color: #f9f9f9; */
   border-radius: 10px 10px 0 0;
 }
 
@@ -23,6 +23,7 @@ html {
   background-color: #ffffff;
   border-radius: 10px;
   text-align: center;
+  box-shadow: 0px -4px 8px rgba(0, 0, 0, 0.1), /* 上方向 */ 0px 4px 8px rgba(0, 0, 0, 0.1); /* 下方向 */
 }
 
 /* ✅リストデザイン */
@@ -184,19 +185,21 @@ html {
 
 /* ---------- ミッション・ビジョン ---------- */
 .missionVisionSection {
-  padding: 40px 20px;
+  padding: 40px 0px;
   margin-bottom: 40px;
 }
 
 .visionWrapper {
-  padding: 40px 20px;
+  padding: 40px 40px;
   max-width: 1200px;
   margin: 0 auto;
-  background-image: url("https://ywd-digital-contents.s3.ap-northeast-1.amazonaws.com/yws-wp/Aboutus/aboutus2.png");
+  background-image: url("/services-img/aboutus2.jpeg");
   background-size: 45%;
   background-position: 100% 100%;
   background-repeat: no-repeat;
   position: relative;
+  border-radius: 10px;
+  box-shadow: 0px -4px 8px rgba(0, 0, 0, 0.1), /* 上方向 */ 0px 4px 8px rgba(0, 0, 0, 0.1); /* 下方向 */
 }
 
 /* オーバーレイ */
@@ -209,6 +212,7 @@ html {
   height: 100%;
   background-color: rgba(255, 255, 255, 0.8);
   z-index: 1;
+  border-radius: 10px;
 }
 
 /* オーバーレイの上にテキストを表示 */
@@ -219,8 +223,10 @@ html {
 
 /* 概要テキスト */
 .visionText {
+  padding: 10px;
   font-size: 18px;
   margin-bottom: 20px;
+  text-align: left;
 }
 
 /* 重要な部分を強調 */
@@ -335,7 +341,7 @@ html {
   .visionWrapper {
     background-size: 100%;
     background-position: center bottom;
-    padding: 10px 5px;
+    padding: 30px 10px;
   }
   .visionText:last-of-type {
     font-size: 18px;
@@ -343,6 +349,6 @@ html {
     margin-bottom: 0px;
   }
   .servicesSection {
-    padding: 10px 5px 10px 5px;
+    padding: 30px 10px 30px 10px;
   }
 }

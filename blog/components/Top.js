@@ -5,10 +5,7 @@ function Top() {
     <section className={styles.heroSection} id="top">
       {/* 画像（右側 / モバイル時はトップ） */}
       <div className={styles.heroImage}>
-        <img
-          src="https://ywd-digital-contents.s3.ap-northeast-1.amazonaws.com/yws-wp/services/dx-image4.jpeg"
-          alt="About Us"
-        />
+        <img src="/services-img/dx-image4.jpeg" alt="About Us" />
       </div>
 
       {/* テキスト（左側） */}

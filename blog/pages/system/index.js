@@ -227,8 +227,7 @@ export default function SystemPage() {
 
 **📢 まずは無料相談から！**
 業務の自動化・効率化を実現する最適なシステムをご提案します。`,
-      image:
-        "https://ywd-digital-contents.s3.ap-northeast-1.amazonaws.com/yws-wp/services/dx-image30.jpeg",
+      image: "/services-img/system/dx-image30.jpeg",
     },
     {
       title: "社内システム開発",
@@ -262,8 +261,7 @@ export default function SystemPage() {
 社内の業務最適化を実現するシステム開発をサポートします。
 
       `,
-      image:
-        "https://ywd-digital-contents.s3.ap-northeast-1.amazonaws.com/yws-wp/services/dx-image46.jpeg",
+      image: "/services-img/system/dx-image46.jpeg",
     },
     {
       title: "小規模ビジネス向けシステム開発",
@@ -293,8 +291,7 @@ export default function SystemPage() {
       **📢 まずは無料相談から！**  
       ペーパーレス化の導入事例や適用シナリオをご提案し、業務効率化をサポートします。
       `,
-      image:
-        "https://ywd-digital-contents.s3.ap-northeast-1.amazonaws.com/yws-wp/services/dx-image41.jpeg",
+      image: "/services-img/system/dx-image41.jpeg",
     },
   ];
 
@@ -366,8 +363,7 @@ export default function SystemPage() {
 **📢 まずは無料相談から！**
 Webアプリの設計・開発・運用をワンストップでサポートします。
       `,
-      image:
-        "https://ywd-digital-contents.s3.ap-northeast-1.amazonaws.com/yws-wp/services/dx-image73.jpeg",
+      image: "/services-img/system/dx-image73.jpeg",
     },
     {
       title: "モバイルアプリ開発",
@@ -397,8 +393,7 @@ Webアプリの設計・開発・運用をワンストップでサポートし�
 **📢 まずは無料相談から！**
 業務のDXを支援する最適なモバイルアプリを提供します。
 `,
-      image:
-        "https://ywd-digital-contents.s3.ap-northeast-1.amazonaws.com/yws-wp/services/dx-image11.jpeg",
+      image: "/services-img/system/dx-image11.jpeg",
     },
   ];
 
@@ -460,8 +455,7 @@ Webアプリの設計・開発・運用をワンストップでサポートし�
 **📢 まずは無料相談から！**
 クラウド環境の最適化・インフラ構築をトータルでサポートします。
  `,
-      image:
-        "https://ywd-digital-contents.s3.ap-northeast-1.amazonaws.com/yws-wp/services/cloud1.jpeg",
+      image: "/services-img/system/cloud1.jpeg",
     },
     {
       title: "業務システムのクラウド移行",
@@ -495,8 +489,7 @@ Webアプリの設計・開発・運用をワンストップでサポートし�
       **📢 まずは無料相談から！**  
       電子契約サービスの導入で、契約業務のDXをサポートします。
       `,
-      image:
-        "https://ywd-digital-contents.s3.ap-northeast-1.amazonaws.com/yws-wp/services/dx-image44.jpeg",
+      image: "/services-img/system/dx-image44.jpeg",
     },
   ];
 

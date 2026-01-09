@@ -235,8 +235,7 @@ function WebPage() {
 貴社のブランド価値を高める最適なWebサイトを提案いたします。
 
       `,
-      image:
-        "https://ywd-digital-contents.s3.ap-northeast-1.amazonaws.com/yws-wp/services/Web-img4.jpeg",
+      image: "/services-img/web/Web-img4.jpeg",
     },
     {
       title: "採用・リクルート向けWebサイト制作",
@@ -275,8 +274,7 @@ function WebPage() {
 企業の採用力を向上させるリクルートサイトの制作をサポートします。
 
       `,
-      image:
-        "https://ywd-digital-contents.s3.ap-northeast-1.amazonaws.com/yws-wp/services/Web-img20.jpeg",
+      image: "/services-img/web/Web-img20.jpeg",
     },
     {
       title: "サービス・プロダクトサイト制作",
@@ -314,8 +312,7 @@ function WebPage() {
 **📢 まずは無料相談から！**  
 貴社のサービス・プロダクトを最大限に引き出すWebサイト制作をサポートします。
 `,
-      image:
-        "https://ywd-digital-contents.s3.ap-northeast-1.amazonaws.com/yws-wp/services/Web-img17.jpeg",
+      image: "/services-img/web/Web-img17.jpeg",
     },
   ];
 
@@ -392,8 +389,7 @@ function WebPage() {
 
 **📢 まずは無料相談から！**  
 貴社のブランド価値を最大化するデザイン戦略を提供します。`,
-      image:
-        "https://ywd-digital-contents.s3.ap-northeast-1.amazonaws.com/yws-wp/services/Web-img2.jpeg",
+      image: "/services-img/web/Web-img2.jpeg",
     },
     {
       title: "UI/UXデザイン・ユーザー体験の最適化",
@@ -430,8 +426,7 @@ function WebPage() {
 
 **📢 まずは無料相談から！**  
 コンバージョンを高め、使いやすいWebデザインを提供します。`,
-      image:
-        "https://ywd-digital-contents.s3.ap-northeast-1.amazonaws.com/yws-wp/services/Web-img15.jpeg",
+      image: "/services-img/web/Web-img15.jpeg",
     },
     {
       title: "クリエイティブコンテンツ制作",
@@ -468,8 +463,7 @@ function WebPage() {
 
 **📢 まずは無料相談から！**  
 貴社のブランド価値を最大化するクリエイティブコンテンツを提供します。`,
-      image:
-        "https://ywd-digital-contents.s3.ap-northeast-1.amazonaws.com/yws-wp/services/Web-img14.jpeg",
+      image: "/services-img/web/Web-img14.jpeg",
     },
   ];
 
@@ -537,8 +531,7 @@ function WebPage() {
 
 **📢 まずは無料相談から！**  
 貴社のビジネスに最適なECサイトを構築し、売上の最大化をサポートします。 `,
-      image:
-        "https://ywd-digital-contents.s3.ap-northeast-1.amazonaws.com/yws-wp/services/Web-img10.jpeg",
+      image: "/services-img/web/Web-img10.jpeg",
     },
     {
       title: "決済・在庫管理・システム連携",
@@ -572,8 +565,7 @@ function WebPage() {
 
 **📢 まずは無料相談から！**  
 ECサイト運営を効率化し、売上を最大化する決済・在庫管理システムを構築します。 `,
-      image:
-        "https://ywd-digital-contents.s3.ap-northeast-1.amazonaws.com/yws-wp/services/Web-img13.jpeg",
+      image: "/services-img/web/Web-img13.jpeg",
     },
     {
       title: "集客・売上向上のマーケティング支援",
@@ -608,8 +600,7 @@ ECサイト運営を効率化し、売上を最大化する決済・在庫管理
 
 **📢 まずは無料相談から！**  
 効果的なマーケティング施策で、集客力と売上の最大化をサポートします。`,
-      image:
-        "https://ywd-digital-contents.s3.ap-northeast-1.amazonaws.com/yws-wp/services/Web-img9.jpeg",
+      image: "/services-img/web/Web-img9.jpeg",
     },
   ];
 

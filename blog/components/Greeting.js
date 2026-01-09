@@ -9,11 +9,7 @@ function Greeting() {
         <div className={styles.greetingInner}>
           <div className={styles.profileWrapper}>
             <div className={styles.photoWrapper}>
-              <img
-                src="https://ywd-digital-contents.s3.ap-northeast-1.amazonaws.com/yws-wp/icon/%E6%9D%BE%E7%94%B0%E9%A1%94%E5%86%99%E7%9C%9F2.jpg"
-                alt="代表写真"
-                className={styles.profilePhoto}
-              />
+              <img src="/services-img/myimg.jpg" alt="代表写真" className={styles.profilePhoto} />
             </div>
             <div className={styles.profileText}>
               <p className={styles.representativeRole}>代表者</p>

@@ -226,8 +226,7 @@ function dx() {
       **📢 まずは無料相談から！**  
       DX導入の具体的なシナリオを提案し、業務効率化の実現をサポートします。
       `,
-      image:
-        "https://ywd-digital-contents.s3.ap-northeast-1.amazonaws.com/yws-wp/services/dx-image22.jpeg",
+      image: "/services-img/dx/dx-image22.jpeg",
     },
     {
       title: "業務自動化",
@@ -259,8 +258,7 @@ function dx() {
       **📢 まずは無料相談から！**  
       自動化の導入事例や適用シナリオをご提案し、業務効率化をサポートします。
       `,
-      image:
-        "https://ywd-digital-contents.s3.ap-northeast-1.amazonaws.com/yws-wp/services/dx-image26.jpeg",
+      image: "/services-img/dx/dx-image26.jpeg",
     },
     {
       title: "ペーパーレス化",
@@ -291,8 +289,7 @@ function dx() {
       **📢 まずは無料相談から！**  
       ペーパーレス化の導入事例や適用シナリオをご提案し、業務効率化をサポートします。
       `,
-      image:
-        "https://ywd-digital-contents.s3.ap-northeast-1.amazonaws.com/yws-wp/services/paperless_10.jpeg",
+      image: "/services-img/dx/paperless_10.jpeg",
     },
   ];
 
@@ -354,8 +351,7 @@ function dx() {
       **📢 まずは無料相談から！**  
       業務に最適なデータ入力の自動化ソリューションを提案し、DXの推進を支援します。
       `,
-      image:
-        "https://ywd-digital-contents.s3.ap-northeast-1.amazonaws.com/yws-wp/services/dx-image26.jpeg",
+      image: "/services-img/dx/dx-image26.jpeg",
     },
     {
       title: "ブラウザ操作を自動化",
@@ -386,8 +382,7 @@ function dx() {
       **📢 まずは無料相談から！**  
       業務に最適なブラウザ自動化ソリューションを提案し、DXの推進を支援します。
       `,
-      image:
-        "https://ywd-digital-contents.s3.ap-northeast-1.amazonaws.com/yws-wp/services/dx-image29.jpeg",
+      image: "/services-img/dx/dx-image29.jpeg",
     },
     {
       title: "メール・コミュニケーションの自動化",
@@ -420,8 +415,7 @@ function dx() {
       **📢 まずは無料相談から！**  
       メール・チャットの業務自動化で、カスタマー対応の効率化とDX推進を支援します。
       `,
-      image:
-        "https://ywd-digital-contents.s3.ap-northeast-1.amazonaws.com/yws-wp/services/dx-image17.jpeg",
+      image: "/services-img/dx/dx-image17.jpeg",
     },
   ];
 
@@ -484,8 +478,7 @@ function dx() {
       **📢 まずは無料相談から！**  
       書類管理のデジタル化で、効率的な業務フローを実現し、DX推進をサポートします。
       `,
-      image:
-        "https://ywd-digital-contents.s3.ap-northeast-1.amazonaws.com/yws-wp/services/dx-image3.jpeg",
+      image: "/services-img/dx/dx-image3.jpeg",
     },
     {
       title: "電子契約サービス",
@@ -519,8 +512,7 @@ function dx() {
       **📢 まずは無料相談から！**  
       電子契約サービスの導入で、契約業務のDXをサポートします。
       `,
-      image:
-        "https://ywd-digital-contents.s3.ap-northeast-1.amazonaws.com/yws-wp/services/cloud2.jpeg",
+      image: "/services-img/dx/cloud2.jpeg",
     },
     {
       title: "デジタル書類の共有",
@@ -554,8 +546,7 @@ function dx() {
       **📢 まずは無料相談から！**  
       デジタル書類管理で、スムーズな情報共有とセキュリティ強化を実現します。
       `,
-      image:
-        "https://ywd-digital-contents.s3.ap-northeast-1.amazonaws.com/yws-wp/services/dx-image46.jpeg",
+      image: "/services-img/dx/dx-image46.jpeg",
     },
   ];
 

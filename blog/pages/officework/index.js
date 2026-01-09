@@ -231,8 +231,7 @@ function OfficePage() {
 **📢 まずは無料相談から！**
 お客様の業務負担を軽減し、効率的な業務処理を支援します。
 `,
-      image:
-        "https://ywd-digital-contents.s3.ap-northeast-1.amazonaws.com/yws-wp/services/paper_less36.jpeg",
+      image: "/services-img/office/paper_less36.jpeg",
     },
     {
       title: "勤怠データ集計代行",
@@ -268,8 +267,7 @@ function OfficePage() {
       **📢 まずは無料相談から！**
       お客様の業務負担を軽減し、効率的かつ高精度なデータ提供を支援します。
       `,
-      image:
-        "https://ywd-digital-contents.s3.ap-northeast-1.amazonaws.com/yws-wp/services/paperless_1.jpeg",
+      image: "/services-img/office/paperless_1.jpeg",
     },
     {
       title: "シフト管理データ集計代行",
@@ -307,8 +305,7 @@ function OfficePage() {
       **📢 まずは無料相談から！**
       お客様の業務負担を軽減し、精度高く迅速に集計データを提供し、給与計算準備を支援します。
       `,
-      image:
-        "https://ywd-digital-contents.s3.ap-northeast-1.amazonaws.com/yws-wp/services/paperless_12.jpeg",
+      image: "/services-img/office/paperless_12.jpeg",
     },
   ];
 
@@ -387,8 +384,7 @@ function OfficePage() {
 データ入力・整理の負担を軽減し、正確なデータ管理をサポートします。
 
       `,
-      image:
-        "https://ywd-digital-contents.s3.ap-northeast-1.amazonaws.com/yws-wp/services/paperless_15.jpeg",
+      image: "/services-img/office/paperless_15.jpeg",
     },
     {
       title: "データクリーニング・エラーチェック代行",
@@ -426,8 +422,7 @@ function OfficePage() {
 データの品質を向上させ、業務の効率化をサポートします。
 
 `,
-      image:
-        "https://ywd-digital-contents.s3.ap-northeast-1.amazonaws.com/yws-wp/services/paper_less20.jpeg",
+      image: "/services-img/office/paper_less20.jpeg",
     },
     {
       title: " レポート・分析データ作成代行",
@@ -465,8 +460,7 @@ function OfficePage() {
 データの集計・分析・レポート作成をサポートし、業務の効率化を実現します。
 
       `,
-      image:
-        "https://ywd-digital-contents.s3.ap-northeast-1.amazonaws.com/yws-wp/services/paper_less16.png",
+      image: "/services-img/office/paper_less16.png",
     },
   ];
 
@@ -536,8 +530,7 @@ function OfficePage() {
 書類作成の負担を軽減し、業務効率化をサポートします。
 
  `,
-      image:
-        "https://ywd-digital-contents.s3.ap-northeast-1.amazonaws.com/yws-wp/services/paperless_5.jpeg",
+      image: "/services-img/office/paperless_5.jpeg",
     },
     {
       title: "議事録・報告書・レポート作成代行",
@@ -574,8 +567,7 @@ function OfficePage() {
 
 **📢 まずは無料相談から！**
 文書作成の負担を軽減し、業務効率化をサポートします。`,
-      image:
-        "https://ywd-digital-contents.s3.ap-northeast-1.amazonaws.com/yws-wp/services/paperless_18.jpeg",
+      image: "/services-img/office/paperless_18.jpeg",
     },
     {
       title: "文書の校正・フォーマット統一代行",
@@ -614,8 +606,7 @@ function OfficePage() {
 文書の品質向上・フォーマット統一をサポートし、業務の効率化を実現します。
 
       `,
-      image:
-        "https://ywd-digital-contents.s3.ap-northeast-1.amazonaws.com/yws-wp/services/paperless_6.jpeg",
+      image: "/services-img/office/paperless_6.jpeg",
     },
   ];
 

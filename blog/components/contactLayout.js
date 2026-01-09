@@ -6,11 +6,7 @@ export default function ContactLayout() {
     <div className={styles.twoColumnLayout}>
       {/* 左にしたいカラム: 画像 + テキスト */}
       <div className={styles.imageColumn}>
-        <img
-          src="https://ywd-digital-contents.s3.ap-northeast-1.amazonaws.com/yws-wp/services/HeroSection_img5.jpeg"
-          alt="contact"
-          className={styles.infoImage}
-        />
+        <img src="services-img/HeroSection_img5.jpeg" alt="contact" className={styles.infoImage} />
         <h2 className={styles.infoTitle}>YWSにご興味をお持ちですか？</h2>
         <p className={styles.infoParagraph}>
           YWSでは、Web開発・クラウド導入・システム自動化に関するご相談を受け付けています。最適なソリューションを提案し、業務改善をサポートいたします。
