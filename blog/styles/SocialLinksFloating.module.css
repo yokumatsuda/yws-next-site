@@ -1,0 +1,50 @@
+.floating {
+  position: fixed;
+  right: 16px;
+  z-index: 100;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+
+  padding: 10px 12px;
+  border-radius: 999px;
+
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(6px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+
+  line-height: 1;
+  transition: bottom 180ms ease; /* ★ ふわっと上がる */
+}
+
+.label {
+  font-weight: 700;
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+.icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon img {
+  width: 20px;
+  height: 20px;
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .floating {
+    right: 10px;
+  }
+  .icon img {
+    width: 24px;
+    height: 24px;
+  }
+  .label {
+    font-size: 12px;
+  }
+}

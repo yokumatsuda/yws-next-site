@@ -11,25 +11,26 @@ export default function SystemPage() {
     {
       title: "システム開発",
       text: "業務システム・管理システムの開発を通じて、業務の効率化とデジタル化を推進します。",
+      textMobile: "業務の効率化とデジタル化",
       buttonText: "詳しく見る",
-      bgImage:
-        "https://ywd-digital-contents.s3.ap-northeast-1.amazonaws.com/yws-wp/services/dx-image30.jpeg",
+      bgImage: "/services-img/slider/system-blob3.gif",
       scrollTargetId: "dxSection", // ← システム開発 へスクロール
     },
     {
       title: "アプリ開発",
       text: "Webアプリ・スマホアプリの開発を行い、直感的な操作性と高いパフォーマンスを提供します。",
+      textMobile: "Webアプリ・スマホアプリの開発",
       buttonText: "詳しく見る",
-      bgImage:
-        "https://ywd-digital-contents.s3.ap-northeast-1.amazonaws.com/yws-wp/services/dx-image11.jpeg",
+      bgImage: "/services-img/slider/system-blob1.gif",
       scrollTargetId: "efficiencySection", // ← アプリ開発 へスクロール
     },
     {
       title: "クラウド導入・AWS活用",
+      titleMobile: ["クラウド導入・", "AWS活用"],
       text: "AWSやクラウドを活用したインフラ構築、サーバーレスアーキテクチャの設計・開発を支援します。",
+      textMobile: "AWSやクラウドを活用したインフラ構築",
       buttonText: "詳しく見る",
-      bgImage:
-        "https://ywd-digital-contents.s3.ap-northeast-1.amazonaws.com/yws-wp/services/dx-image2.jpeg",
+      bgImage: "/services-img/slider/system-blob2.gif",
       scrollTargetId: "paperlessSection", // ← クラウド導入・AWS活用 へスクロール
     },
   ];
@@ -42,7 +43,7 @@ export default function SystemPage() {
   const dotRefs = useRef([]);
   const autoScrollRef = useRef(null);
 
-  const autoScrollDelay = 3500;
+  const autoScrollDelay = 6000;
 
   // 背景色を変化させる用
   const bgColors = ["#FDE2E2", "#FAF7B6", "#B8F2E6"];
@@ -549,8 +550,23 @@ Webアプリの設計・開発・運用をワンストップでサポートし�
               }}
             >
               <div className={styles.mySlider1CardContent}>
-                <h2>{slide.title}</h2>
-                <p>
+                {/* PC用タイトル */}
+                <h2 className={styles.slideTitleDesktop}>{slide.title}</h2>
+
+                {/* モバイル用タイトル（配列なら改行して表示） */}
+                <h2 className={styles.slideTitleMobile}>
+                  {Array.isArray(slide.titleMobile)
+                    ? slide.titleMobile.map((line, idx) => (
+                        <React.Fragment key={idx}>
+                          {line}
+                          {idx !== slide.titleMobile.length - 1 && <br />}
+                        </React.Fragment>
+                      ))
+                    : slide.titleMobile ?? slide.title}
+                </h2>
+
+                {/* ✅ PC用（長い文） */}
+                <p className={styles.slideTextDesktop}>
                   {slide.text.split("\n").map((part, idx) => (
                     <React.Fragment key={idx}>
                       {part}
@@ -558,6 +574,16 @@ Webアプリの設計・開発・運用をワンストップでサポートし�
                     </React.Fragment>
                   ))}
                 </p>
+
+                <p className={styles.slideTextMobile}>
+                  {(slide.textMobile ?? slide.text).split("\n").map((part, idx) => (
+                    <React.Fragment key={idx}>
+                      {part}
+                      <br />
+                    </React.Fragment>
+                  ))}
+                </p>
+
                 {slide.buttonText && slide.scrollTargetId && (
                   <button
                     className={styles.cardButton}

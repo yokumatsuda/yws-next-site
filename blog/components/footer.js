@@ -78,12 +78,12 @@ export default function Footer() {
       </div>
 
       <div className={styles.footerContent2}>
-        <div className={styles.column2}>
-          <p>Copyright © 2025 YWS Yoku Web Service All rights reserved.</p>
-        </div>
-        <div className={styles.column2}>
+        <div className={styles.column3}>
           <Link href="/privacy">プライバシーポリシー</Link>
           <Link href="/terms">利用規約</Link>
+        </div>
+        <div className={styles.column2}>
+          <p>Copyright © 2025 YWS Yoku Web Service All rights reserved.</p>
         </div>
       </div>
     </footer>

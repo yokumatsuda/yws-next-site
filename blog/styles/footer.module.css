@@ -3,7 +3,7 @@
 .footerContainer {
   background-color: #ececec;
   color: #5a5a5a;
-  margin-top: 72px;
+  /* margin-top: 72px; */
   padding: 20px 0;
   /* list-style: none;  <- ここでも指定しても良いが、liに直接指定するほうが確実 */
 }
@@ -56,47 +56,24 @@
 
 .footerContent2 {
   display: flex;
-  justify-content: space-evenly;
-  align-items: center;
+  flex-direction: column;
 }
 
-/* 
-.column2 a {
-  border-left: 1px solid black;
-  padding: 0 5px 0 5px;
-  margin-left: 5px;
-} */
-.footerContent2 {
-  position: relative; /* 子要素を absolute 配置するために必須 */
-  height: 60px; /* 適度な高さ(例) */
-}
-
-/* 1つ目の div（著作権表記）を画面中央に固定 */
-.footerContent2 .column2:first-child {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+.column2 {
   text-align: center;
-  order: 1;
 }
 
-/* 2つ目の div（リンク）を少し左に寄せる */
-.footerContent2 .column2:last-child {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  right: 50px; /* 例: 画面右端から 50px 離す */
-  order: 2;
+.column3 {
+  text-align: center;
+  padding: 20px 0px 10px 0px;
 }
 
-/* リンクの装飾など */
-.column2 a {
+.column3 a {
   border-left: 1px solid #5a5a5a;
   padding: 0 5px;
   margin-left: 5px;
   color: #5a5a5a;
-  font-size: 16px;
+  font-size: 14px;
 }
 
 /* ==============================
@@ -104,57 +81,9 @@
 ================================= */
 
 @media (max-width: 900px) {
-  .footerContent2 {
-    position: relative;
-    height: 60px;
-  }
-
-  .footerContent2 .column2:first-child {
-    width: 100%;
-    text-align: left;
-    padding: 0 30px 0 30px;
-  }
-
-  .footerContent2 .column2:last-child {
-    position: absolute;
-    top: 50%;
-    padding: 0 20px 0 20px;
-  }
-
-  .column2 a {
-    padding: 0 5px;
-    margin-left: 5px;
-
-    font-size: 16px;
-  }
 }
+
 @media (max-width: 500px) {
-  /* フッター全体を通常フローに */
-  .footerContent2 {
-    position: static !important;
-    height: auto !important;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    text-align: left;
-    padding-left: 0 !important; /* 大きいpaddingを消す or 適宜調整 */
-  }
-
-  /* 1つ目・2つ目とも絶対配置解除 */
-  .footerContent2 .column2 {
-    position: static !important;
-    transform: none !important;
-    right: auto !important;
-    width: auto;
-    margin-bottom: 10px; /* 縦方向の隙間 (任意) */
-    text-align: left; /* 左寄せ */
-  }
-
-  /* リンクの線や余白はお好みで調整 */
-  .footerContent2 .column2 a {
-    border-left: none; /* 必要なら区切り線を外す */
-    margin-left: 0; /* 左余白をなくす */
-  }
   .footerContent .column {
     order: 3;
   }
@@ -192,57 +121,11 @@
     font-size: 14px;
   }
 
-  .footerContent2 {
-    flex-direction: column;
-    align-items: flex-start;
-    text-align: left;
-    padding-left: 20px;
-    font-size: 10px;
+  .column3 a {
+    font-size: 12px !important;
   }
 
-  .footerContent2 .column2 a {
-    display: block;
-    margin-top: 5px;
-    border-left: none;
-    text-align: left;
-    font-size: 10px;
-  }
-
-  .footerContent2 .column2:first-child {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: left;
-    order: 2;
-  }
-
-  .footerContent2 .column2:last-child {
-    order: 1;
-  }
-
-  .footerContent2 .column2:nth-child(2) {
-    position: absolute;
-    top: 50%;
-    width: 100%;
-    transform: translate(-0%, 0%);
-    text-align: left;
-  }
-
-  .column2 {
-    display: flex;
-    gap: 10px; /* リンク同士の間隔を調整 */
-  }
-
-  .column2 a {
-    text-decoration: none;
-    color: #5a5a5a;
-    font-size: 16px;
-    border-left: 1px solid #5a5a5a; /* 区切り線 */
-    padding: 0 10px; /* 余白を調整 */
-  }
-
-  .column2 a:first-child {
-    border-left: none; /* 最初のリンクには区切り線を適用しない */
+  .column2 p {
+    font-size: 12px !important;
   }
 }

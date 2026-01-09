@@ -7,31 +7,27 @@ const steps = [
     title: "お問い合わせ",
     description:
       "まずは、お問い合わせフォームまたはメール、お電話でご連絡ください。ご要望やご質問についてヒアリングいたします。",
-    imageSrc:
-      "https://ywd-digital-contents.s3.ap-northeast-1.amazonaws.com/yws-wp/services/use-img2.png",
+    imageSrc: "/services-img/use/use-img2.png",
   },
   {
     stepNumber: 2,
     title: "初回ヒアリング・ご相談",
     description:
       "お客様の課題やご希望を詳しくお伺いし、最適なソリューションをご提案するためのヒアリングを実施します。",
-    imageSrc:
-      "https://ywd-digital-contents.s3.ap-northeast-1.amazonaws.com/yws-wp/services/use-img1.png",
+    imageSrc: "/services-img/use/use-img1.png",
   },
   {
     stepNumber: 3,
     title: "ご提案・お見積もり",
     description:
       "ヒアリング内容をもとに、最適なシステム・Webサイト・業務自動化のご提案とお見積もりを提示いたします。",
-    imageSrc:
-      "https://ywd-digital-contents.s3.ap-northeast-1.amazonaws.com/yws-wp/services/use-img4.png",
+    imageSrc: "/services-img/use/use-img4.png",
   },
   {
     stepNumber: 4,
     title: "開発・ご契約",
     description: "ご提案内容にご納得いただきましたら正式に契約を締結し、開発を開始いたします。",
-    imageSrc:
-      "https://ywd-digital-contents.s3.ap-northeast-1.amazonaws.com/yws-wp/services/use-img3.png",
+    imageSrc: "/services-img/use/use-img3.png",
   },
 ];
 

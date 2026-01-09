@@ -11,25 +11,25 @@ function OfficePage() {
     {
       title: "事務作業代行",
       text: "当事業所がお客様の代わりに、自動化・最適化したフローで業務を代行し、結果を提供します。",
+      textMobile: "最適化したフローで業務を代行",
       buttonText: "詳しく見る",
-      bgImage:
-        "https://ywd-digital-contents.s3.ap-northeast-1.amazonaws.com/yws-wp/services/paperless_8.jpeg",
+      bgImage: "/services-img/slider/office-blob3.gif",
       scrollTargetId: "paperlessSection", // ← ペーパーレス へスクロール
     },
     {
       title: "データ処理代行",
       text: "データ入力・集計・クリーニング・レポート作成などを代行します。",
+      textMobile: "データ入力・集計・レポート作成など",
       buttonText: "詳しく見る",
-      bgImage:
-        "https://ywd-digital-contents.s3.ap-northeast-1.amazonaws.com/yws-wp/services/paperless_15.jpeg",
+      bgImage: "/services-img/slider/office-blob1.gif",
       scrollTargetId: "dxSection", // ← DX推進 へスクロール
     },
     {
       title: "文書作成代行",
       text: "契約書・請求書・議事録・レポート・フォーマット統一などを代行します。",
+      textMobile: "契約書・請求書・議事録など",
       buttonText: "詳しく見る",
-      bgImage:
-        "https://ywd-digital-contents.s3.ap-northeast-1.amazonaws.com/yws-wp/services/paperless_7.jpeg",
+      bgImage: "/services-img/slider/office-blob2.gif",
       scrollTargetId: "efficiencySection", // ← 業務効率化・自動化 へスクロール
     },
   ];
@@ -669,8 +669,23 @@ function OfficePage() {
               }}
             >
               <div className={styles.mySlider1CardContent}>
-                <h2>{slide.title}</h2>
-                <p>
+                {/* PC用タイトル */}
+                <h2 className={styles.slideTitleDesktop}>{slide.title}</h2>
+
+                {/* モバイル用タイトル（配列なら改行して表示） */}
+                <h2 className={styles.slideTitleMobile}>
+                  {Array.isArray(slide.titleMobile)
+                    ? slide.titleMobile.map((line, idx) => (
+                        <React.Fragment key={idx}>
+                          {line}
+                          {idx !== slide.titleMobile.length - 1 && <br />}
+                        </React.Fragment>
+                      ))
+                    : slide.titleMobile ?? slide.title}
+                </h2>
+
+                {/* ✅ PC用（長い文） */}
+                <p className={styles.slideTextDesktop}>
                   {slide.text.split("\n").map((part, idx) => (
                     <React.Fragment key={idx}>
                       {part}
@@ -678,6 +693,16 @@ function OfficePage() {
                     </React.Fragment>
                   ))}
                 </p>
+
+                <p className={styles.slideTextMobile}>
+                  {(slide.textMobile ?? slide.text).split("\n").map((part, idx) => (
+                    <React.Fragment key={idx}>
+                      {part}
+                      <br />
+                    </React.Fragment>
+                  ))}
+                </p>
+
                 {slide.buttonText && slide.scrollTargetId && (
                   <button
                     className={styles.cardButton}
@@ -689,6 +714,7 @@ function OfficePage() {
               </div>
             </div>
           ))}
+
           {/* 前・次ボタン */}
           <button className={styles.mySlider1Prev} onClick={handlePrev}>
             &lt;

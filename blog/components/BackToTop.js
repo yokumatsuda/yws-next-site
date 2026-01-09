@@ -48,7 +48,7 @@ export default function BackToTop() {
   return (
     <div className={`${styles.fixedBackToTop} ${fadeClass}`} style={positionStyle}>
       <button className={styles.backToTopButton} onClick={handleScrollToTop}>
-        ↑ トップへ戻る
+        ↑ トップへ
       </button>
     </div>
   );

@@ -268,7 +268,7 @@
     top: 160px;
     left: 38px; /* 左寄せに変更 */
     transform: none;
-    height: calc(100% - 450px);
+    height: calc(100% - 280px);
   }
 
   /* サークルも左寄せに。絶対配置を解除 */
@@ -295,6 +295,7 @@
 
   .stepTitle {
     font-size: 20px;
+    margin-bottom: 10px;
   }
   .stepDescription {
     font-size: 16px;

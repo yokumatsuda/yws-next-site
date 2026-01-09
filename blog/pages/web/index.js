@@ -11,26 +11,28 @@ function WebPage() {
   const slides = [
     {
       title: "企業向けWebサイト",
+      titleMobile: ["企業向け", "Webサイト"],
       text: "企業のブランド価値を高めるホームページを制作。採用ページやサービスサイトにも対応可能。",
+      textMobile: "LP・ホームページ制作",
       buttonText: "詳しく見る",
-      bgImage:
-        "https://ywd-digital-contents.s3.ap-northeast-1.amazonaws.com/yws-wp/services/Web-img4.jpeg",
+      bgImage: "/services-img/slider/web-blob3.gif",
       scrollTargetId: "homepageSection",
     },
     {
       title: "Webデザイン",
       text: "最新のトレンドを取り入れたデザインで、ブランドサイトやUI/UXに特化したWebサイトを制作。",
+      textMobile: "最新の技術とデザイン",
       buttonText: "詳しく見る",
-      bgImage:
-        "https://ywd-digital-contents.s3.ap-northeast-1.amazonaws.com/yws-wp/services/Web-img5.jpeg",
+      bgImage: "/services-img/slider/web-blob1.gif",
       scrollTargetId: "webDesignSection",
     },
     {
       title: "オンラインショップ構築",
+      titleMobile: ["オンライン", "ショップ構築"],
       text: "ユーザーが快適に買い物できるECサイトを構築。決済・在庫管理などの機能も充実。",
+      textMobile: "ECサイト・決済・在庫管理システム",
       buttonText: "詳しく見る",
-      bgImage:
-        "https://ywd-digital-contents.s3.ap-northeast-1.amazonaws.com/yws-wp/services/Webimg1.jpeg",
+      bgImage: "/services-img/slider/web-blob2.gif",
       scrollTargetId: "ecommerceSection",
     },
   ];
@@ -662,9 +664,33 @@ ECサイト運営を効率化し、売上を最大化する決済・在庫管理
               }}
             >
               <div className={styles.mySlider1CardContent}>
-                <h2>{slide.title}</h2>
-                <p>
+                {/* PC用タイトル */}
+                <h2 className={styles.slideTitleDesktop}>{slide.title}</h2>
+
+                {/* モバイル用タイトル（配列なら改行して表示） */}
+                <h2 className={styles.slideTitleMobile}>
+                  {Array.isArray(slide.titleMobile)
+                    ? slide.titleMobile.map((line, idx) => (
+                        <React.Fragment key={idx}>
+                          {line}
+                          {idx !== slide.titleMobile.length - 1 && <br />}
+                        </React.Fragment>
+                      ))
+                    : slide.titleMobile ?? slide.title}
+                </h2>
+
+                {/* ✅ PC用（長い文） */}
+                <p className={styles.slideTextDesktop}>
                   {slide.text.split("\n").map((part, idx) => (
+                    <React.Fragment key={idx}>
+                      {part}
+                      <br />
+                    </React.Fragment>
+                  ))}
+                </p>
+
+                <p className={styles.slideTextMobile}>
+                  {(slide.textMobile ?? slide.text).split("\n").map((part, idx) => (
                     <React.Fragment key={idx}>
                       {part}
                       <br />
