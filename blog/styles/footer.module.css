@@ -81,6 +81,21 @@
 ================================= */
 
 @media (max-width: 900px) {
+  .column h3 {
+    font-size: 18px;
+  }
+
+  .column li a {
+    font-size: 14px;
+  }
+
+  .column3 a {
+    font-size: 12px !important;
+  }
+
+  .column2 p {
+    font-size: 12px !important;
+  }
 }
 
 @media (max-width: 500px) {

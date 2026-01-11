@@ -1,0 +1,44 @@
+.heroSection {
+  margin-top: 50px;
+  height: 50vh;
+  background-image: url("/services-img/HeroNews.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* 画像（右側 / モバイル時はトップ） */
+.heroImage {
+}
+
+.heroImage img {
+}
+
+/* ======== モバイル対応 ======== */
+@media (max-width: 1024px) {
+  .heroSection {
+    height: 500px;
+    background-size: 200%;
+  }
+
+  /* 画像をトップにする */
+  .heroImage {
+  }
+
+  .heroImage img {
+  }
+}
+
+@media (max-width: 768px) {
+  .heroSection {
+  }
+}
+
+@media (max-width: 500px) {
+  .heroSection {
+    height: 45vh;
+  }
+
+  .heroContent {
+  }
+}

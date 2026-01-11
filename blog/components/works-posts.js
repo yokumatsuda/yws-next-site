@@ -24,11 +24,13 @@ export default function WorksPosts({ works }) {
                   priority={index === 0}
                 />
               </figure>
-              <p className={styles.publishDate}>
-                {publishDate && <ConvertDate dateISO={publishDate} />}
-              </p>
-              <h2>{title}</h2>
-              <ConvertExcerpt content={content} contentHtml={contentHtml} maxLength={40} />
+              <div className={styles.excerptWrapper}>
+                <p className={styles.publishDate}>
+                  {publishDate && <ConvertDate dateISO={publishDate} />}
+                </p>
+                <h2>{title}</h2>
+                <ConvertExcerpt content={content} contentHtml={contentHtml} maxLength={40} />
+              </div>
             </Link>
           </article>
         ))}

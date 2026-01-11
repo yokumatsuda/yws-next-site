@@ -1,8 +1,8 @@
 .ServicesSection {
-  width: 100%;
+  width: 95%;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0px 10px 60px 10px;
+  padding: 0px 0px 60px 0px;
   box-sizing: border-box;
   /* background-color: #f9f9f9;  */
   border-radius: 0 0 10px 10px;
@@ -49,9 +49,10 @@
 .techToolsBlock {
   flex: 1;
   background: #fff;
-  padding: 30px 15px 30px 15px !important;
+  padding: 30px;
   border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+  box-shadow: 0px -4px 8px rgba(0, 0, 0, 0.1), /* 上方向 */ 0px 4px 8px rgba(0, 0, 0, 0.1); /* 下方向 */
   transition: all 0.3s ease-in-out;
 }
 .techToolsBlock:hover {
@@ -92,7 +93,8 @@
   background: #fff;
   padding: 30px;
   border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+  box-shadow: 0px -4px 8px rgba(0, 0, 0, 0.1), /* 上方向 */ 0px 4px 8px rgba(0, 0, 0, 0.1); /* 下方向 */
   transition: all 0.3s ease-in-out;
 }
 .strengthsBlock:hover {

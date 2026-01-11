@@ -6,22 +6,14 @@ import Meta from "components/meta";
 import Container from "components/container";
 import PostHeader from "components/post-header";
 import PostBody from "components/post-body";
-import {
-  TwoColumn,
-  TwoColumnMain,
-  TwoColumnSidebar,
-} from "components/two-column";
+
 import ConvertBody from "components/convert-body";
 import PostCategories from "components/post-categories";
 import Pagination from "components/pagination";
 import Image from "next/image";
-
-// blur生成ようのimport3つ
-// import path from "path";
-// import fs from "fs";
-// import { getPlaiceholder } from "plaiceholder";
-
 import { eyecatchLocal } from "lib/constants";
+import styles from "styles/cmsWrapper.module.css";
+import HeroNewsPost from "@/components/HeroNewsPost";
 
 export default function Post({
   title,
@@ -35,61 +27,54 @@ export default function Post({
   nextPost,
 }) {
   return (
-    <Container>
-      <Meta
-        pageTitle={title}
-        pageDesc={description}
-        pageImg={eyecatch.url}
-        pageImgW={eyecatch.width}
-        pageImgH={eyecatch.height}
-      />
-      <article>
-        <PostHeader title={title} subtitle="Blog Article" publish={publish} />
-
-        <figure>
-          <Image
-            // key={eyecatch.url}
-            src={eyecatch.url}
-            alt=""
-            style={{ width: "100%", height: "auto" }}
-            width={eyecatch.width}
-            height={eyecatch.height}
-            sizes="(min-width: 1152px) 1152px, 100vw"
-            priority={true}
-            // placeholder="blur"
-            // blurDataURL={eyecatch.blurDataURL}
-          />
-        </figure>
-
-        <TwoColumn>
-          <TwoColumnMain>
-            <PostBody>
-              <ConvertBody 
-                content={content}
-                contentHtml={contentHtml}
-             />
-            </PostBody>
-          </TwoColumnMain>
-          <TwoColumnSidebar>
-            <PostCategories categories={categories} />
-          </TwoColumnSidebar>
-        </TwoColumn>
-
-        <Pagination
-          prevText={prevPost.title}
-          prevUrl={`/blog/${prevPost.slug}`}
-          nextText={nextPost.title}
-          nextUrl={`/blog/${nextPost.slug}`}
+    <>
+      <HeroNewsPost />
+      <Container>
+        <Meta
+          pageTitle={title}
+          pageDesc={description}
+          pageImg={eyecatch.url}
+          pageImgW={eyecatch.width}
+          pageImgH={eyecatch.height}
         />
-      </article>
-    </Container>
+        <article className={styles.cmsArticle}>
+          {/* ✅ 中央900pxの“本文枠” */}
+          <div className={styles.cmsInner}>
+            <PostHeader title={title} subtitle="Blog Article" publish={publish} />
+
+            {/* <figure className={styles.eyecatchFigure}>
+            <Image
+              src={eyecatch.url}
+              alt=""
+              width={eyecatch.width}
+              height={eyecatch.height}
+              priority
+              className={styles.eyecatchImage}
+            />
+          </figure> */}
+
+            <PostBody>
+              <ConvertBody content={content} contentHtml={contentHtml} />
+            </PostBody>
+
+            <Pagination
+              prevText={prevPost.title}
+              prevUrl={`/blog/${prevPost.slug}`}
+              nextText={nextPost.title}
+              nextUrl={`/blog/${nextPost.slug}`}
+            />
+          </div>
+
+          <div className={styles.cmsSidebarOuter}>
+            <div className={styles.cmsSidebarSticky}>
+              <PostCategories categories={categories} />
+            </div>
+          </div>
+        </article>
+      </Container>
+    </>
   );
 }
-
-
-
-
-
 
 export async function getStaticPaths() {
   const allSlugs = await getAllSlugs(5);
@@ -99,11 +84,6 @@ export async function getStaticPaths() {
     fallback: "blocking",
   };
 }
-
-
-
-
-
 
 export async function getStaticProps(context) {
   const slug = context.params.slug;
@@ -115,7 +95,6 @@ export async function getStaticProps(context) {
     const description = extractText(post.content);
     const eyecatch = post.eyecatch ?? eyecatchLocal;
 
-
     const allSlugs = await getAllSlugs();
     const [prevPost, nextPost] = prevNextPost(allSlugs, slug);
 
@@ -126,22 +105,22 @@ export async function getStaticProps(context) {
         // title: post.title,
         // publish: post.publishDate,
         // content: post.content,
-        // contentHtml: post.contentHtml, 
+        // contentHtml: post.contentHtml,
         // eyecatch: eyecatch,
         // categories: post.categories,
         // description: description,
         // prevPost: prevPost,
         // nextPost: nextPost,
 
-          title: post.title ?? "",
-          publish: post.publishDate ?? "",
-          content: post.content ?? null,
-          contentHtml: post.contentHtml ?? null,
-          eyecatch,
-          categories: post.categories ?? [],
-          description,
-          prevPost,
-          nextPost,
+        title: post.title ?? "",
+        publish: post.publishDate ?? "",
+        content: post.content ?? null,
+        contentHtml: post.contentHtml ?? null,
+        eyecatch,
+        categories: post.categories ?? [],
+        description,
+        prevPost,
+        nextPost,
       },
     };
   }

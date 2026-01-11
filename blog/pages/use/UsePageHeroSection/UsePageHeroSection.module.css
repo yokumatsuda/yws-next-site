@@ -76,10 +76,12 @@
 /* ======== モバイル対応 ======== */
 @media (max-width: 1024px) {
   .heroSection {
-    flex-direction: column; /* モバイルでは縦並び */
-    text-align: center;
-    gap: 0px;
+    height: 450px;
+    gap: 40px;
     margin-top: 50px;
+    /* flex-direction: column; 
+    text-align: center;
+    margin-top: 50px; */
   }
 
   /* 画像をトップにする */
@@ -132,11 +134,19 @@
 
 @media (max-width: 500px) {
   .heroSection {
+    margin-top: 10px;
+    height: 100vh;
+    flex-direction: column;
+    text-align: center;
+    gap: 0;
+    /* margin-top: 50px; */
+  }
+
+  .heroContent {
+    margin-bottom: 60px;
     margin-top: 0px;
   }
-  .heroContent {
-    margin-bottom: 40px;
-  }
+
   .pageTitle {
     font-size: 20px;
     font-weight: bold;

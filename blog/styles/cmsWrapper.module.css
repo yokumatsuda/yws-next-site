@@ -1,0 +1,54 @@
+.cmsWrapper {
+  padding: 96px 0px 24px 0px;
+}
+
+.cmsInner {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.eyecatchFigure {
+  margin: 0;
+  width: 50%;
+}
+
+.eyecatchImage {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+* .cmsArticle {
+  position: relative;
+  margin: 98px auto 0;
+}
+
+.cmsSidebarOuter {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: calc(50% + 450px + 24px); /* 450px = 900/2 */
+  width: auto; /* サイドバー幅は好み */
+}
+
+.cmsSidebarSticky {
+  position: sticky !important;
+  top: 120px;
+}
+
+@media (max-width: 1200px) {
+  .cmsSidebarOuter {
+    position: static;
+    width: auto;
+    margin-top: 24px;
+  }
+
+  /* .cmsSidebarSticky {
+    position: static;
+  } */
+}
+
+@media (max-width: 480px) {
+  .cmsWrapper {
+    padding: 48px 0px 24px 0px;
+  }
+}

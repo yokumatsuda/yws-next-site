@@ -1,7 +1,8 @@
 /* styles/posts.module.css */
 
 .section {
-  margin-top: 56px;
+  /* margin-top: 96px; */
+  /* margin-bottom: 96px; */
 }
 
 .gridContainer {
@@ -71,7 +72,9 @@
   color: #666;
   margin: 8px 0;
   line-height: 1.4;
+  overflow-wrap: anywhere;
 }
+
 @media (max-width: 1023px) {
   .gridContainer {
     grid-template-columns: repeat(2, 1fr);
@@ -80,7 +83,7 @@
 
 @media (max-width: 767px) {
   .gridContainer {
-    grid-template-columns: 1fr;
+    gap: 10px;
   }
 }
 

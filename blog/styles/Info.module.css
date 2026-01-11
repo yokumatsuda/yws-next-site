@@ -1,7 +1,7 @@
 /* ======== 基本設定 ======== */
 .ContactSection {
   width: 95%;
-  max-width: 1160px;
+  max-width: 1200px;
   margin: 46px auto 96px auto; /* 上に96pxの余白を追加し、中央寄せ */
   padding: 40px 20px 40px 20px;
   box-sizing: border-box;

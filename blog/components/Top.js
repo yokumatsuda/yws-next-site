@@ -10,8 +10,8 @@ function Top() {
 
       {/* テキスト（左側） */}
       <div className={styles.heroContent}>
-        <h1 className={styles.pageTitle}>ITをもっと身近に、もっと簡単に。</h1>
-        <p className={styles.subtitle}>誰でも簡単に導入できるITソリューションを提供します。</p>
+        <h1 className={styles.pageTitle}>ITをもっと簡単に</h1>
+        <p className={styles.subtitle}>誰でも簡単に導入できる ITソリューションを提供します。</p>
         <div className={styles.buttonGroup}>
           <a href="/contact" className={styles.heroButton}>
             お問い合わせ
