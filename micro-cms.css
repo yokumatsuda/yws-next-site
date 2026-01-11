@@ -1,0 +1,121 @@
+/* ---- post header block ---- */
+.postImg {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: flex-start;
+  margin-bottom: 28px;
+}
+
+/* ✅ 画像リンク（ここだけ別デザイン） */
+.postImgLinkImage {
+  display: inline-block;
+
+  /* overflow: hidden; */
+  transform: translateZ(0);
+  transition: transform 220ms ease;
+}
+
+.postImgLinkImage img {
+  width: 520px !important;
+  height: auto;
+  display: block;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.16), 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 240ms ease, box-shadow 240ms ease;
+}
+
+.postImgLinkImage:hover {
+  transform: translateY(-2px);
+}
+.postImgLinkImage:hover img {
+  transform: scale(1.02);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2), 0 8px 18px rgba(0, 0, 0, 0.12);
+}
+
+.postImgLinkImage:focus-visible {
+  outline: 3px solid rgba(0, 0, 255, 0.25);
+  outline-offset: 4px;
+}
+
+/* ✅ テキストリンク（下線アニメはこっちだけ） */
+.postImgLinkText {
+  color: #1a57ff;
+  text-decoration: none;
+  position: relative;
+  display: inline-block;
+  padding-bottom: 2px;
+  transition: transform 160ms ease, opacity 160ms ease;
+  word-break: break-all; /* URLが長くても折り返す */
+}
+
+.postImgLinkText::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  width: 100%;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 180ms ease;
+}
+
+.postImgLinkText:hover {
+  transform: translateY(-1px);
+  opacity: 0.9;
+}
+
+.postImgLinkText:hover::after {
+  transform: scaleX(1);
+}
+
+.postImgLinkText:focus-visible {
+  outline: 2px solid rgba(0, 0, 255, 0.35);
+  outline-offset: 3px;
+}
+
+/* ---- gallery ---- */
+.gallery {
+  background: #ffffff;
+
+  padding: 18px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  margin-top: 18px;
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.06);
+}
+
+.galleryItem {
+  padding: 14px;
+
+  transition: transform 200ms ease;
+}
+
+.galleryItem:hover {
+  transform: translateY(-3px);
+}
+
+.galleryItem img {
+  width: 100%;
+  height: auto; /* ✅ 全部表示 */
+  display: block;
+
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.16), 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* ---- responsive ---- */
+@media (max-width: 700px) {
+  .gallery {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    padding: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .postImgLinkImage img {
+    width: 100% !important;
+  }
+}

@@ -7,7 +7,7 @@
   margin: 0 auto;
 }
 
-.eyecatchFigure {
+/* .eyecatchFigure {
   margin: 0;
   width: 50%;
 }
@@ -16,10 +16,11 @@
   width: 100%;
   height: auto;
   display: block;
-}
+} */
+
 * .cmsArticle {
   position: relative;
-  margin: 98px auto 0;
+  margin: 96px auto 0;
 }
 
 .cmsSidebarOuter {
@@ -48,6 +49,10 @@
 }
 
 @media (max-width: 480px) {
+  .cmsArticle {
+    margin: 48px auto 0;
+  }
+
   .cmsWrapper {
     padding: 48px 0px 24px 0px;
   }
