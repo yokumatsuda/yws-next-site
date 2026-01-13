@@ -164,8 +164,6 @@ export default function HeroSection() {
           const srcToUse = (isMobile && slide.mobileSrc) || slide.mediaSrc;
           const isActive = currentSlide === index;
 
-          const shouldEagerLoad = index === 0; // 最初だけ先読み
-
           return (
             <li
               key={slide.id}
@@ -177,22 +175,29 @@ export default function HeroSection() {
             >
               {/* 背景 */}
               <div className={styles.appHeroSliderBg}>
-                <video
-                  ref={videoRefs.current[index]}
-                  src={shouldEagerLoad ? srcToUse : undefined}
-                  data-src={!shouldEagerLoad ? srcToUse : undefined}
-                  className={styles.appHeroSliderVideoCover}
-                  autoPlay={isActive} // 常にautoPlayより確実
-                  loop
-                  muted
-                  playsInline
-                  preload={shouldEagerLoad ? "auto" : "metadata"}
-                />
+                {slide.mediaType === "video" ? (
+                  <video
+                    ref={videoRefs.current[index]}
+                    data-src={srcToUse}
+                    className={styles.appHeroSliderVideoCover}
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    preload="metadata"
+                  />
+                ) : (
+                  <img src={srcToUse} alt="" className={styles.appHeroSliderImgCover} />
+                )}
+                {/* オーバーレイ */}
                 <div className={styles.appHeroOverlay}></div>
               </div>
+
+              {/* JSX をそのまま描画 */}
               {slide.subtitle}
               {slide.title}
               {slide.text}
+
               <a
                 href="#sectionTitle1"
                 className={`${styles.appBtnPrimary} ${styles.appSliderReveal}`}
