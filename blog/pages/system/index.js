@@ -43,7 +43,7 @@ export default function SystemPage() {
   const dotRefs = useRef([]);
   const autoScrollRef = useRef(null);
 
-  const autoScrollDelay = 6000;
+  const autoScrollDelay = 3500;
 
   // 背景色を変化させる用
   const bgColors = ["#FDE2E2", "#FAF7B6", "#B8F2E6"];
