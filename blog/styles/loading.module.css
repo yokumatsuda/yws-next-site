@@ -37,11 +37,6 @@
   transform: translateX(100%);
 }
 
-.fadeOut {
-  opacity: 0;
-  transition: opacity 1s ease;
-}
-
 .text {
   position: fixed;
   top: 50%;
@@ -53,6 +48,15 @@
   transition: opacity 1s ease;
 }
 
+/* 追加：フェードアウト中にクリックを邪魔しない */
+.fadeOut {
+  opacity: 0;
+  transition: opacity 1s ease;
+  pointer-events: none;
+}
+
+/* 追加：テキストも同じく邪魔しない */
 .fadeOutText {
   opacity: 0;
+  pointer-events: none;
 }

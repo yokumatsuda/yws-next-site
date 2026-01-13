@@ -119,7 +119,7 @@ const sliderData = [
   },
 ];
 
-export default function HeroSection() {
+export default function HeroSection({ onHeroReady }) {
   const isMobile = useIsMobile();
   const [currentSlide, setCurrentSlide] = useState(0);
   const videoRefs = useRef(sliderData.map(() => createRef()));
@@ -240,6 +240,9 @@ export default function HeroSection() {
                   muted
                   playsInline
                   preload="metadata"
+                  onCanPlay={() => {
+                    if (index === 0) onHeroReady?.();
+                  }}
                 />
                 <div className={styles.appHeroOverlay}></div>
               </div>
