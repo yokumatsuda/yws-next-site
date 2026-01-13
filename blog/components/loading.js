@@ -2,8 +2,7 @@
 import { useEffect, useState } from "react";
 import styles from "styles/loading.module.css";
 import Image from "next/image";
-import logoWhite from "public/images-post/logo-white.png"; 
-
+import logoWhite from "public/logo.png";
 
 export default function Loading({ show }) {
   const [visible, setVisible] = useState(show);
@@ -25,12 +24,8 @@ export default function Loading({ show }) {
         <div className={`${styles.panel} ${!show ? styles.fadeOutLeft : ""}`}></div>
         <div className={`${styles.panel} ${!show ? styles.fadeOutRight : ""}`}></div>
       </div>
-        <div className={`${styles.text} ${!show ? styles.fadeOutText : ""}`}>
-        <Image
-          src={logoWhite}
-          alt="YWS Logo"
-          priority          
-        />
+      <div className={`${styles.text} ${!show ? styles.fadeOutText : ""}`}>
+        <Image src={logoWhite} alt="YWS Logo" priority />
       </div>
     </>
   );

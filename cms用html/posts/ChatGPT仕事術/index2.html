@@ -1,0 +1,371 @@
+<style>
+  :root {
+    --paper: #ffffff;
+    --text: #111827;
+    --muted: #6b7280;
+    --line: #e5e7eb;
+    --accent: #1a57ff;
+    --bgSoft: rgba(17, 24, 39, 0.03);
+    --shadow: 0 14px 28px rgba(0, 0, 0, 0.08), 0 4px 10px rgba(0, 0, 0, 0.05);
+    --r: 16px;
+  }
+
+  .ywsArticle {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: var(--r);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+  }
+
+  .ywsHero {
+    padding: 28px 22px 18px;
+    background: radial-gradient(
+        900px 240px at 20% 10%,
+        rgba(26, 87, 255, 0.1),
+        transparent 60%
+      ),
+      radial-gradient(
+        900px 240px at 90% 0%,
+        rgba(0, 170, 255, 0.1),
+        transparent 55%
+      ),
+      linear-gradient(#fff, #fff);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .ywsKicker {
+    display: inline-flex;
+    gap: 8px;
+    align-items: center;
+    font-size: 12px;
+    color: var(--muted);
+    margin: 0 0 10px;
+  }
+
+  .ywsPill {
+    font-size: 11px;
+    padding: 3px 10px;
+    border-radius: 999px;
+    border: 1px solid rgba(26, 87, 255, 0.25);
+    color: var(--accent);
+    background: rgba(26, 87, 255, 0.06);
+    font-weight: 800;
+  }
+
+  .ywsHero h1 {
+    margin: 0 0 8px;
+    font-size: clamp(22px, 3.2vw, 34px);
+    letter-spacing: 0.01em;
+    line-height: 1.25;
+    color: var(--text);
+  }
+
+  .ywsLead {
+    margin: 0;
+    color: var(--muted);
+    max-width: 78ch;
+    line-height: 1.9;
+  }
+
+  .ywsContent {
+    padding: 22px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .ywsSectionTitle {
+    font-size: 18px;
+    margin: 0 0 8px;
+    color: var(--text);
+    letter-spacing: 0.01em;
+  }
+
+  .ywsContent p {
+    margin: 0;
+    color: var(--text);
+    line-height: 1.95;
+  }
+
+  .ywsCallout {
+    border: 1px solid rgba(26, 87, 255, 0.22);
+    background: rgba(26, 87, 255, 0.05);
+    border-radius: 14px;
+    padding: 14px;
+  }
+
+  .ywsGrid2 {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    margin-top: 10px;
+  }
+
+  .ywsCard {
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 14px;
+    background: #fff;
+  }
+
+  .ywsCard h3 {
+    margin: 0 0 8px;
+    font-size: 14px;
+    color: var(--text);
+  }
+
+  .ywsCard p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.8;
+  }
+
+  .ywsList {
+    margin: 10px 0 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    gap: 10px;
+  }
+
+  .ywsList li {
+    background: var(--bgSoft);
+    border: 1px solid rgba(17, 24, 39, 0.06);
+    border-left: 3px solid rgba(26, 87, 255, 0.35);
+    border-radius: 12px;
+    padding: 10px 12px;
+  }
+
+  .ywsList b {
+    font-size: 13px;
+    color: var(--text);
+  }
+
+  .ywsList span {
+    font-size: 13px;
+    color: var(--muted);
+  }
+
+  .ywsSteps {
+    counter-reset: step;
+    display: grid;
+    gap: 10px;
+    margin: 10px 0 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .ywsSteps li {
+    counter-increment: step;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 12px 12px 12px 44px;
+    position: relative;
+    background: #fff;
+  }
+
+  .ywsSteps li::before {
+    content: counter(step);
+    position: absolute;
+    left: 12px;
+    top: 12px;
+    width: 22px;
+    height: 22px;
+    border-radius: 999px;
+    background: rgba(26, 87, 255, 0.1);
+    color: var(--accent);
+    display: grid;
+    place-items: center;
+    font-weight: 900;
+    font-size: 12px;
+  }
+
+  .ywsCode {
+    margin: 10px 0 0;
+    padding: 12px;
+    border-radius: 14px;
+    border: 1px solid var(--line);
+    background: #0b1220;
+    color: #e5e7eb;
+    overflow: auto;
+    font-size: 13px;
+    line-height: 1.8;
+    white-space: pre-wrap;
+    word-break: break-word;
+  }
+
+  .ywsNote {
+    margin-top: 10px;
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.75;
+  }
+
+  @media (max-width: 720px) {
+    .ywsHero {
+      padding: 22px 16px 14px;
+    }
+    .ywsContent {
+      padding: 16px;
+    }
+    .ywsGrid2 {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+<article class="ywsArticle">
+  <header class="ywsHero">
+    <p class="ywsKicker">
+      <span class="ywsPill">ChatGPT仕事術</span
+      ><span>イライラしない使い方</span>
+    </p>
+    <h1>
+      ChatGPTでイライラしないコツ。<br />原因は「認識ズレ」—先に揃えるだけで楽になる
+    </h1>
+    <p class="ywsLead">
+      ChatGPTを使っていてストレスになる瞬間の多くは、
+      <b>ユーザーとChatGPTの前提（認識）がズレたまま進む</b>ことが原因です。
+      望む回答が返らないときは「AIがダメ」ではなく、材料がズレているだけ。
+      この記事では、ズレを最短で合わせる“運用ルール”をテンプレ付きで紹介します。
+    </p>
+  </header>
+
+  <div class="ywsContent">
+    <section>
+      <h2 class="ywsSectionTitle">イライラの正体は「前提が違う」こと</h2>
+      <p>
+        例えば「提案書を作って」と頼んだとき、あなたは“Web制作の提案書”を想定していても、
+        ChatGPTは“汎用の提案書”として解釈するかもしれません。
+        こうして認識がズレると、回答は外れ、修正が増え、ストレスが溜まります。
+      </p>
+
+      <div class="ywsCallout" style="margin-top: 12px">
+        <p style="margin: 0; line-height: 1.9">
+          <b>結論：</b>まず「何を、誰に、どの形式で、どこまで」を揃える。<br />
+          これだけで、体感8割のイライラは減ります。
+        </p>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="ywsSectionTitle">まず“認識合わせ”をしてから作業させる</h2>
+      <div class="ywsGrid2">
+        <div class="ywsCard">
+          <h3>NG：いきなり成果物を要求</h3>
+          <p>
+            「〇〇のレポート作って」だけだと、前提が空っぽのまま走り出すので、
+            一般論・推測が混ざりやすいです。
+          </p>
+        </div>
+        <div class="ywsCard">
+          <h3>OK：最初に“合意”を取る</h3>
+          <p>
+            「まず前提を確認してから作って」と指示すると、
+            ChatGPTは不足情報を質問しやすくなり、ズレが激減します。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="ywsSectionTitle">最短でズレを潰す「3点セット」</h2>
+      <ul class="ywsList">
+        <li>
+          <b>①目的：</b>
+          <span>何のために作る？（意思決定/顧客提出/社内共有など）</span>
+        </li>
+        <li>
+          <b>②読者：</b> <span>誰が読む？（経営/現場/顧客/初心者/技術者）</span>
+        </li>
+        <li>
+          <b>③出力：</b>
+          <span>形式は？（箇条書き/表/スライド構成/文章/コード）</span>
+        </li>
+      </ul>
+      <p class="ywsNote">
+        まずこの3つを揃えるだけでも、回答のブレが一気に減ります。
+      </p>
+    </section>
+
+    <section>
+      <h2 class="ywsSectionTitle">
+        テンプレ：認識ズレ防止（そのままコピペOK）
+      </h2>
+      <p>
+        まずChatGPTに「こちらの意図を要約させて合意する」形にします。
+        イライラする前に、最初の30秒でズレを潰します。
+      </p>
+      <pre class="ywsCode">
+これから依頼します。
+ただし、いきなり作り始めずに、最初に「認識合わせ」をしてください。
+
+1) 私の依頼内容をあなたの言葉で1〜2行で要約
+2) 前提として解釈したこと（箇条書き）
+3) 不明点・確認事項を5つ以内で質問（優先度が高い順）
+4) 私が回答したら、その内容に沿って作成を開始
+
+依頼：〇〇を作りたい（例：提案書 / レポート / 手順書）</pre
+      >
+    </section>
+
+    <section>
+      <h2 class="ywsSectionTitle">会話が噛み合わない時の“戻し方”</h2>
+      <p>
+        途中でズレたと感じたら、作業を続けずに一度止めます。
+        ここで踏みとどまると、結果的に最短です。
+      </p>
+
+      <ol class="ywsSteps">
+        <li><b>「いまの認識」を要約させる：</b> ChatGPTの理解を可視化する</li>
+        <li><b>違う点だけ修正する：</b> 全部説明し直さず、差分だけ</li>
+        <li><b>再出力条件を宣言する：</b> 文字数/形式/トーンを固定する</li>
+      </ol>
+
+      <pre class="ywsCode">
+ストップ。いま認識がズレています。
+
+あなたが理解している「目的・読者・前提・出力形式」を箇条書きでまとめてください。
+その後、私の意図と違う可能性がある点を3つ挙げてください。</pre
+      >
+    </section>
+
+    <section>
+      <h2 class="ywsSectionTitle">イライラしないための“実務ルール”</h2>
+      <ul class="ywsList">
+        <li>
+          <b>一発で完璧を狙わない：</b>
+          <span>まず骨子→レビュー→清書の2〜3段階に分ける</span>
+        </li>
+        <li>
+          <b>推測禁止を明示：</b>
+          <span>「不明なら不明と書いて」と言うと無駄な創作が減る</span>
+        </li>
+        <li>
+          <b>回答の採点をする：</b>
+          <span>「10点満点で自己評価＋改善案」を出させると質が上がる</span>
+        </li>
+      </ul>
+
+      <pre class="ywsCode">
+出力した内容を、あなた自身が10点満点で評価して。
+不足点を3つ挙げ、改善版をもう一度出してください（推測はしない）。</pre
+      >
+    </section>
+
+    <section>
+      <h2 class="ywsSectionTitle">まとめ</h2>
+      <p>
+        ChatGPTでイライラする最大の理由は、能力不足ではなく<b>認識ズレ</b>です。
+        だから解決策もシンプルで、最初に「目的・読者・出力」を揃え、
+        途中でズレたら要約→差分修正→再出力条件の固定に戻す。
+        これだけで、会話のストレスはかなり減ります。
+      </p>
+      <p class="ywsNote">
+        次回は「短時間で認識合わせを終える質問の作り方（チェックリスト化）」もまとめます。
+      </p>
+    </section>
+  </div>
+</article>

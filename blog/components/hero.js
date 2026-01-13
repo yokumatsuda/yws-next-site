@@ -3,7 +3,7 @@ import { useState, useRef, useEffect, createRef } from "react";
 import styles from "styles/hero.module.css";
 
 // モバイル判定
-function useIsMobile(breakpoint = 768) {
+function useIsMobile(breakpoint = 1024) {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
@@ -23,27 +23,63 @@ const sliderData = [
     mediaType: "video",
     mediaSrc: "/video/2-3.mp4",
     mobileSrc: "/video/mobile2-6.mp4",
-    subtitle: "ITをもっと身近に、もっと簡単に",
-    title: "すべての人に使いやすいITソリューションを",
-    text: "ITに詳しくなくても、スムーズに導入・活用できます。",
+    subtitle: (
+      <p className={`${styles.appLabelSubtitle} ${styles.appSliderReveal}`}>
+        ITをもっと身近に、もっと簡単に
+      </p>
+    ),
+    title: (
+      <h1 className={`${styles.appHeroTitle} ${styles.appSliderReveal}`}>
+        すべての人に使いやすい<br />ITソリューションを
+      </h1>
+    ),
+    text: (
+      <p className={`${styles.appHeroText} ${styles.appSliderReveal}`}>
+        ITに詳しくなくても、スムーズに導入・活用できます。
+      </p>
+    ),
   },
   {
     id: 2,
     mediaType: "video",
     mediaSrc: "/video/2-7.mp4",
     mobileSrc: "/video/mobile2-2.mp4",
-    subtitle: "もっと手軽にITを活用",
-    title: "DXをもっと身近に、もっと簡単に",
-    text: "コストや運用の不安を解消し、気軽に始められるDXを提案します。",
+    subtitle: (
+      <p className={`${styles.appLabelSubtitle} ${styles.appSliderReveal}`}>
+        もっと手軽にITを活用
+      </p>
+    ),
+    title: (
+      <h1 className={`${styles.appHeroTitle} ${styles.appSliderReveal}`}>
+        DXをもっと身近に、<br />もっと簡単に
+      </h1>
+    ),
+    text: (
+      <p className={`${styles.appHeroText} ${styles.appSliderReveal}`}>
+        コストや運用の不安を解消、気軽に始められるDXを提案します。
+      </p>
+    ),
   },
   {
     id: 3,
     mediaType: "video",
     mediaSrc: "/video/2-4.mp4",
     mobileSrc: "/video/mobile2-5.mp4",
-    subtitle: "シンプルなITで業務を最適化",
-    title: "直感的なITで、誰でも簡単に",
-    text: "難しい操作は不要。すぐに使えるIT環境を提供します。",
+    subtitle: (
+      <p className={`${styles.appLabelSubtitle} ${styles.appSliderReveal}`}>
+        シンプルなITで業務を最適化
+      </p>
+    ),
+    title: (
+      <h1 className={`${styles.appHeroTitle} ${styles.appSliderReveal}`}>
+        直感的なITで、<br />誰でも簡単に
+      </h1>
+    ),
+    text: (
+      <p className={`${styles.appHeroText} ${styles.appSliderReveal}`}>
+        難しい操作は不要。<br />すぐに使えるIT環境を提供します。
+      </p>
+    ),
   },
 ];
 
@@ -115,20 +151,6 @@ export default function HeroSection() {
     }
   }, [currentSlide]);
 
-  // タイトル折り返し
-  const getTitleWithLineBreak = (title) => {
-    const breakPoint = title.indexOf("、") + 1;
-    if (isMobile && breakPoint > 0) {
-      return (
-        <>
-          {title.slice(0, breakPoint)}
-          <br />
-          {title.slice(breakPoint)}
-        </>
-      );
-    }
-    return title;
-  };
 
   return (
     <section className={`${styles.appHeroSection} ${styles.appTextCenter}`}>
@@ -146,11 +168,12 @@ export default function HeroSection() {
                   : styles.appHeroSliderItem
               }
             >
+                 {/* 背景 */}
               <div className={styles.appHeroSliderBg}>
                 {slide.mediaType === "video" ? (
                   <video
                     ref={videoRefs.current[index]}
-                    data-src={srcToUse} // IntersectionObserver で遅延読み込み
+                    data-src={srcToUse}
                     className={styles.appHeroSliderVideoCover}
                     autoPlay
                     loop
@@ -165,17 +188,14 @@ export default function HeroSection() {
                     className={styles.appHeroSliderImgCover}
                   />
                 )}
+                {/* オーバーレイ */}
+                <div className={styles.appHeroOverlay}></div>
               </div>
-
-              <p className={`${styles.appLabelSubtitle} ${styles.appSliderReveal}`}>
-                {slide.subtitle}
-              </p>
-              <h1 className={`${styles.appHeroTitle} ${styles.appSliderReveal}`}>
-                {getTitleWithLineBreak(slide.title)}
-              </h1>
-              <p className={`${styles.appHeroText} ${styles.appSliderReveal}`}>
-                {slide.text}
-              </p>
+              
+              {/* JSX をそのまま描画 */}
+              {slide.subtitle}
+              {slide.title}
+              {slide.text}
 
               <a
                 href="#sectionTitle1"

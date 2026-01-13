@@ -1,0 +1,50 @@
+# node / build
+node_modules/
+.next/
+dist/
+build/
+
+# 生成ファイル・画像・バイナリ（整形不要）
+public/**/*.png
+public/**/*.jpg
+public/**/*.jpeg
+public/**/*.gif
+public/**/*.svg
+public/**/*.ico
+public/**/*.webp
+
+# ログ・一時ファイル
+*.log
+tmp/
+temp/
+
+# lockfile（整形の必要なし）
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# coverage / テスト出力
+coverage/
+jest-coverage/
+
+# エディタ・OS の一時ファイル
+.vscode/
+.DS_Store
+Thumbs.db
+
+# 大きな自動生成ファイル（例：型定義の生成物）
+src/generated/
+types/
+schemas/
+
+# ビルドや静的解析のキャッシュ
+.cache/
+.pnpm-store/
+
+# もし特定のディレクトリだけ整形したくないなら
+# 例: 公開用の既に整形済みJSを置く folder
+public/vendor/
+
+# 逆に ignore から除外したいときは ! を使う
+# 例: public/icons 内の svg だけは整形したい場合
+# !public/icons/**/*.svg

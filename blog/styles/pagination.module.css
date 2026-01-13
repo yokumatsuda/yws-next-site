@@ -1,6 +1,6 @@
 .flexContainer {
   composes: spaceBetween from "styles/utils.module.css";
-  margin: var(--space-lg) 0;
+  margin-top: 40px;
   gap: 1em;
 }
 

@@ -1,0 +1,559 @@
+/* globals.css など、グローバルに効くCSSファイル */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 50px; /* ヘッダーの高さに合わせる */
+}
+
+body {
+  margin: 0;
+  /* フレームワークに応じて他の初期設定など */
+  /* background-color: #f0f8ff;? */
+}
+
+/* 全体ラッパ (背景色アニメをつける) */
+.Container {
+  background-color: #f2fff2;
+  height: 100vh;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: background-color 1s ease;
+  padding-top: 50px;
+}
+
+/* スライダー本体 */
+.mySlider1Container {
+  width: 100%;
+  height: 90%;
+  perspective: 1000px;
+  overflow: hidden;
+  touch-action: pan-y;
+  position: relative;
+}
+
+/* スライドカード */
+.mySlider1Card {
+  /* padding: 15px; */
+  position: absolute;
+  width: 80%;
+  height: 85%;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  color: #333333;
+
+  /* text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8);
+  filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.7)); */
+
+  transition: transform 2s, opacity 0.5s;
+  left: 50%;
+  top: 50%;
+  transform-style: preserve-3d;
+  transform-origin: center center;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  border: none;
+
+  background-position: right;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-color: #ffffff;
+
+  /* background-color: rgba(255, 255, 255, 0.9); 
+  background-blend-mode: lighten;  */
+
+  /* background-color: rgba(0, 0, 0, 0.8);
+  background-blend-mode: darken; */
+}
+
+/* スライド内部テキスト */
+.mySlider1CardContent {
+  position: relative;
+  z-index: 3;
+  text-align: left;
+  max-width: 50%;
+  margin-left: 5%;
+  z-index: 2;
+}
+
+.slideTitleDesktop {
+  display: block;
+}
+.slideTitleMobile {
+  display: none;
+}
+
+.slideTextDesktop {
+  display: block;
+}
+.slideTextMobile {
+  display: none;
+}
+
+/* ここがオーバーレイレイヤー */
+.mySlider1Card::before {
+  /* content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("/services-img/プレゼンテーション1.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  opacity: 0.35; 
+  pointer-events: none; 
+  z-index: 1; */
+}
+
+.mySlider1CardContent h2 {
+  margin-bottom: 0.5em;
+  font-weight: bold;
+  font-size: 48px;
+}
+.mySlider1CardContent p {
+  margin-bottom: 1.2em;
+  line-height: 1.6;
+  font-size: 24px;
+  font-weight: 500;
+}
+
+/* 前・次ボタン */
+.mySlider1Prev,
+.mySlider1Next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 32px;
+  cursor: pointer;
+  color: white;
+  background: none;
+  border: none;
+  outline: none;
+  padding: 0;
+  margin: 0;
+  z-index: 3;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.mySlider1Prev {
+  left: 20px;
+}
+.mySlider1Next {
+  right: 20px;
+}
+.mySlider1Prev:active,
+.mySlider1Prev:focus,
+.mySlider1Next:active,
+.mySlider1Next:focus {
+  border: 2px solid #fff;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* ドットナビ & 再生/停止ボタン */
+.mySlider1Dots,
+.mySlider1Controls {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+}
+
+/* ドットナビ */
+.mySlider1Dots {
+  bottom: 20px;
+  display: flex;
+  gap: 8px;
+  border: solid 1px black;
+  padding: 2px 5px;
+}
+.mySlider1Dot {
+  width: 8px;
+  height: 8px;
+  background: #000;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.3s;
+  border: solid 1px black;
+}
+.activeDot {
+  background: #fff;
+}
+
+/* オートスクロール再生/停止ボタン */
+.mySlider1Controls {
+  bottom: 40px;
+  display: flex;
+  gap: 10px;
+}
+.mySlider1Controls button {
+  padding: 4px 8px;
+  background: #000;
+  color: #fff;
+  border: none;
+  border-radius: 0px;
+  cursor: pointer;
+  border: solid 1px black;
+}
+.mySlider1Controls button:hover {
+  background: #555;
+}
+.mySlider1Controls button:active,
+.mySlider1Controls button:focus {
+  background: #fff;
+  color: #000;
+  outline: none;
+}
+
+/* 「詳しく見る」ボタン */
+/* .cardButton {
+  display: inline-block;
+  position: relative;
+  background-color: #333;
+  color: #fff;
+  text-decoration: none;
+  padding: 0.8em 1.5em;
+  margin-inline: auto;
+  overflow: hidden;
+  transition: background-color 0.3s;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8),
+    -3px -3px 6px rgba(255, 255, 255, 0.8);
+  filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.7));
+}
+
+.cardButton:hover {
+  background-color: #555;
+} */
+
+.cardButton {
+  background-color: #0078d4;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 12px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+.cardButton:hover {
+  background-color: #005fb8;
+}
+
+/* ==============================
+   アコーディオンセクション
+============================== */
+.extraSection {
+  width: 100%;
+  padding: 40px 20px 40px 20px;
+  background-color: #f0f8ff;
+}
+
+.categoriesWrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.categoryBlock {
+  padding-bottom: 40px;
+  /* margin-bottom: 60px; */
+}
+
+.categoryTitle {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* --- アコーディオンアイテム --- */
+.accordionItem {
+  margin-bottom: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  background-color: #fff;
+}
+
+/* 見出し (クリックする部分) */
+.accordionHeader {
+  padding: 16px;
+  cursor: pointer;
+  background-color: #fafafa;
+  border-bottom: 1px solid #ddd;
+
+  display: flex;
+  justify-content: space-between; /* 左テキストと右矢印を分ける */
+  align-items: center;
+}
+
+/* アコーディオン矢印 */
+.accordionArrow {
+  font-size: 1.2rem;
+  color: #666;
+  transition: transform 0.3s ease;
+}
+.accordionArrow.open {
+  transform: rotate(180deg);
+}
+
+/* 中身（開閉トランジション） */
+.accordionContent {
+  max-height: 0;
+  overflow: hidden;
+  padding: 0 16px;
+  transition: max-height 0.4s ease;
+}
+.accordionContent.open {
+  max-height: 1700px;
+}
+
+/* 2カラムレイアウトにするラッパ */
+.accordionContentInner {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem; /* カラム間の余白 */
+  align-items: flex-start; /* テキストと画像を上揃え */
+  margin: 1rem 0; /* 全体上下マージン少し追加 */
+}
+
+/* 左側のテキストエリア */
+.cardTextArea {
+  flex: 1; /* テキスト部分は可変幅 */
+}
+
+.cardTitle {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  margin-top: 0px;
+  color: #0078d4;
+}
+
+/* 改行を反映させるため */
+.cardDesc {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #555;
+  margin: 0; /* 好みで上下マージン調整 */
+  white-space: pre-line; /* \n をそのまま改行として表示 */
+}
+
+/* 右側の画像エリア */
+.cardImageWrapper {
+  width: 50%; /* 画像の固定幅 or お好みで調整 */
+  /* max-width: 40%; */
+  overflow: hidden;
+  /* height: auto; 画像高さに合わせて調整したい場合 */
+  /* margin-top: 1rem; もし垂直位置をずらしたい時 */
+}
+
+.cardImage {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  display: block;
+}
+
+.linkButton {
+  background-color: #0078d4;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 12px;
+  cursor: pointer;
+  font-size: 14px;
+  margin: 10px;
+}
+.linkButton:hover {
+  background-color: #005fb8;
+}
+
+/* ==============================
+   レスポンシブの例
+   （スライダー周りなど必要に応じて追記）
+============================== */
+@media (max-width: 1200px) {
+  .mySlider1Card {
+    width: 80%;
+    height: 80%;
+    background-size: contain;
+  }
+  .mySlider1Prev,
+  .mySlider1Next {
+    font-size: 28px;
+    width: 40px;
+    height: 40px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .Container {
+    padding-top: 0px;
+    height: 60vh;
+  }
+  .mySlider1Card {
+    width: 80%;
+    height: 70%;
+  }
+  .mySlider1CardContent h2 {
+    margin-bottom: 0.5em;
+    font-weight: bold;
+    font-size: 28px;
+  }
+  .mySlider1CardContent p {
+    margin-bottom: 1.2em;
+    line-height: 1.6;
+    font-size: 16px;
+  }
+  .mySlider1Controls button {
+    padding: 4px 8px;
+  }
+  .mySlider1Dots {
+    bottom: 20px;
+    gap: 8px;
+  }
+  .mySlider1Dot {
+    width: 8px;
+    height: 8px;
+  }
+  .accordionContentInner {
+    flex-direction: column;
+  }
+  .cardImageWrapper {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+@media (max-width: 992px) {
+  .Container {
+    padding-top: 0px;
+    height: 60vh;
+  }
+
+  .mySlider1Card {
+  }
+
+  .mySlider1Prev,
+  .mySlider1Next {
+    font-size: 24px;
+    width: 36px;
+    height: 36px;
+  }
+}
+
+@media (max-width: 768px) {
+  .Container {
+    /* height: 55vh; */
+    height: 450px;
+  }
+  .mySlider1Card {
+  }
+
+  .mySlider1CardContent {
+    /* max-width: 50%; */
+    margin-left: 5%;
+  }
+  .slideTitleDesktop {
+    display: none;
+  }
+  .slideTitleMobile {
+    display: block;
+  }
+
+  .mySlider1Prev,
+  .mySlider1Next {
+    font-size: 22px;
+    width: 32px;
+    height: 32px;
+  }
+  .mySlider1Dots {
+    bottom: 20px;
+    gap: 4px;
+  }
+  .mySlider1Dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+  }
+  .accordionHeader {
+    padding: 12px;
+  }
+  .cardTitle {
+    font-size: 1.1rem;
+  }
+  .cardDesc {
+    font-size: 0.95rem;
+  }
+
+  .categoryTitle {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+  }
+
+  /* .accordionContentInner {
+    flex-direction: column;
+  }
+  .cardImageWrapper {
+    width: 100%;
+    max-width: none;
+  } */
+
+  .cardButton {
+    padding: 4px 6px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .Container {
+    padding-top: 0px;
+    height: 55vh;
+    /* height: 350px; */
+  }
+
+  .mySlider1Container {
+    /* width: 80%; */
+    height: 65%;
+  }
+
+  .mySlider1Card {
+    width: 80%;
+    height: 85%;
+  }
+
+  .mySlider1CardContent {
+    max-width: 60%;
+    margin-left: 0;
+    padding: 15px;
+  }
+
+  .mySlider1CardContent h2 {
+    font-size: 20px;
+  }
+
+  .slideTextDesktop {
+    display: none;
+  }
+  .slideTextMobile {
+    display: block;
+  }
+
+  .mySlider1Prev,
+  .mySlider1Next {
+    font-size: 20px;
+    width: 28px;
+    height: 28px;
+  }
+  .cardLabel {
+    font-size: 16px;
+  }
+}

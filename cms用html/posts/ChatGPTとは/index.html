@@ -1,0 +1,381 @@
+<style>
+  :root {
+    --paper: #ffffff;
+    --text: #111827;
+    --muted: #6b7280;
+    --line: #e5e7eb;
+    --accent: #1a57ff;
+    --bgSoft: rgba(17, 24, 39, 0.03);
+    --shadow: 0 14px 28px rgba(0, 0, 0, 0.08), 0 4px 10px rgba(0, 0, 0, 0.05);
+    --r: 16px;
+  }
+
+  .ywsArticle {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: var(--r);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+  }
+
+  .ywsHero {
+    padding: 28px 22px 18px;
+    background: radial-gradient(
+        900px 240px at 20% 10%,
+        rgba(26, 87, 255, 0.1),
+        transparent 60%
+      ),
+      radial-gradient(
+        900px 240px at 90% 0%,
+        rgba(0, 170, 255, 0.1),
+        transparent 55%
+      ),
+      linear-gradient(#fff, #fff);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .ywsKicker {
+    display: inline-flex;
+    gap: 8px;
+    align-items: center;
+    font-size: 12px;
+    color: var(--muted);
+    margin: 0 0 10px;
+  }
+
+  .ywsPill {
+    font-size: 11px;
+    padding: 3px 10px;
+    border-radius: 999px;
+    border: 1px solid rgba(26, 87, 255, 0.25);
+    color: var(--accent);
+    background: rgba(26, 87, 255, 0.06);
+    font-weight: 700;
+  }
+
+  .ywsHero h1 {
+    margin: 0 0 8px;
+    font-size: clamp(22px, 3.2vw, 34px);
+    letter-spacing: 0.01em;
+    line-height: 1.25;
+    color: var(--text);
+  }
+
+  .ywsLead {
+    margin: 0;
+    color: var(--muted);
+    max-width: 75ch;
+    line-height: 1.8;
+  }
+
+  .ywsContent {
+    padding: 22px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .ywsSectionTitle {
+    font-size: 18px;
+    margin: 0 0 8px;
+    color: var(--text);
+    letter-spacing: 0.01em;
+  }
+
+  .ywsContent p {
+    margin: 0;
+    color: var(--text);
+    line-height: 1.9;
+  }
+
+  .ywsGrid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+    margin-top: 8px;
+  }
+
+  .ywsCard {
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 14px;
+    background: #fff;
+  }
+
+  .ywsCard h3 {
+    margin: 0 0 6px;
+    font-size: 14px;
+    color: var(--text);
+  }
+
+  .ywsCard p {
+    margin: 0;
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.75;
+  }
+
+  .ywsList {
+    margin: 10px 0 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    gap: 10px;
+  }
+
+  .ywsList li {
+    background: var(--bgSoft);
+    border: 1px solid rgba(17, 24, 39, 0.06);
+    border-left: 3px solid rgba(26, 87, 255, 0.35);
+    border-radius: 12px;
+    padding: 10px 12px;
+  }
+
+  .ywsList b {
+    font-size: 13px;
+    color: var(--text);
+  }
+
+  .ywsList span {
+    font-size: 13px;
+    color: var(--muted);
+  }
+
+  .ywsNote {
+    margin-top: 10px;
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.75;
+  }
+
+  .ywsSteps {
+    counter-reset: step;
+    display: grid;
+    gap: 10px;
+    margin: 10px 0 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .ywsSteps li {
+    counter-increment: step;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 12px 12px 12px 44px;
+    position: relative;
+    background: #fff;
+  }
+
+  .ywsSteps li::before {
+    content: counter(step);
+    position: absolute;
+    left: 12px;
+    top: 12px;
+    width: 22px;
+    height: 22px;
+    border-radius: 999px;
+    background: rgba(26, 87, 255, 0.1);
+    color: var(--accent);
+    display: grid;
+    place-items: center;
+    font-weight: 800;
+    font-size: 12px;
+  }
+
+  .ywsHr {
+    height: 1px;
+    background: var(--line);
+    border: 0;
+    margin: 2px 0;
+  }
+
+  .ywsCallout {
+    border: 1px solid rgba(26, 87, 255, 0.22);
+    background: rgba(26, 87, 255, 0.05);
+    border-radius: 14px;
+    padding: 14px;
+  }
+
+  .ywsCallout b {
+    color: var(--text);
+  }
+
+  @media (max-width: 720px) {
+    .ywsHero {
+      padding: 22px 16px 14px;
+    }
+    .ywsContent {
+      padding: 16px;
+    }
+    .ywsGrid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+<article class="ywsArticle">
+  <header class="ywsHero">
+    <p class="ywsKicker">
+      <span class="ywsPill">Blog</span><span>「ChatGPTとは」</span>
+    </p>
+    <h1>
+      ChatGPTはどうやって答えを作るのか？<br />仕組みを知ると仕事が速くなる
+    </h1>
+    <p class="ywsLead">
+      ChatGPTを「検索の代わり」にするだけでは、真価は半分です。
+      仕組み（学習・推論・情報の扱い方）をざっくり理解すると、指示の出し方が変わり、
+      仕事のスピードと品質が一気に上がります。
+    </p>
+  </header>
+
+  <div class="ywsContent">
+    <section>
+      <h2 class="ywsSectionTitle">結論：ChatGPTは「文章を予測して生成する」</h2>
+      <p>
+        ChatGPTは、質問に対して「最もそれっぽい答え」を、<b>次に来る単語（トークン）を予測しながら</b>並べて文章を生成します。
+        つまり、内部では“正解を検索して貼り付ける”というより、<b>学習したパターンを元に文章を組み立てる</b>イメージです。
+      </p>
+      <p class="ywsNote">
+        ※そのため、内容がもっともらしく見えても、事実確認が必要なケースがあります（後述）。
+      </p>
+    </section>
+
+    <hr class="ywsHr" />
+
+    <section>
+      <h2 class="ywsSectionTitle">
+        ざっくり用語：Deep Learning / トレーニングデータ / 推論
+      </h2>
+
+      <div class="ywsGrid">
+        <div class="ywsCard">
+          <h3>Deep Learning（深層学習）</h3>
+          <p>
+            大量のデータからパターンを学習する機械学習の一種。言語のつながり、言い回し、
+            文脈の取り方などをモデルに覚えさせます。
+          </p>
+        </div>
+
+        <div class="ywsCard">
+          <h3>トレーニングデータ（学習データ）</h3>
+          <p>
+            モデルが学習に使う文章データの集合。ここから言語の規則性や知識の“傾向”を学びます。
+          </p>
+        </div>
+
+        <div class="ywsCard">
+          <h3>推論（Inference）</h3>
+          <p>
+            学習済みモデルに質問を入れて、回答を生成する処理。あなたがChatGPTに質問した瞬間に起きているのは基本これです。
+          </p>
+        </div>
+
+        <div class="ywsCard">
+          <h3>Big Data（ビッグデータ）</h3>
+          <p>
+            人間が手作業で読めない規模のデータ。学習段階では大量データが活用され、
+            言語の一般的なパターンが強化されます。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <hr class="ywsHr" />
+
+    <section>
+      <h2 class="ywsSectionTitle">
+        ChatGPTの「回答ができるまで」超シンプル手順
+      </h2>
+      <ol class="ywsSteps">
+        <li><b>質問（プロンプト）</b>を受け取る</li>
+        <li>文章を小さな単位（トークン）に分解して理解する</li>
+        <li><b>文脈</b>に合う次のトークンを確率的に選び続ける</li>
+        <li>最終的に文章として整えて出力する</li>
+      </ol>
+      <p class="ywsNote">
+        つまり「何を求めているか」「制約は何か」「前提は何か」をプロンプトで明確にすると、精度が上がりやすいです。
+      </p>
+    </section>
+
+    <hr class="ywsHr" />
+
+    <section>
+      <h2 class="ywsSectionTitle">
+        Deep Research的な使い方（調査）と、通常回答の違い
+      </h2>
+      <p>
+        調査用途では「それっぽい文章」よりも、<b>根拠・比較・検証</b>が重要になります。
+        そのため、ChatGPTに任せるときは「結論だけ」ではなく、
+        <b>根拠の提示、前提条件、反例、確認ポイント</b
+        >までセットで出させると安全です。
+      </p>
+
+      <div class="ywsCallout">
+        <p style="margin: 0; line-height: 1.85">
+          <b>おすすめ指示：</b><br />
+          「結論 → 根拠 → 例 → 注意点（誤りやすい点） → 確認すべき一次情報」
+          の順で出して、と依頼すると“仕事に使える”品質になりやすいです。
+        </p>
+      </div>
+    </section>
+
+    <hr class="ywsHr" />
+
+    <section>
+      <h2 class="ywsSectionTitle">仕事で役立つ：プロンプトの型（コピペ用）</h2>
+      <ul class="ywsList">
+        <li>
+          <b>① 役割：</b>
+          <span
+            >あなたは「〇〇の専門家」です（例：Webディレクター、社内情シス、マーケ担当）。</span
+          >
+        </li>
+        <li>
+          <b>② ゴール：</b>
+          <span
+            >目的は「〇〇を達成すること」です（例：問い合わせ増、作業時間半減）。</span
+          >
+        </li>
+        <li>
+          <b>③ 条件：</b>
+          <span
+            >制約（予算、期限、対象ユーザー、使用ツール）を箇条書きで。</span
+          >
+        </li>
+        <li>
+          <b>④ 出力形式：</b>
+          <span>見出し構成／表／チェックリストなど、形を指定。</span>
+        </li>
+        <li>
+          <b>⑤ 確認：</b>
+          <span
+            >「不明点があれば先に質問して」と入れると、手戻りが減ります。</span
+          >
+        </li>
+      </ul>
+    </section>
+
+    <hr class="ywsHr" />
+
+    <section>
+      <h2 class="ywsSectionTitle">注意点：URLや固有情報は“必ず確認”</h2>
+      <p>
+        ChatGPTは文章生成が得意な反面、<b>リンクや固有名詞、最新情報</b>は間違う可能性があります。
+        重要な場面では、一次情報（公式サイト、契約書、法令、社内資料など）で照合するのが安全です。
+      </p>
+      <p class="ywsNote">
+        仕事術のコツは「ChatGPTに任せる範囲」を決めること。叩き台・要約・整理・比較の初速を上げる用途が特に強いです。
+      </p>
+    </section>
+
+    <section>
+      <h2 class="ywsSectionTitle">まとめ</h2>
+      <p>
+        ChatGPTは、Deep
+        Learningで学んだ言語パターンを元に、推論で文章を組み立てる仕組みです。
+        仕組みを理解すると、指示の出し方（役割・目的・条件・出力形式）が整理でき、
+        “仕事で使える回答”に近づきます。次回は、実際の業務（見積・要件定義・提案書）に落とし込む例も紹介します。
+      </p>
+    </section>
+  </div>
+</article>

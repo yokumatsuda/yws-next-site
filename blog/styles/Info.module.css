@@ -1,0 +1,149 @@
+/* ======== 基本設定 ======== */
+.ContactSection {
+  width: 95%;
+  max-width: 1200px;
+  margin: 46px auto 96px auto; /* 上に96pxの余白を追加し、中央寄せ */
+  padding: 40px 20px 40px 20px;
+  box-sizing: border-box;
+  background-color: #ffffff;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0px -4px 8px rgba(0, 0, 0, 0.1), /* 上方向 */ 0px 4px 8px rgba(0, 0, 0, 0.1); /* 下方向 */
+}
+
+/* 共通タイトル */
+.sectionTitle {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20px;
+  border-bottom: 3px solid #007bff;
+  display: inline-block;
+  padding-bottom: 5px;
+}
+
+.smallText {
+  font-size: 16px;
+}
+/* ======== 基本情報スタイル ======== */
+.infoBlock {
+  margin-bottom: 40px;
+  text-align: left;
+  background: #f8f9fa;
+  padding: 25px;
+  border-radius: 10px;
+}
+
+.subTitle {
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: #007bff;
+  margin-bottom: 15px;
+}
+
+.infoList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.infoList li {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  padding: 10px 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.infoList li:last-child {
+  border-bottom: none;
+}
+
+/* メールリンク */
+.infoList a {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.infoList a:hover {
+  text-decoration: underline;
+}
+
+/* ======== お問い合わせスタイル ======== */
+.contactBlock {
+  text-align: left;
+  background: #f1f8ff;
+  padding: 25px;
+  border-radius: 10px;
+}
+
+.contactDetails {
+  font-size: 1.1rem;
+  margin-top: 10px;
+  padding: 10px;
+  background: #e3f2fd;
+  border-left: 5px solid #007bff;
+  border-radius: 5px;
+}
+/* ====== お問い合わせボタンのスタイル ====== */
+.buttonContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.contactButton {
+  display: inline-block;
+  padding: 12px 24px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #ffffff;
+  background-color: #007bff;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background 0.3s ease-in-out;
+}
+
+.contactButton:hover {
+  background-color: #0056b3;
+}
+
+/* ======== モバイル対応（768px以下）======== */
+@media (max-width: 768px) {
+  .ContactSection {
+    padding: 40px 15px;
+    margin: 0 auto 0 auto;
+  }
+
+  .sectionTitle {
+    font-size: 1.8rem;
+  }
+
+  .subTitle {
+    font-size: 1.4rem;
+  }
+
+  .infoList li,
+  .contactDetails {
+    font-size: 1rem;
+    padding: 8px 0;
+  }
+}
+@media (max-width: 500px) {
+  .ContactSection {
+    width: 95%;
+    margin-bottom: 96px;
+  }
+  .infoBlock {
+    padding: 10px 10px 10px 10px;
+  }
+  .contactBlock {
+    padding: 5px 10px 10px 10px;
+  }
+  .contactDetails {
+    padding: 10px;
+  }
+  .sectionTitle {
+    font-size: 24px;
+  }
+}

@@ -1,0 +1,176 @@
+.contactContainer {
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 20px;
+  font-family: sans-serif;
+  background-color: #fdfdfd;
+  border: 1px solid #ccc;
+}
+
+.title {
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+/* エラー表示ボックス */
+.errorBox {
+  background-color: #f8d7da; /* 薄い赤 */
+  color: #721c24;
+  padding: 10px;
+  border: 1px solid #f5c6cb;
+  margin-bottom: 20px;
+}
+
+/* フォーム全体 */
+.contactForm {
+  display: flex;
+  flex-direction: column;
+  gap: 16px; /* 各要素の間隔 */
+}
+
+/* グループ */
+.formGroup {
+  display: flex;
+  flex-direction: column;
+}
+
+/* ラベル */
+.formLabel {
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+/* 必須マーク */
+.required {
+  color: red;
+}
+
+/* フォーム行 (姓・名を横並びにする例) */
+.formRow {
+  display: flex;
+  gap: 10px;
+}
+
+/* テキスト入力 */
+.contactInput {
+  flex: 1; /* 同じ行なら均等に広がる */
+  padding: 8px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  outline: none;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+.contactInput:focus {
+  border-color: #007bff;
+}
+
+/* セレクト */
+.contactSelect {
+  width: 200px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  outline: none;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+/* チェックボックスの行 */
+.checkboxRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.checkboxLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+}
+.checkboxInput {
+  width: 16px;
+  height: 16px;
+}
+
+/* テキストエリア */
+.textarea {
+  width: 100%;
+  min-height: 80px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  resize: vertical; /* ユーザーが高さ変更できる */
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+/* プライバシーテキストの表示エリア */
+.privacyBox {
+  border: 1px solid #ccc;
+  max-height: 220px;
+  overflow-y: auto;
+  padding: 8px;
+  font-size: 0.9rem;
+  background-color: #fafafa;
+  margin-bottom: 8px;
+
+  white-space: pre-line; /* \n を改行として解釈 */
+  line-height: 1.6;
+  /* ほかのスタイル */
+}
+
+/* 送信ボタン */
+.submitButton {
+  background-color: #0078d4;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 1rem;
+  align-self: flex-start; /* 左寄せにしたい場合 */
+}
+.submitButton:hover {
+  background-color: #005fb8;
+}
+.submitButton:active {
+  background-color: #003f82;
+}
+
+/* ============================= */
+/* メディアクエリ: スマホ(小画面) */
+/* ============================= */
+@media (max-width: 500px) {
+  .contactContainer {
+    margin-top: 40px;
+    margin-bottom: 0px;
+    padding: 12px;
+  }
+
+  .title {
+    font-size: 1.4rem;
+  }
+
+  .formLabel {
+    margin-bottom: 4px;
+  }
+
+  .contactInput,
+  .textarea,
+  .contactSelect {
+    font-size: 0.9rem;
+  }
+
+  .checkboxRow {
+    flex-direction: column; /* チェックボックスを縦並びに */
+    gap: 10px;
+  }
+
+  .formRow {
+    display: flex;
+    flex-direction: column; /* 縦並び */
+    gap: 10px; /* row-gap と同義 */
+    width: 100%;
+  }
+}

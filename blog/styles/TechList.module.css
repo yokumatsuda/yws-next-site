@@ -1,0 +1,174 @@
+.ServicesSection {
+  width: 95%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0px 0px 60px 0px;
+  box-sizing: border-box;
+  /* background-color: #f9f9f9;  */
+  border-radius: 0 0 10px 10px;
+}
+
+/* ---------- 共通タイトル ---------- */
+.sectionTitleWrapper {
+  display: flex;
+  justify-content: center; /* h2を中央配置 */
+  margin-bottom: 20px;
+}
+
+.sectionTitle {
+  font-size: 32px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20px;
+  padding-bottom: 5px;
+  display: inline-block; /* テキストの幅に合わせる */
+  border-bottom: 3px solid #007bff; /* テキスト下にのみボーダーを適用 */
+}
+
+.sectionsubTitle {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  text-align: center;
+  margin-bottom: 20px;
+  border-bottom: 3px solid #007bff;
+  display: inline-block;
+  padding-bottom: 5px;
+}
+
+/* ---------- 技術・ツール & 強み・特徴を2カラムレイアウトに ---------- */
+.techStrengthWrapper {
+  display: flex;
+  gap: 40px;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+/* ---------- 技術・ツール ---------- */
+.techToolsBlock {
+  flex: 1;
+  background: #fff;
+  padding: 30px;
+  border-radius: 8px;
+
+  box-shadow: 0px -4px 8px rgba(0, 0, 0, 0.1), /* 上方向 */ 0px 4px 8px rgba(0, 0, 0, 0.1); /* 下方向 */
+  transition: all 0.3s ease-in-out;
+}
+.techToolsBlock:hover {
+  transform: translateY(-5px);
+}
+
+.subHeadline {
+  font-size: 1.2rem;
+  color: #555;
+  margin-bottom: 16px;
+  font-weight: bold;
+}
+
+/* リストデザイン */
+.techList {
+  list-style: none;
+  padding: 0;
+}
+.techList li {
+  font-size: 1rem;
+  line-height: 1.6;
+  padding-left: 25px;
+  position: relative;
+  margin-bottom: 12px;
+}
+.techList li::before {
+  content: "✔"; /* カスタムアイコン */
+  position: absolute;
+  left: 0;
+  top: 2px;
+  color: #007bff;
+  font-weight: bold;
+}
+
+/* ---------- 強み・特徴 ---------- */
+.strengthsBlock {
+  flex: 1;
+  background: #fff;
+  padding: 30px;
+  border-radius: 8px;
+
+  box-shadow: 0px -4px 8px rgba(0, 0, 0, 0.1), /* 上方向 */ 0px 4px 8px rgba(0, 0, 0, 0.1); /* 下方向 */
+  transition: all 0.3s ease-in-out;
+}
+.strengthsBlock:hover {
+  transform: translateY(-5px);
+}
+
+.strengthsList {
+  list-style: none;
+  padding: 0;
+}
+.strengthsList li {
+  font-size: 1rem;
+  line-height: 1.6;
+  padding-left: 25px;
+  position: relative;
+  margin-bottom: 12px;
+}
+.strengthsList li::before {
+  content: "🚀"; /* カスタムアイコン */
+  position: absolute;
+  left: 0;
+  top: 2px;
+  color: #28a745;
+  font-weight: bold;
+}
+
+/* 注意書き */
+.note {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.6;
+  border-left: 5px solid #007bff;
+  padding-left: 15px;
+  margin-top: 20px;
+  background: #f1f9ff;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+/* ---------- モバイル対応 (768px以下) ---------- */
+@media (max-width: 768px) {
+  .techStrengthWrapper {
+    flex-direction: column;
+  }
+
+  .techToolsBlock,
+  .strengthsBlock {
+    width: 100%;
+  }
+
+  .sectionTitle {
+    font-size: 1.8rem;
+  }
+
+  .subHeadline {
+    font-size: 1.1rem;
+  }
+
+  .techList li,
+  .strengthsList li {
+    font-size: 0.95rem;
+  }
+}
+@media (max-width: 500px) {
+  .techToolsBlock {
+    padding: 30px 10px 30px 10px;
+  }
+  .strengthsBlock {
+    padding: 30px 15px 30px 15px;
+  }
+  .sectionTitle {
+    font-size: 24px;
+  }
+  .sectionsubTitle {
+    font-size: 18px;
+  }
+}

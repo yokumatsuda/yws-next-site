@@ -4,17 +4,21 @@ import Container from "components/container";
 import PostHeader from "components/post-header";
 import Posts from "components/posts";
 // import { getPlaiceholder } from "plaiceholder";
+import HeroNewsPost from "@/components/HeroNewsPost";
 
 // ローカルの代替アイキャッチ画像
 import { eyecatchLocal } from "lib/constants";
 
 export default function Category({ name, posts }) {
   return (
-    <Container>
-      <Meta pageTitle={name} pageDesc={`${name}に関する記事`} />
-      <PostHeader title={name} subtitle="Blog Category" />
-      <Posts posts={posts} />
-    </Container>
+    <>
+      <HeroNewsPost />
+      <Container>
+        <Meta pageTitle={name} pageDesc={`${name}に関する記事`} />
+        <PostHeader title={name} subtitle="" />
+        <Posts posts={posts} />
+      </Container>
+    </>
   );
 }
 

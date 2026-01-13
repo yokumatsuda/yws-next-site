@@ -1,0 +1,396 @@
+<style>
+  :root {
+    --paper: #ffffff;
+    --text: #111827;
+    --muted: #6b7280;
+    --line: #e5e7eb;
+    --accent: #1a57ff;
+    --warn: #b45309;
+    --ok: #047857;
+    --bgSoft: rgba(17, 24, 39, 0.03);
+    --shadow: 0 14px 28px rgba(0, 0, 0, 0.08), 0 4px 10px rgba(0, 0, 0, 0.05);
+    --r: 16px;
+  }
+
+  .ywsArticle {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: var(--r);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+  }
+
+  .ywsHero {
+    padding: 28px 22px 18px;
+    background: radial-gradient(
+        900px 240px at 20% 10%,
+        rgba(26, 87, 255, 0.1),
+        transparent 60%
+      ),
+      radial-gradient(
+        900px 240px at 90% 0%,
+        rgba(255, 178, 0, 0.1),
+        transparent 55%
+      ),
+      linear-gradient(#fff, #fff);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .ywsKicker {
+    display: inline-flex;
+    gap: 8px;
+    align-items: center;
+    font-size: 12px;
+    color: var(--muted);
+    margin: 0 0 10px;
+  }
+
+  .ywsPill {
+    font-size: 11px;
+    padding: 3px 10px;
+    border-radius: 999px;
+    border: 1px solid rgba(26, 87, 255, 0.25);
+    color: var(--accent);
+    background: rgba(26, 87, 255, 0.06);
+    font-weight: 800;
+  }
+
+  .ywsHero h1 {
+    margin: 0 0 8px;
+    font-size: clamp(22px, 3.2vw, 34px);
+    letter-spacing: 0.01em;
+    line-height: 1.25;
+    color: var(--text);
+  }
+
+  .ywsLead {
+    margin: 0;
+    color: var(--muted);
+    max-width: 80ch;
+    line-height: 1.9;
+  }
+
+  .ywsContent {
+    padding: 22px;
+    display: grid;
+    gap: 18px;
+  }
+
+  .ywsSectionTitle {
+    font-size: 18px;
+    margin: 0 0 8px;
+    color: var(--text);
+    letter-spacing: 0.01em;
+  }
+
+  .ywsContent p {
+    margin: 0;
+    color: var(--text);
+    line-height: 1.95;
+  }
+
+  .ywsCallout {
+    border: 1px solid rgba(17, 24, 39, 0.1);
+    background: var(--bgSoft);
+    border-radius: 14px;
+    padding: 14px;
+  }
+
+  .ywsCallout b {
+    color: var(--text);
+  }
+
+  .ywsGrid2 {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    margin-top: 10px;
+  }
+
+  .ywsCard {
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 14px;
+    background: #fff;
+  }
+
+  .ywsCard h3 {
+    margin: 0 0 8px;
+    font-size: 14px;
+    color: var(--text);
+  }
+
+  .ywsCard p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.8;
+  }
+
+  .ywsList {
+    margin: 10px 0 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    gap: 10px;
+  }
+
+  .ywsList li {
+    background: var(--bgSoft);
+    border: 1px solid rgba(17, 24, 39, 0.06);
+    border-radius: 12px;
+    padding: 10px 12px;
+  }
+
+  .ywsList li.warn {
+    border-left: 3px solid rgba(180, 83, 9, 0.55);
+  }
+  .ywsList li.ok {
+    border-left: 3px solid rgba(4, 120, 87, 0.55);
+  }
+  .ywsList li.info {
+    border-left: 3px solid rgba(26, 87, 255, 0.35);
+  }
+
+  .ywsList b {
+    font-size: 13px;
+    color: var(--text);
+  }
+
+  .ywsList span {
+    font-size: 13px;
+    color: var(--muted);
+  }
+
+  .ywsCode {
+    margin: 10px 0 0;
+    padding: 12px;
+    border-radius: 14px;
+    border: 1px solid var(--line);
+    background: #0b1220;
+    color: #e5e7eb;
+    overflow: auto;
+    font-size: 13px;
+    line-height: 1.8;
+    white-space: pre-wrap;
+    word-break: break-word;
+  }
+
+  .ywsNote {
+    margin-top: 10px;
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.75;
+  }
+
+  .ywsBadgeRow {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 10px;
+  }
+
+  .ywsBadge {
+    font-size: 12px;
+    padding: 6px 10px;
+    border-radius: 999px;
+    border: 1px solid var(--line);
+    background: #fff;
+    color: var(--muted);
+  }
+  .ywsBadge strong {
+    color: var(--text);
+  }
+
+  @media (max-width: 720px) {
+    .ywsHero {
+      padding: 22px 16px 14px;
+    }
+    .ywsContent {
+      padding: 16px;
+    }
+    .ywsGrid2 {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+<article class="ywsArticle">
+  <header class="ywsHero">
+    <p class="ywsKicker">
+      <span class="ywsPill">ChatGPT仕事術</span
+      ><span>「AIは嘘をつくのか？」</span>
+    </p>
+    <h1>
+      ChatGPTは嘘をつくのか？<br />“嘘”に見える正体と、間違いを減らす運用術
+    </h1>
+    <p class="ywsLead">
+      「AIは嘘をつく」と言われがちですが、私は<strong>“嘘をついている”というより“間違っている”</strong>ケースが多いと考えています。
+      その原因は、前提（認識）のズレ、質問の曖昧さ、根拠確認の不足など。
+      この記事では「本当に嘘をつくのか？」を整理しつつ、<strong>間違いを出させない（事故率を下げる）具体テク</strong>をまとめます。
+    </p>
+  </header>
+
+  <div class="ywsContent">
+    <section>
+      <h2 class="ywsSectionTitle">
+        結論：AIは“嘘をつく”というより「それっぽく補完してしまう」
+      </h2>
+      <p>
+        ChatGPTは、入力された文脈から「次にもっとも自然な文章」を生成します。
+        そのため、材料が足りないときに<strong>推測で穴埋め</strong>してしまい、結果として誤情報が混ざることがあります。
+        人間の感覚では「嘘をつかれた！」となりやすいですが、意図的に騙しているというより<strong>推測が外れた</strong>と捉える方が実務的です。
+      </p>
+
+      <div class="ywsCallout" style="margin-top: 12px">
+        <p style="margin: 0; line-height: 1.9">
+          <b>ポイント：</b
+          >「嘘をつくか？」より「<b>どんな条件で間違いやすいか</b>」を理解して対策する方が早い。
+        </p>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="ywsSectionTitle">“嘘”に見える典型パターン（原因別）</h2>
+      <div class="ywsGrid2">
+        <div class="ywsCard">
+          <h3>① 質問が曖昧（前提が空っぽ）</h3>
+          <p>
+            「おすすめは？」「違いは？」など条件が少ないと、一般論＋推測が増えます。
+            その結果、あなたの意図とズレて“嘘っぽく”見える回答になります。
+          </p>
+        </div>
+        <div class="ywsCard">
+          <h3>② 認識ズレ（言葉の定義が違う）</h3>
+          <p>
+            「DX」「自動化」「要件」など、人によって意味が違う言葉はズレやすいです。
+            ズレたまま作業すると、高確率で期待外れになります。
+          </p>
+        </div>
+        <div class="ywsCard">
+          <h3>③ 事実確認が必要な話題</h3>
+          <p>
+            法律・価格・仕様・ニュースなど、更新される情報は特に注意。
+            “最新”が必要なのに前提を固定しないと誤りが出やすいです。
+          </p>
+        </div>
+        <div class="ywsCard">
+          <h3>④ もっともらしい創作（ハルシネーション）</h3>
+          <p>
+            出典が必要な場面で、引用や数字を“それっぽく”生成してしまうことがあります。
+            このタイプは「根拠の提出」をルール化して止めます。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="ywsSectionTitle">
+        嘘をつかせない（＝間違いを減らす）ための実務ルール
+      </h2>
+      <ul class="ywsList">
+        <li class="ok">
+          <b>ルール1：推測を禁止する</b><br />
+          <span
+            >「分からないなら分からないと言って。仮定は“仮定”と明記して」と先に宣言。</span
+          >
+        </li>
+        <li class="ok">
+          <b>ルール2：最初に“認識合わせ”をする</b><br />
+          <span
+            >目的・読者・前提・出力形式を要約させ、合意してから作らせる。</span
+          >
+        </li>
+        <li class="warn">
+          <b>ルール3：出典・根拠が必要なものは必ず分離する</b><br />
+          <span
+            >「根拠のない断定は禁止」「根拠が出せないなら“推測”扱い」にする。</span
+          >
+        </li>
+        <li class="info">
+          <b>ルール4：検証ステップを組み込む</b><br />
+          <span
+            >作成 → 自己レビュー → 反証（ツッコミ） →
+            改善版、の流れに固定。</span
+          >
+        </li>
+      </ul>
+    </section>
+
+    <section>
+      <h2 class="ywsSectionTitle">
+        最強テンプレ：嘘っぽい回答を止めるプロンプト
+      </h2>
+      <p>
+        これを最初に貼ると、「それっぽい断定」をかなり抑制できます。
+        実務での事故率を下げたい場合におすすめです。
+      </p>
+
+      <pre class="ywsCode">
+これから依頼します。次のルールを守ってください。
+
+- 根拠のない断定は禁止（推測は「推測」と明記）
+- 分からないことは「不明」と言う（作り話をしない）
+- 重要な前提は最初に列挙し、私に確認する
+- 回答は「確度（高/中/低）」を付ける
+- 最後に「誤りやすい点・追加で必要な情報」を出す
+
+依頼：〇〇について説明して（目的：／読者：／用途：／前提：）</pre
+      >
+
+      <div class="ywsBadgeRow">
+        <span class="ywsBadge"><strong>コツ：</strong>「確度」を出させる</span>
+        <span class="ywsBadge"><strong>コツ：</strong>「不明」を許可する</span>
+        <span class="ywsBadge"><strong>コツ：</strong>前提確認を先に</span>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="ywsSectionTitle">
+        チェックリスト：回答の“嘘っぽさ”を見抜くサイン
+      </h2>
+      <ul class="ywsList">
+        <li class="warn">
+          <b>数字・固有名詞・引用がやたら具体的</b><br /><span
+            >出典がないのに詳細すぎると危険。</span
+          >
+        </li>
+        <li class="warn">
+          <b>言い切りが多い（絶対、必ず、唯一）</b><br /><span
+            >現実は例外が多い。断定は根拠とセット。</span
+          >
+        </li>
+        <li class="info">
+          <b>あなたの前提が未確認のまま進んでいる</b><br /><span
+            >目的・読者・用途を確認させる。</span
+          >
+        </li>
+        <li class="ok">
+          <b>「不明」「要確認」を言える回答は健全</b><br /><span
+            >“誠実に不明を返す”方が実務で信頼できる。</span
+          >
+        </li>
+      </ul>
+    </section>
+
+    <section>
+      <h2 class="ywsSectionTitle">それでも“嘘”と言えるケースは？</h2>
+      <p>
+        一般的な会話での「嘘」というより、実務では「<b>誤情報が混ざった状態で断定してしまう</b>」ことが問題になります。
+        意図的に騙すかどうかを議論するより、<strong>誤りを出さない仕組み（質問設計＋検証）</strong>を作る方が成果につながります。
+      </p>
+      <p class="ywsNote">
+        ※法務・税務・医療・契約などの高リスク領域は、最終判断を必ず専門家・一次情報で確認する運用が安全です。
+      </p>
+    </section>
+
+    <section>
+      <h2 class="ywsSectionTitle">まとめ</h2>
+      <p>
+        ChatGPTが「嘘をつく」と感じる場面の多くは、<b>前提不足・認識ズレ・推測の穴埋め</b>が原因です。
+        だから対策もシンプルで、<strong>推測禁止＋認識合わせ＋根拠提出＋検証ステップ</strong>をルール化すること。
+        これで「嘘っぽさ」は大幅に減り、実務の信頼性が上がります。
+      </p>
+    </section>
+  </div>
+</article>

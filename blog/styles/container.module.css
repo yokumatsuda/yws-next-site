@@ -1,10 +1,17 @@
 .containerDefault {
-  width: 92%;
-  max-width: 1152px;
-  margin: 0 auto;
+  /* width: 90%; */
+  max-width: 90%;
+  margin: 0px auto 72px auto;
+  /* padding-bottom: 72px; */
 }
 
 .large {
   composes: containerDefault;
   max-width: 1280px;
+}
+
+@media (max-width: 480px) {
+  .containerDefault {
+    max-width: 95%;
+  }
 }

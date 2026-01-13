@@ -1,0 +1,63 @@
+.twoColumnLayout {
+  display: flex; /* PC時は左右並び */
+  flex-direction: row; /* 左→右の順 */
+  max-width: 1200px;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 96px;
+  margin-bottom: 96px;
+  gap: 20px; /* カラム間の余白 */
+  padding: 20px;
+}
+
+/* 画像・テキスト側（左） */
+.imageColumn {
+  flex: 1;
+  min-width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  /* border: 1px solid green;  デモ用 */
+}
+
+/* お問い合わせフォーム側（右） */
+.formColumn {
+  flex: 1;
+  min-width: 300px;
+  /* border: 1px solid red;  デモ用 */
+}
+
+/* 画像のスタイル */
+.infoImage {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border: 1px solid #ccc;
+}
+
+/* 見出し・本文 */
+.infoTitle {
+  margin: 0;
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+.infoParagraph {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* ============================= */
+/* スマホ(幅500px以下): 縦並びにする */
+/* ============================= */
+@media (max-width: 500px) {
+  .twoColumnLayout {
+    flex-direction: column; /* 上下に並ぶ */
+    margin-top: 50px;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+  }
+
+  /* この場合、先に書かれた .imageColumn が上(先頭)に、.formColumn が下に来る */
+  /* もし順番を逆にしたいなら order を使うが、ここでは不要 */
+}

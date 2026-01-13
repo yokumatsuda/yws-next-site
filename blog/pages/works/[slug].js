@@ -1,22 +1,18 @@
 // pages/works/[slug].js
 import { getAllWorks, getWorkBySlug } from "lib/api";
 import { extractText } from "lib/extract-text";
-import { prevNextPost } from "lib/prev-next-post"; // ブログ用と同じロジックを流用可
+import { prevNextPost } from "lib/prev-next-post";
 import Meta from "components/meta";
 import Container from "components/container";
 import PostHeader from "components/post-header";
 import PostBody from "components/post-body";
-import {
-  TwoColumn,
-  TwoColumnMain,
-  TwoColumnSidebar,
-} from "components/two-column";
 import ConvertBody from "components/convert-body";
-import PostCategories from "components/post-categories";
+import WorkCategories from "components/work-categories";
 import Pagination from "components/pagination";
 import Image from "next/image";
-
 import { eyecatchLocal } from "lib/constants";
+import styles from "styles/cmsWrapper.module.css";
+import HeroWorksPost from "@/components/HeroWorksPost";
 
 export default function WorkDetail({
   title,
@@ -30,48 +26,53 @@ export default function WorkDetail({
   nextWork,
 }) {
   return (
-    <Container>
-      <Meta
-        pageTitle={title}
-        pageDesc={description}
-        pageImg={eyecatch.url}
-        pageImgW={eyecatch.width}
-        pageImgH={eyecatch.height}
-      />
-      <article>
-        <PostHeader title={title} subtitle="Works" publish={publish} />
+    <>
+      <HeroWorksPost />
+      <Container>
+        <Meta
+          pageTitle={title}
+          pageDesc={description}
+          pageImg={eyecatch.url}
+          pageImgW={eyecatch.width}
+          pageImgH={eyecatch.height}
+        />
+        <article className={styles.cmsArticle}>
+          {/* ✅ 中央900pxの“本文枠” */}
+          <div className={styles.cmsInner}>
+            <PostHeader title={title} subtitle="" publish={publish} />
 
-        <figure>
-          <Image
-            src={eyecatch.url}
-            alt=""
-            style={{ width: "100%", height: "auto" }}
-            width={eyecatch.width}
-            height={eyecatch.height}
-            sizes="(min-width: 1152px) 1152px, 100vw"
-            priority={true}
-          />
-        </figure>
+            {/* <figure className={styles.eyecatchFigure}>
+              <Image
+                src={eyecatch.url}
+                alt=""
+                width={eyecatch.width}
+                height={eyecatch.height}
+                priority
+                className={styles.eyecatchImage}
+              />
+            </figure> */}
 
-        <TwoColumn>
-          <TwoColumnMain>
             <PostBody>
               <ConvertBody content={content} contentHtml={contentHtml} />
             </PostBody>
-          </TwoColumnMain>
-          <TwoColumnSidebar>
-            <PostCategories categories={categories} />
-          </TwoColumnSidebar>
-        </TwoColumn>
 
-        <Pagination
-          prevText={prevWork?.title}
-          prevUrl={prevWork ? `/works/${prevWork.slug}` : ""}
-          nextText={nextWork?.title}
-          nextUrl={nextWork ? `/works/${nextWork.slug}` : ""}
-        />
-      </article>
-    </Container>
+            <Pagination
+              prevText={prevWork?.title}
+              prevUrl={prevWork ? `/works/${prevWork.slug}` : ""}
+              nextText={nextWork?.title}
+              nextUrl={nextWork ? `/works/${nextWork.slug}` : ""}
+            />
+          </div>
+
+          {/* ✅ 右外側に出すサイドバー */}
+          <div className={styles.cmsSidebarOuter}>
+            <div className={styles.cmsSidebarSticky}>
+              <WorkCategories categories={categories} />
+            </div>
+          </div>
+        </article>
+      </Container>
+    </>
   );
 }
 
@@ -105,12 +106,22 @@ export async function getStaticProps({ params }) {
 
   return {
     props: {
-      title: work.title,
-      publish: work.publishDate,
-      content: work.content,
-      contentHtml: work.contentHtml,
+      // title: work.title,
+      // publish: work.publishDate,
+      // content: work.content,
+      // contentHtml: work.contentHtml,
+      // eyecatch,
+      // categories: work.categories,
+      // description,
+      // prevWork,
+      // nextWork,
+
+      title: work.title ?? "",
+      publish: work.publishDate ?? "",
+      content: work.content ?? null,
+      contentHtml: work.contentHtml ?? null,
       eyecatch,
-      categories: work.categories,
+      categories: work.categories ?? [],
       description,
       prevWork,
       nextWork,
