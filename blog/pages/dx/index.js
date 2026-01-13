@@ -41,7 +41,7 @@ function dx() {
 
   // オートスクロール
   const autoScrollRef = useRef(null);
-  const autoScrollDelay = 6000;
+  const autoScrollDelay = 3500;
 
   // スワイプ開始位置（useRefで保持）
   const xDownRef = useRef(null);
