@@ -54,7 +54,7 @@
   .twoColumnLayout {
     flex-direction: column; /* 上下に並ぶ */
     margin-top: 50px;
-    margin-bottom: 0px;
+    margin-bottom: 96px;
     padding-bottom: 0px;
   }
 
