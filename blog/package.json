@@ -24,6 +24,7 @@
     "plaiceholder": "^3.0.0",
     "react": "19.1.0",
     "react-dom": "19.1.0",
+    "resend": "^6.7.0",
     "sass": "^1.93.2",
     "sharp": "^0.34.4"
   },
