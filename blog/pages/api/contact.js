@@ -4,7 +4,6 @@ import { Resend } from "resend";
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 export default async function handler(req, res) {
-  // POST以外は拒否
   if (req.method !== "POST") {
     res.setHeader("Allow", ["POST"]);
     return res.status(405).json({ error: "Method Not Allowed" });
@@ -13,7 +12,6 @@ export default async function handler(req, res) {
   try {
     const data = req.body;
 
-    // ここで送信内容を整形（テキストメール）
     const text = `
 【お問い合わせが届きました】
 
@@ -46,18 +44,30 @@ ${data.inquiry_detail ?? ""}
 ${data.agreed ? "同意あり" : "同意なし"}
 `.trim();
 
-    // ✅ Resendで送信
-    await resend.emails.send({
+    // ✅ ここ追加：環境変数が本番で読めてるか確認（値は出さない）
+    console.log("ENV check:", {
+      hasApiKey: !!process.env.RESEND_API_KEY,
+      from: process.env.CONTACT_FROM_EMAIL,
+      to: process.env.CONTACT_TO_EMAIL,
+    });
+
+    const result = await resend.emails.send({
       from: process.env.CONTACT_FROM_EMAIL, // onboarding@resend.dev
       to: process.env.CONTACT_TO_EMAIL, // yoku@yokuweb.com
       subject: "【お問い合わせ】Webサイトから新しい連絡があります",
       text,
-      reply_to: data.email, // 返信ボタンで問い合わせ者へ返信できる
+      reply_to: data.email,
     });
 
-    return res.status(200).json({ ok: true });
+    // ✅ ここ追加：Resendの返り値（成功なら id が出る）
+    console.log("Resend result:", result);
+
+    return res.status(200).json({ ok: true, result });
   } catch (e) {
     console.error("Resend error:", e);
-    return res.status(500).json({ error: "Mail send failed" });
+    return res.status(500).json({
+      error: "Mail send failed",
+      detail: e?.message ?? String(e),
+    });
   }
 }
