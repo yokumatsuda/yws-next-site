@@ -17,8 +17,8 @@ function UsePageHeroSection() {
           <a href="/contact" className={styles.heroButton}>
             お問い合わせ
           </a>
-          <a href="/News" className={styles.heroButton}>
-            お知らせ
+          <a href="/about" className={styles.heroButton}>
+            事業所紹介
           </a>
           <a href="/#sectionTitle1" className={styles.heroButton}>
             Home

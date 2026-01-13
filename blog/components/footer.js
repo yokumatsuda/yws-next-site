@@ -20,7 +20,7 @@ export default function Footer() {
 
         <div className={styles.column}>
           <h3>
-            <Link href="/about">会社情報</Link>
+            <Link href="/about">事業所情報</Link>
           </h3>
           <ul>
             <li>

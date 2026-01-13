@@ -40,7 +40,7 @@ export default function Post({
         <article className={styles.cmsArticle}>
           {/* ✅ 中央900pxの“本文枠” */}
           <div className={styles.cmsInner}>
-            <PostHeader title={title} subtitle="Blog Article" publish={publish} />
+            <PostHeader title={title} subtitle="" publish={publish} />
 
             {/* <figure className={styles.eyecatchFigure}>
             <Image

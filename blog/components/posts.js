@@ -10,7 +10,7 @@ export default function Posts({ posts }) {
   return (
     <section className={styles.section}>
       {" "}
-      <h2 className={styles.postsTitle}>News</h2>
+      <h2 className={styles.postsTitle}>Blog</h2>
       <div className={styles.gridContainer}>
         {posts.map(({ title, slug, eyecatch, publishDate, content, contentHtml }, index) => (
           <article className={styles.post} key={slug}>
@@ -28,11 +28,13 @@ export default function Posts({ posts }) {
                   // blurDataURL={eyecatch.blurDataURL}
                 />
               </figure>
-              <p className={styles.publishDate}>
-                {publishDate && <ConvertDate dateISO={publishDate} />}
-              </p>
-              <h2>{title}</h2>
-              <ConvertExcerpt content={content} contentHtml={contentHtml} maxLength={40} />
+              <div className={styles.excerptWrapper}>
+                <p className={styles.publishDate}>
+                  {publishDate && <ConvertDate dateISO={publishDate} />}
+                </p>
+                <h2>{title}</h2>
+                <ConvertExcerpt content={content} contentHtml={contentHtml} maxLength={40} />
+              </div>
             </Link>
           </article>
         ))}

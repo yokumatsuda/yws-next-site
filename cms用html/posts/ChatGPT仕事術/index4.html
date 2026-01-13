@@ -1,0 +1,342 @@
+<style>
+  :root {
+    --paper: #ffffff;
+    --text: #111827;
+    --muted: #6b7280;
+    --line: #e5e7eb;
+    --accent: #1a57ff;
+    --shadow: 0 14px 28px rgba(0, 0, 0, 0.08), 0 4px 10px rgba(0, 0, 0, 0.06);
+    --r: 16px;
+  }
+
+  .aiArticle {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: var(--r);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+  }
+
+  .aiHero {
+    padding: 28px 22px 18px;
+    background: radial-gradient(
+        900px 260px at 10% 0%,
+        rgba(26, 87, 255, 0.12),
+        transparent 60%
+      ),
+      radial-gradient(
+        900px 260px at 95% 10%,
+        rgba(0, 170, 255, 0.1),
+        transparent 55%
+      ),
+      linear-gradient(#fff, #fff);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .aiKicker {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0 0 10px;
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  .aiPill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    padding: 4px 10px;
+    border-radius: 999px;
+    border: 1px solid rgba(26, 87, 255, 0.25);
+    color: var(--accent);
+    background: rgba(26, 87, 255, 0.06);
+    font-weight: 700;
+  }
+
+  .aiHero h1 {
+    margin: 0 0 8px;
+    font-size: clamp(22px, 3.2vw, 34px);
+    line-height: 1.25;
+    letter-spacing: 0.01em;
+    color: var(--text);
+  }
+
+  .aiLead {
+    margin: 0;
+    color: var(--muted);
+    line-height: 1.9;
+    max-width: 74ch;
+  }
+
+  .aiContent {
+    padding: 22px;
+    display: grid;
+    gap: 18px;
+  }
+
+  .aiSectionTitle {
+    margin: 0 0 8px;
+    font-size: 18px;
+    color: var(--text);
+    letter-spacing: 0.01em;
+  }
+
+  .aiContent p {
+    margin: 0;
+    color: var(--text);
+    line-height: 1.95;
+  }
+
+  .aiBox {
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    background: #fff;
+    padding: 14px;
+  }
+
+  .aiGrid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+  }
+
+  .aiCard {
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 14px;
+    background: #fff;
+    transition: transform 180ms ease, box-shadow 180ms ease;
+  }
+
+  .aiCard:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.07), 0 6px 12px rgba(0, 0, 0, 0.05);
+  }
+
+  .aiCard h3 {
+    margin: 0 0 6px;
+    font-size: 14px;
+    color: var(--text);
+  }
+
+  .aiCard p {
+    margin: 0;
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.75;
+  }
+
+  .aiList {
+    margin: 10px 0 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    gap: 10px;
+  }
+
+  .aiList li {
+    padding: 10px 12px;
+    border-radius: 12px;
+    background: rgba(17, 24, 39, 0.02);
+    border-left: 3px solid rgba(26, 87, 255, 0.35);
+  }
+
+  .aiList b {
+    font-size: 13px;
+    color: var(--text);
+  }
+
+  .aiList span {
+    display: block;
+    margin-top: 2px;
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.7;
+  }
+
+  /* ✅ preを使わずにコード表示（Hydration差分を出しにくい） */
+  .aiCode {
+    margin: 10px 0 0;
+    padding: 12px 14px;
+    border-radius: 12px;
+    border: 1px solid var(--line);
+    background: #0b1220;
+    color: #e5e7eb;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+      "Liberation Mono", "Courier New", monospace;
+    font-size: 12.5px;
+    line-height: 1.7;
+    white-space: pre-wrap;
+    word-break: break-word;
+  }
+
+  .aiNote {
+    margin-top: 10px;
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 1.7;
+  }
+
+  .aiCta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+    margin-top: 8px;
+  }
+
+  .aiBtn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 14px;
+    border-radius: 12px;
+    border: 1px solid rgba(26, 87, 255, 0.25);
+    background: rgba(26, 87, 255, 0.06);
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 13px;
+    transition: transform 160ms ease, background 160ms ease;
+  }
+
+  .aiBtn:hover {
+    transform: translateY(-1px);
+    background: rgba(26, 87, 255, 0.1);
+  }
+
+  @media (max-width: 720px) {
+    .aiHero {
+      padding: 22px 16px 14px;
+    }
+    .aiContent {
+      padding: 16px;
+    }
+    .aiGrid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+<article class="aiArticle">
+  <header class="aiHero">
+    <p class="aiKicker">
+      <span class="aiPill">ChatGPT仕事術</span>
+      <span>AIは嘘をつく？</span>
+    </p>
+    <h1>AIは“嘘をつく”というより<br />「それっぽく補完してしまう」</h1>
+    <p class="aiLead">
+      「AIは嘘をつく」と感じる瞬間の多くは、悪意のある嘘ではなく、情報の空白を
+      <b>自然な文章で“埋めてしまう”</b
+      >ことが原因です。この記事では「それっぽい補完」が起きる理由と、
+      補完を抑える具体的な使い方をまとめます。
+    </p>
+  </header>
+
+  <div class="aiContent">
+    <section>
+      <h2 class="aiSectionTitle">まず結論：AIは“断定口調の推測”を出しやすい</h2>
+      <div class="aiBox">
+        <p>
+          AIは文章生成が得意です。その反面、質問に情報が足りないと、会話として成立させるために
+          <b>もっともらしい推測（補完）</b>を出すことがあります。
+        </p>
+        <p class="aiNote">
+          文章が自然なほど「事実っぽく」見えてしまうのがポイント。ここで“嘘”と誤解されやすくなります。
+        </p>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="aiSectionTitle">「それっぽく補完」が起きる典型パターン</h2>
+      <div class="aiGrid">
+        <div class="aiCard">
+          <h3>① 質問が曖昧（条件不足）</h3>
+          <p>対象・期間・目的が曖昧だと、AIは空白を埋めて回答を作ります。</p>
+        </div>
+        <div class="aiCard">
+          <h3>② 数字・固有名詞が絡む</h3>
+          <p>
+            年号、金額、制度名、型番などは“それっぽい誤り”が出ると致命的になりがちです。
+          </p>
+        </div>
+        <div class="aiCard">
+          <h3>③ 根拠を求めていない</h3>
+          <p>
+            「出典も一緒に」などの指示が無いと、整った文章だけが先に出ます。
+          </p>
+        </div>
+        <div class="aiCard">
+          <h3>④ “最新情報”を聞く</h3>
+          <p>
+            ニュース、規約、料金、制度など変化する情報は、補完が起きやすい代表例です。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="aiSectionTitle">補完を抑える「使い方」：推測の余地を潰す</h2>
+      <ul class="aiList">
+        <li>
+          <b>ルール1：不明は“不明”と答えさせる</b>
+          <span
+            >「推測しない。不明なら不明と書き、追加で質問して」と先に宣言します。</span
+          >
+        </li>
+        <li>
+          <b>ルール2：「事実」と「推測」を分けて出力させる</b>
+          <span>見出しを分けるだけで、読み手側の事故が激減します。</span>
+        </li>
+        <li>
+          <b>ルール3：対象・期間・前提を固定する</b>
+          <span
+            >誰向け？いつの話？どの国・業界？などを明記すると補完が起きにくくなります。</span
+          >
+        </li>
+        <li>
+          <b>ルール4：重要項目は検証ステップ込みで</b>
+          <span
+            >数字・固有名詞・制度は「確認方法（一次情報の当たり先）」も一緒に出させます。</span
+          >
+        </li>
+      </ul>
+    </section>
+
+    <section>
+      <h2 class="aiSectionTitle">コピペで使える：補完させないプロンプト</h2>
+      <p>この一文を最初に貼るだけで、勝手な補完がかなり減ります。</p>
+
+      <div class="aiCode">
+        これから依頼します。
+        推測で補完せず、情報が足りない場合は「不明」と明記してください。
+        その上で、必要な追加質問を先にしてください。 出力ルール： - 事実 / 推測
+        / 確認が必要 な点を分けて書く -
+        数字・固有名詞・制度・規約は根拠（参照元/確認方法）も添える -
+        前提がズレていそうなら指摘する 最初にやること： 1)
+        依頼内容を1〜2行で要約（認識合わせ） 2)
+        追加で必要な情報を質問（箇条書き） 3) その後に作成に着手
+      </div>
+
+      <p class="aiNote">
+        ※仕事で使うなら「法的判断はしない」「社内情報は外に出さない」などの制約も追記するとさらに安全です。
+      </p>
+    </section>
+
+    <section>
+      <h2 class="aiSectionTitle">まとめ：AIは“嘘”より「空白埋め」を警戒する</h2>
+      <p>
+        AIは嘘をつこうとしているのではなく、足りない情報を“それっぽく”埋めてしまうことがあります。
+        だからこそ、ユーザー側が前提を固め、推測を禁止し、追加質問を引き出すだけで、
+        出力の品質と安心感は大きく改善します。
+      </p>
+
+      <!-- <div class="aiCta">
+        <a class="aiBtn" href="/contact">相談してみる</a>
+        <a class="aiBtn" href="/blog">他の記事を見る</a>
+      </div> -->
+    </section>
+  </div>
+</article>

@@ -1,0 +1,353 @@
+<style>
+  :root {
+    --paper: #ffffff;
+    --text: #111827;
+    --muted: #6b7280;
+    --line: #e5e7eb;
+    --accent: #1a57ff;
+    --bgSoft: rgba(17, 24, 39, 0.03);
+    --shadow: 0 14px 28px rgba(0, 0, 0, 0.08), 0 4px 10px rgba(0, 0, 0, 0.05);
+    --r: 16px;
+  }
+
+  .ywsArticle {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: var(--r);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+  }
+
+  .ywsHero {
+    padding: 28px 22px 18px;
+    background: radial-gradient(
+        900px 240px at 20% 10%,
+        rgba(26, 87, 255, 0.1),
+        transparent 60%
+      ),
+      radial-gradient(
+        900px 240px at 90% 0%,
+        rgba(0, 170, 255, 0.1),
+        transparent 55%
+      ),
+      linear-gradient(#fff, #fff);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .ywsKicker {
+    display: inline-flex;
+    gap: 8px;
+    align-items: center;
+    font-size: 12px;
+    color: var(--muted);
+    margin: 0 0 10px;
+  }
+
+  .ywsPill {
+    font-size: 11px;
+    padding: 3px 10px;
+    border-radius: 999px;
+    border: 1px solid rgba(26, 87, 255, 0.25);
+    color: var(--accent);
+    background: rgba(26, 87, 255, 0.06);
+    font-weight: 800;
+  }
+
+  .ywsHero h1 {
+    margin: 0 0 8px;
+    font-size: clamp(22px, 3.2vw, 34px);
+    letter-spacing: 0.01em;
+    line-height: 1.25;
+    color: var(--text);
+  }
+
+  .ywsLead {
+    margin: 0;
+    color: var(--muted);
+    max-width: 75ch;
+    line-height: 1.85;
+  }
+
+  .ywsContent {
+    padding: 22px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .ywsSectionTitle {
+    font-size: 18px;
+    margin: 0 0 8px;
+    color: var(--text);
+    letter-spacing: 0.01em;
+  }
+
+  .ywsContent p {
+    margin: 0;
+    color: var(--text);
+    line-height: 1.95;
+  }
+
+  .ywsCallout {
+    border: 1px solid rgba(26, 87, 255, 0.22);
+    background: rgba(26, 87, 255, 0.05);
+    border-radius: 14px;
+    padding: 14px;
+  }
+
+  .ywsCallout b {
+    color: var(--text);
+  }
+
+  .ywsList {
+    margin: 10px 0 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    gap: 10px;
+  }
+
+  .ywsList li {
+    background: var(--bgSoft);
+    border: 1px solid rgba(17, 24, 39, 0.06);
+    border-left: 3px solid rgba(26, 87, 255, 0.35);
+    border-radius: 12px;
+    padding: 10px 12px;
+  }
+
+  .ywsList b {
+    font-size: 13px;
+    color: var(--text);
+  }
+
+  .ywsList span {
+    font-size: 13px;
+    color: var(--muted);
+  }
+
+  .ywsSteps {
+    counter-reset: step;
+    display: grid;
+    gap: 10px;
+    margin: 10px 0 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .ywsSteps li {
+    counter-increment: step;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 12px 12px 12px 44px;
+    position: relative;
+    background: #fff;
+  }
+
+  .ywsSteps li::before {
+    content: counter(step);
+    position: absolute;
+    left: 12px;
+    top: 12px;
+    width: 22px;
+    height: 22px;
+    border-radius: 999px;
+    background: rgba(26, 87, 255, 0.1);
+    color: var(--accent);
+    display: grid;
+    place-items: center;
+    font-weight: 900;
+    font-size: 12px;
+  }
+
+  .ywsCode {
+    margin: 10px 0 0;
+    padding: 12px;
+    border-radius: 14px;
+    border: 1px solid var(--line);
+    background: #0b1220;
+    color: #e5e7eb;
+    overflow: auto;
+    font-size: 13px;
+    line-height: 1.8;
+    white-space: pre-wrap;
+    word-break: break-word;
+  }
+
+  .ywsNote {
+    margin-top: 10px;
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.75;
+  }
+
+  @media (max-width: 720px) {
+    .ywsHero {
+      padding: 22px 16px 14px;
+    }
+    .ywsContent {
+      padding: 16px;
+    }
+  }
+</style>
+
+<article class="ywsArticle">
+  <header class="ywsHero">
+    <p class="ywsKicker">
+      <span class="ywsPill">News</span><span>「ChatGPT仕事術」</span>
+    </p>
+    <h1>ChatGPTに「質問させる」技術。<br />完成度を上げる一番ラクな方法</h1>
+    <p class="ywsLead">
+      「〜についてのレポートを作ってください」と頼むだけだと、良くも悪くも“それっぽい”仕上がりになりがちです。
+      仕事で使える品質にするコツは、<b>先にChatGPTへ質問させて、必要情報を揃えてから作らせる</b>こと。
+      この記事では、そのやり方をテンプレ付きで紹介します。
+    </p>
+  </header>
+
+  <div class="ywsContent">
+    <section>
+      <h2 class="ywsSectionTitle">なぜ「質問させる」と精度が上がるのか</h2>
+      <p>
+        ChatGPTは、与えられた情報（前提・目的・条件）を材料に文章を組み立てます。
+        逆に言うと、情報が足りないと、一般論や推測に寄った内容になりやすいです。
+        だから最初に<b>不足情報を洗い出す質問</b>をさせると、材料が揃って品質が安定します。
+      </p>
+
+      <div class="ywsCallout" style="margin-top: 12px">
+        <p style="margin: 0; line-height: 1.9">
+          <b>ポイント：</b>「作って」ではなく、<br />
+          ①必要な情報を列挙させる → ②質問させる → ③回答する → ④作らせる<br />
+          の順にするだけで、成果物の完成度が上がります。
+        </p>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="ywsSectionTitle">基本フロー（この順番だけ覚えればOK）</h2>
+      <ol class="ywsSteps">
+        <li><b>目的とゴール</b>を伝える（何のために、誰が使うか）</li>
+        <li>ChatGPTに<b>必要情報のチェックリスト</b>を作らせる</li>
+        <li>
+          そのチェックリストを元に<b>質問を出させる</b>（不足だけ・優先度付き）
+        </li>
+        <li>答えられる範囲で回答し、足りない箇所は「未定」と宣言</li>
+        <li>最後に<b>完成物を生成</b>（出力形式・文字数・トーン指定）</li>
+      </ol>
+    </section>
+
+    <section>
+      <h2 class="ywsSectionTitle">
+        テンプレ①：まず「必要情報の一覧」を作らせる
+      </h2>
+      <p>
+        これは最強です。レポートでも提案書でも、まず「必要な情報」を出させます。
+        あなたはそれに答えるだけで、ChatGPTが“材料不足”で迷子になりません。
+      </p>
+
+      <pre class="ywsCode">
+あなたは（職種/役割）です。
+これから「◯◯についてのレポート」を作ります。
+
+まずレポートの完成度を上げるために、
+私が提供すべき情報を「カテゴリ別」に箇条書きで一覧化してください。
+その後、質問を作る前に、重要度が高い順に並べてください。
+
+・目的：
+・想定読者：
+・用途（社内共有/顧客提出/提案資料など）：
+・制約（文字数、期限、トーン、禁止事項）：
+・欲しいアウトプット形式：</pre
+      >
+
+      <p class="ywsNote">
+        ※ここで“質問”までいきなり出さず、まず「必要情報のカテゴリ」を整えると、抜け漏れが減ります。
+      </p>
+    </section>
+
+    <section>
+      <h2 class="ywsSectionTitle">テンプレ②：質問を「優先度付き」で出させる</h2>
+      <p>
+        質問が多すぎるとダルいので、<b>優先度（必須/できれば/任意）</b>を付けさせるのがコツです。
+      </p>
+
+      <pre class="ywsCode">
+次に、先ほどの必要情報を埋めるための質問を作ってください。
+条件：
+- 質問は「必須」「できれば」「任意」の3段階で分類
+- まず必須だけ10問以内に絞る
+- 各質問に「なぜ必要か（1行）」を添える
+- 私が不明な場合は「未定」で進められる代替案も提示</pre
+      >
+    </section>
+
+    <section>
+      <h2 class="ywsSectionTitle">テンプレ③：回答が揃ったらレポートを生成</h2>
+      <pre class="ywsCode">
+では、私の回答をもとにレポートを作成してください。
+
+出力条件：
+- 見出し構成（h2/h3相当）で整理
+- 結論→根拠→事例→リスク/注意点→次のアクション の順
+- 文字数：◯◯程度
+- トーン：ビジネス向け/丁寧/簡潔
+- 「不明・未定」の箇所は推測せず、未定として明記</pre
+      >
+    </section>
+
+    <section>
+      <h2 class="ywsSectionTitle">
+        実例：レポート依頼を「質問させる依頼」に変換する
+      </h2>
+      <ul class="ywsList">
+        <li>
+          <b>NG（よくある）：</b>
+          <span>「生成AIの導入についてレポート作って」</span>
+        </li>
+        <li>
+          <b>OK（質問させる）：</b>
+          <span
+            >「導入レポートを作りたい。必要情報の一覧と、必須質問10個を先に出して」</span
+          >
+        </li>
+      </ul>
+
+      <p class="ywsNote">
+        この“逆質問モード”を使うと、ChatGPTが勝手に前提を作ってしまうのを防げます。
+      </p>
+    </section>
+
+    <section>
+      <h2 class="ywsSectionTitle">仕事での応用例（すぐ使える）</h2>
+      <ul class="ywsList">
+        <li>
+          <b>要件定義：</b>
+          <span>「要件を固めたい。抜け漏れ防止の質問リストを出して」</span>
+        </li>
+        <li>
+          <b>見積作成：</b>
+          <span>「見積に必要な前提条件を洗い出して、確認項目にして」</span>
+        </li>
+        <li>
+          <b>提案書：</b>
+          <span>「提案書に必要な材料（課題/現状/制約/競合）を質問して」</span>
+        </li>
+        <li>
+          <b>運用設計：</b>
+          <span>「運用フローを作る。例外ケースの質問を優先度付きで」</span>
+        </li>
+      </ul>
+    </section>
+
+    <section>
+      <h2 class="ywsSectionTitle">まとめ</h2>
+      <p>
+        ChatGPTを“回答マシン”として使うより、<b>ヒアリング担当として使う</b>ほうが仕事の質は上がります。
+        「必要情報の一覧」→「優先度付き質問」→「回答」→「生成」の順番をテンプレ化して、
+        毎回の手戻りを減らしていきましょう。
+      </p>
+      <p class="ywsNote">
+        次回は、実際に「質問フェーズ」を最短で終わらせるための“質問の絞り込み”や、
+        回答がないときの進め方（仮定の置き方）もまとめます。
+      </p>
+    </section>
+  </div>
+</article>

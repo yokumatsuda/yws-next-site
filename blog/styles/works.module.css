@@ -25,11 +25,11 @@
 }
 
 .excerptWrapper {
-  padding: 12px;
+  padding: 12px 12px 16px 12px;
 }
 
 .worksTitle {
-  padding: 0 20px 0 20px;
+  padding: 0 0px 0 0px;
   font-size: 32px;
   margin-bottom: 20px;
 }
@@ -69,16 +69,15 @@
 .work .publishDate {
   font-size: 14px;
   color: #666;
-  margin-top: 5px;
-  margin-bottom: 5px;
 }
 
 .excerpt {
   font-size: 14px;
   color: #666;
-  margin: 8px 0;
+  margin: 8px 0 0 0;
   line-height: 1.4;
 }
+
 @media (max-width: 1023px) {
   .gridContainer {
     grid-template-columns: repeat(2, 1fr);
@@ -92,8 +91,11 @@
 }
 
 @media (max-width: 480px) {
+  .gridContainer {
+    grid-template-columns: 1fr;
+  }
   .excerptWrapper {
-    padding: 8px;
+    padding: 14px 10px 14px 10px;
   }
 }
 

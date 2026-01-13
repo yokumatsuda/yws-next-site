@@ -82,6 +82,7 @@ export default function Services() {
                 />
               </div>
             </figure>
+
             <h3 className={styles.cardTitle}>事務作業代行</h3>
             <p className={`${styles.cardDesc} ${styles.cardDescDesktop}`}>
               勤怠データの集計や給与計算に必要なデータ整理・入力を代行。当事業所の自動化システムで結果をスピーディーに返却します。

@@ -4,23 +4,27 @@ import Container from "components/container";
 import PostHeader from "components/post-header";
 import WorksPosts from "components/works-posts";
 // import { getPlaiceholder } from "plaiceholder";
+import HeroWorksPost from "@/components/HeroWorksPost";
 
 // ローカルの代替アイキャッチ画像
 import { eyecatchLocal } from "lib/constants";
 
 export default function Category({ name, works }) {
   return (
-    <Container>
-      <Meta pageTitle={name} pageDesc={`${name}に関する記事`} />
-      <PostHeader title={name} subtitle="Work Category" />
-      <WorksPosts works={works} />
-    </Container>
+    <>
+      <HeroWorksPost />
+      <Container>
+        <Meta pageTitle={name} pageDesc={`${name}に関する記事`} />
+        <PostHeader title={name} subtitle="" />
+        <WorksPosts works={works} />
+      </Container>
+    </>
   );
 }
 
 export async function getStaticPaths() {
   const allCats = await getAllWorkCategories();
-  
+
   return {
     paths: allCats.map(({ slug }) => `/works/category/${slug}`),
     fallback: false,
@@ -42,7 +46,6 @@ export async function getStaticProps(context) {
     // const { base64 } = await getPlaiceholder(post.eyecatch.url);
     // post.eyecatch.blurDataURL = base64;
   }
-  
 
   return {
     props: {

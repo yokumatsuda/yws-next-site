@@ -12,7 +12,7 @@ import Pagination from "components/pagination";
 import Image from "next/image";
 import { eyecatchLocal } from "lib/constants";
 import styles from "styles/cmsWrapper.module.css";
-import HeroPosts from "@/components/HeroWorksPost";
+import HeroWorksPost from "@/components/HeroWorksPost";
 
 export default function WorkDetail({
   title,
@@ -27,7 +27,7 @@ export default function WorkDetail({
 }) {
   return (
     <>
-      <HeroPosts />
+      <HeroWorksPost />
       <Container>
         <Meta
           pageTitle={title}

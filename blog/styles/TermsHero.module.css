@@ -1,9 +1,7 @@
 .termsHero {
   position: relative; /* オーバーレイの配置に必要 */
-  background: url("https://ywd-digital-contents.s3.ap-northeast-1.amazonaws.com/yws-wp/services/dx-image25.jpeg")
-    center/cover no-repeat;
-
-  padding: 60px 20px;
+  background: url("/services-img/Hero-news.jpeg") center/cover no-repeat;
+  padding: 120px 20px 60px 20px;
   text-align: center;
 }
 
@@ -41,4 +39,26 @@
   font-size: 14px;
   line-height: 1.6;
   color: #fff;
+}
+
+@media (max-width: 1024px) {
+}
+
+@media (max-width: 1023px) {
+}
+
+@media (max-width: 820px) {
+}
+
+@media (max-width: 768px) {
+}
+
+@media (max-width: 767px) {
+}
+
+@media (max-width: 480px) {
+  .heroContainer h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
 }

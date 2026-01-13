@@ -11,7 +11,7 @@
 .postImgLinkImage {
   display: inline-block;
 
-  /* overflow: hidden; */
+  overflow: hidden;
   transform: translateZ(0);
   transition: transform 220ms ease;
 }
