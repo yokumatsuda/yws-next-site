@@ -148,6 +148,22 @@ export default function HeroSection() {
     return () => observer.disconnect();
   }, []);
 
+  // 追加：次のスライドの動画を事前に読み込む（先読み）
+
+  useEffect(() => {
+    const nextIndex = currentSlide >= sliderData.length - 1 ? 0 : currentSlide + 1;
+
+    const nextVideo = videoRefs.current[nextIndex]?.current;
+    const nextSrc = (isMobile && sliderData[nextIndex].mobileSrc) || sliderData[nextIndex].mediaSrc;
+
+    // まだ src が無い動画だけ先読み
+    if (nextVideo && !nextVideo.src) {
+      nextVideo.src = nextSrc;
+      nextVideo.load();
+      // ここでは再生しない（先読みだけ）
+    }
+  }, [currentSlide, isMobile]);
+
   // スライド切り替え時に動画頭出し
   useEffect(() => {
     const videoRef = videoRefs.current[currentSlide].current;
