@@ -1,20 +1,41 @@
 .mySlider1Card {
   position: absolute;
-  overflow: hidden;
+  width: 80%;
+  height: 85%;
+  border-radius: 12px;
+  overflow: hidden; /* これが重要：はみ出しを切り取る */
+  background-color: #fff;
 }
 
-/* 背景動画 */
-.cardBgVideo {
+.bgVideo {
+  position: absolute;
+  inset: -3px;
+  width: calc(100% + 6px);
+  height: calc(100% + 6px);
+  z-index: 0;
+  pointer-events: none;
+
+  object-fit: contain;
+  object-position: right center;
+
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+.bgVideo {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover; /* blobっぽいなら contain でもOK */
   z-index: 0;
-}
+  pointer-events: none;
 
-/* 文字を前面に */
-.mySlider1CardContent {
-  position: relative;
-  z-index: 1;
+  object-fit: contain;
+  object-position: right center;
+
+  /* ✅ これが効く */
+  transform: scale(1.03) translateZ(0);
+  transform-origin: right center;
+  backface-visibility: hidden;
+  will-change: transform;
 }

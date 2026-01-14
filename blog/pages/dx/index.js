@@ -45,8 +45,8 @@ function dx() {
       textMobile: "デジタル書類管理で業務を効率化",
       buttonText: "詳しく見る",
 
-      bgVideoMp4: "/services-img/slider-video/dx-blob1.mp4",
-      bgVideoWebm: "/services-img/slider-video/dx-blob1.webm",
+      bgVideoMp4: "/services-img/slider-video/dx-blob11.mp4",
+      bgVideoWebm: "/services-img/slider-video/dx-blob11.webm",
       poster: "/services-img/slider-video/dx-blob1.webp",
 
       scrollTargetId: "efficiencySection",
@@ -657,15 +657,18 @@ function dx() {
                 if (el) cardRefs.current[i] = el;
               }}
             >
-              {/* ✅ 背景動画レイヤー */}
               <video
-                ref={videoRefs.current[i]}
-                className={styles.cardBgVideo}
-                loop
+                className={styles.bgVideo}
+                autoPlay
                 muted
+                loop
                 playsInline
-                preload="metadata"
-              />
+                preload={i === 0 ? "auto" : "metadata"}
+                poster={slide.poster}
+              >
+                <source src={slide.bgVideoWebm} type="video/webm" />
+                <source src={slide.bgVideoMp4} type="video/mp4" />
+              </video>
 
               <div className={styles.mySlider1CardContent}>
                 <h2 className={styles.slideTitleDesktop}>{slide.title}</h2>
