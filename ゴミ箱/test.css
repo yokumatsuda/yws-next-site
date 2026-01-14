@@ -1,20 +1,27 @@
-.mySlider1Card {
-  position: absolute;
-  overflow: hidden;
-}
-
-/* 背景動画 */
-.cardBgVideo {
+.bgVideo {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover; /* blobっぽいなら contain でもOK */
   z-index: 0;
+  pointer-events: none;
+  object-fit: contain;
+  object-position: right center;
 }
 
-/* 文字を前面に */
-.mySlider1CardContent {
-  position: relative;
-  z-index: 1;
+.bgVideo {
+  object-fit: contain;
+}
+
+.bgVideo {
+  position: absolute;
+  inset: -2px; /* ← はみ出させる */
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  z-index: 0;
+  pointer-events: none;
+  object-fit: contain;
+  object-position: right center;
+  transform: translateZ(0); /* ← 描画安定化（効くことが多い） */
+  backface-visibility: hidden;
 }
