@@ -1,5 +1,24 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState, createRef } from "react";
 import styles from "styles/details.module.css";
+
+/** mp4/webm を video に差し込んで load する（重複ロード防止） */
+function setBgVideoSources(videoEl, { mp4, webm, poster }, preload = "metadata") {
+  if (!videoEl) return;
+  if (videoEl.dataset.mp4 === mp4) return; // 同じなら何もしない
+
+  // source を差し込む（WebM→MP4）
+  const sources = `
+    ${webm ? `<source src="${webm}" type="video/webm" />` : ""}
+    ${mp4 ? `<source src="${mp4}" type="video/mp4" />` : ""}
+  `.trim();
+
+  videoEl.innerHTML = sources;
+  if (poster) videoEl.setAttribute("poster", poster);
+
+  videoEl.preload = preload;
+  videoEl.dataset.mp4 = mp4 || "";
+  videoEl.load();
+}
 
 function dx() {
   /* =============================
@@ -11,7 +30,12 @@ function dx() {
       text: "DXを推進することで、紙の業務から脱却し、デジタル化と業務最適化を加速。",
       textMobile: "デジタル化と業務最適化を加速",
       buttonText: "詳しく見る",
-      bgImage: "/services-img/slider/dx-blob3.gif",
+
+      bgVideoMp4: "/services-img/slider-video/dx-blob3.mp4",
+      bgVideoWebm: "/services-img/slider-video/dx-blob3.webm",
+      // ✅ 黒画面対策
+      poster: "/services-img/slider-video/dx-blob3.webp",
+
       scrollTargetId: "dxSection",
     },
     {
@@ -20,7 +44,11 @@ function dx() {
       text: "DXを活用し、電子契約やデジタル書類管理を導入すれば、業務フローが簡素化されます。",
       textMobile: "デジタル書類管理で業務を効率化",
       buttonText: "詳しく見る",
-      bgImage: "/services-img/slider/dx-blob1.gif",
+
+      bgVideoMp4: "/services-img/slider-video/dx-blob1.mp4",
+      bgVideoWebm: "/services-img/slider-video/dx-blob1.webm",
+      poster: "/services-img/slider-video/dx-blob1.webp",
+
       scrollTargetId: "efficiencySection",
     },
     {
@@ -28,7 +56,11 @@ function dx() {
       text: "AIやOCRで紙の書類を自動データ化し、分類・検索も瞬時に完了。業務効率と生産性を同時に向上させます。",
       textMobile: "AI/OCRで書類を自動データ化",
       buttonText: "詳しく見る",
-      bgImage: "/services-img/slider/dx-blob2.gif",
+
+      bgVideoMp4: "/services-img/slider-video/dx-blob2.mp4",
+      bgVideoWebm: "/services-img/slider-video/dx-blob2.webm",
+      poster: "/services-img/slider-video/dx-blob2.webp",
+
       scrollTargetId: "paperlessSection",
     },
   ];
@@ -38,6 +70,9 @@ function dx() {
   // DOM参照
   const cardRefs = useRef([]);
   const dotRefs = useRef([]);
+
+  // ✅ 背景 video の参照（スライド数ぶん）
+  const videoRefs = useRef(slides.map(() => createRef()));
 
   // オートスクロール
   const autoScrollRef = useRef(null);
@@ -50,6 +85,36 @@ function dx() {
 
   useEffect(() => {
     loadShowSlideDOM(currentIndex);
+    // ✅ 表示スライド（中央）だけ再生し、左右は先読みして停止
+    const newIndex = (currentIndex + slides.length) % slides.length;
+    const center = newIndex;
+    const left = (newIndex - 1 + slides.length) % slides.length;
+    const right = (newIndex + 1) % slides.length;
+
+    // 中央/左右を先に source セット（黒画面を減らす）
+    [center, left, right].forEach((idx) => {
+      const v = videoRefs.current[idx]?.current;
+      const s = slides[idx];
+      if (!v) return;
+      setBgVideoSources(
+        v,
+        { mp4: s.bgVideoMp4, webm: s.bgVideoWebm, poster: s.poster },
+        idx === center ? "auto" : "metadata"
+      );
+    });
+
+    // 再生制御：中央だけ play、他は pause
+    slides.forEach((_, idx) => {
+      const v = videoRefs.current[idx]?.current;
+      if (!v) return;
+      if (idx === center) {
+        v.currentTime = 0;
+        v.play().catch(() => {});
+      } else {
+        v.pause();
+      }
+    });
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentIndex]);
 
@@ -122,7 +187,6 @@ function dx() {
   /** オートスクロール */
   function startAutoScroll() {
     stopAutoScroll();
-    // クリック直後に1枚進む挙動は元コード踏襲
     setCurrentIndex((prev) => prev + 1);
 
     const id = window.setInterval(() => {
@@ -157,10 +221,8 @@ function dx() {
 
     if (Math.abs(xDiff) > threshold) {
       if (xDiff > 0) {
-        // 左スワイプ
         setCurrentIndex((prev) => prev + 1);
       } else {
-        // 右スワイプ
         setCurrentIndex((prev) => prev - 1);
       }
       xDownRef.current = null;
@@ -577,11 +639,10 @@ function dx() {
   }
 
   /* =============================
-   * 3) JSX レンダリング
+   * 3) JSX レンダリング（スライダー部）
    * ============================= */
   return (
     <>
-      {/* ========== スライダーエリア ========== */}
       <div id="my-slider1-wrapper" className={styles.Container}>
         <div
           className={styles.mySlider1Container}
@@ -592,21 +653,22 @@ function dx() {
             <div
               key={i}
               className={styles.mySlider1Card}
-              style={{
-                backgroundImage: slide.bgImage ? `url(${slide.bgImage})` : undefined,
-              }}
               ref={(el) => {
                 if (el) cardRefs.current[i] = el;
               }}
             >
-              {/* ★ここが「CSSオーバーレイ用レイヤー」 */}
-              {/* <div className={styles.cardOverlay} /> */}
+              {/* ✅ 背景動画レイヤー */}
+              <video
+                ref={videoRefs.current[i]}
+                className={styles.cardBgVideo}
+                loop
+                muted
+                playsInline
+                preload="metadata"
+              />
 
               <div className={styles.mySlider1CardContent}>
-                {/* PC用タイトル */}
                 <h2 className={styles.slideTitleDesktop}>{slide.title}</h2>
-
-                {/* モバイル用タイトル（配列なら改行して表示） */}
                 <h2 className={styles.slideTitleMobile}>
                   {Array.isArray(slide.titleMobile)
                     ? slide.titleMobile.map((line, idx) => (
@@ -618,7 +680,6 @@ function dx() {
                     : slide.titleMobile ?? slide.title}
                 </h2>
 
-                {/* ✅ PC用（長い文） */}
                 <p className={styles.slideTextDesktop}>
                   {slide.text.split("\n").map((part, idx) => (
                     <React.Fragment key={idx}>
