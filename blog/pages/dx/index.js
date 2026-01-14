@@ -45,8 +45,8 @@ function dx() {
       textMobile: "デジタル書類管理で業務効率化",
       buttonText: "詳しく見る",
 
-      bgVideoMp4: "/services-img/slider-video/dx-blob11.mp4",
-      bgVideoWebm: "/services-img/slider-video/dx-blob11.webm",
+      bgVideoMp4: "/services-img/slider-video/dx-blob1.mp4",
+      bgVideoWebm: "/services-img/slider-video/dx-blob1.webm",
       poster: "/services-img/slider-video/dx-blob1.webp",
 
       scrollTargetId: "efficiencySection",
