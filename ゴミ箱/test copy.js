@@ -1,64 +1,27 @@
-// index.js
-import { useEffect, useRef, useState } from "react";
-import Loading from "components/loading";
-import Meta from "components/meta";
-import Container from "components/container";
-import Hero from "components/hero";
-import Posts from "components/posts";
-import WorksPosts from "components/works-posts";
-import Pagination from "components/pagination";
-import Services from "components/services";
-import { eyecatchLocal } from "lib/constants";
-import { getAllPosts, getAllWorks } from "lib/api";
+<div
+  key={i}
+  className={styles.mySlider1Card}
+  ref={(el) => {
+    if (el) cardRefs.current[i] = el;
+  }}
+>
+  {/* 背景動画（GIFの置き換え） */}
+  <video
+    className={styles.bgVideo}
+    autoPlay
+    muted
+    loop
+    playsInline
+    preload={i === 0 ? "auto" : "metadata"} // 最初だけ少し強め
+    poster={slide.poster} // 黒画面対策（任意だけど超おすすめ）
+  >
+    {/* webmがあるなら先に */}
+    <source src={slide.bgVideoWebm} type="video/webm" />
+    <source src={slide.bgVideoMp4} type="video/mp4" />
+  </video>
 
-export default function Home({ works, posts }) {
-  // ✅ ローディングは「Heroの準備完了」で消す
-  const [loading, setLoading] = useState(true);
-
-  // チラつき防止：最低表示時間
-  const startedAt = useRef(Date.now());
-  const MIN_MS = 600;
-
-  // 保険：最大表示時間（何があっても消す）
-  const MAX_MS = 4000;
-  useEffect(() => {
-    const t = setTimeout(() => setLoading(false), MAX_MS);
-    return () => clearTimeout(t);
-  }, []);
-
-  // Heroから呼ばれる関数（最初の動画がcanplayになったら呼ばれる）
-  const handleHeroReady = () => {
-    const elapsed = Date.now() - startedAt.current;
-    const wait = Math.max(0, MIN_MS - elapsed);
-    setTimeout(() => setLoading(false), wait);
-  };
-
-  return (
-    <>
-      <Loading show={loading} />
-
-      {/* ✅ Heroに onHeroReady を渡す */}
-      <Hero
-        title="YWS"
-        subtitle="アウトプットしていくサイト"
-        imageOn
-        onHeroReady={handleHeroReady}
-      />
-
-      {!loading && (
-        <Container>
-          <Meta
-            pageTitle="金沢市ホームページ制作"
-            pageDesc="金沢市でのWebサイト制作ならY = YWS。モダンなWebサイト・システム構築・DX支援を提供します"
-          />
-
-          <Services />
-          <WorksPosts works={works} />
-          <Pagination nextUrl="/works" nextText="More Works" />
-          <Posts posts={posts} />
-          <Pagination nextUrl="/blog" nextText="More Posts" />
-        </Container>
-      )}
-    </>
-  );
-}
+  <div className={styles.mySlider1CardContent}>
+    {/* ここは今まで通り */}
+    ...
+  </div>
+</div>;
