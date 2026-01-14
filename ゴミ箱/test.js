@@ -36,7 +36,6 @@ export default function Dx() {
       buttonText: "詳しく見る",
 
       bgVideoMp4: "/services-img/slider/dx-blob3.mp4",
-
       bgVideoWebm: "/services-img/slider/dx-blob3.webm",
       // ✅ 黒画面対策
       poster: "/services-img/slider/dx-blob3.webp",
@@ -49,9 +48,11 @@ export default function Dx() {
       text: "DXを活用し、電子契約やデジタル書類管理を導入すれば、業務フローが簡素化されます。",
       textMobile: "デジタル書類管理で業務を効率化",
       buttonText: "詳しく見る",
+
       bgVideoMp4: "/services-img/slider/dx-blob1.mp4",
       bgVideoWebm: "/services-img/slider/dx-blob1.webm",
       poster: "/services-img/slider/dx-blob1.webp",
+
       scrollTargetId: "efficiencySection",
     },
     {
@@ -59,9 +60,11 @@ export default function Dx() {
       text: "AIやOCRで紙の書類を自動データ化し、分類・検索も瞬時に完了。業務効率と生産性を同時に向上させます。",
       textMobile: "AI/OCRで書類を自動データ化",
       buttonText: "詳しく見る",
+
       bgVideoMp4: "/services-img/slider/dx-blob2.mp4",
       bgVideoWebm: "/services-img/slider/dx-blob2.webm",
       poster: "/services-img/slider/dx-blob2.webp",
+
       scrollTargetId: "paperlessSection",
     },
   ];
