@@ -1,0 +1,20 @@
+.mySlider1Card {
+  position: absolute;
+  overflow: hidden;
+}
+
+/* 背景動画 */
+.cardBgVideo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* blobっぽいなら contain でもOK */
+  z-index: 0;
+}
+
+/* 文字を前面に */
+.mySlider1CardContent {
+  position: relative;
+  z-index: 1;
+}
