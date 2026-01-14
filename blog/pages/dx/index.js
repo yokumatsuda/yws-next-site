@@ -42,7 +42,7 @@ function dx() {
       title: "業務効率化・自動化",
       titleMobile: ["業務効率化・", "自動化"],
       text: "DXを活用し、電子契約やデジタル書類管理を導入すれば、業務フローが簡素化されます。",
-      textMobile: "デジタル書類管理で業務を効率化",
+      textMobile: "デジタル書類管理で業務効率化",
       buttonText: "詳しく見る",
 
       bgVideoMp4: "/services-img/slider-video/dx-blob11.mp4",

@@ -57,15 +57,13 @@ body {
 
 .bgVideo {
   position: absolute;
-  inset: -2px; /* ← はみ出させる */
-  width: calc(100% + 4px);
-  height: calc(100% + 4px);
+  inset: 0;
+  width: 100%;
+  height: 100%;
   z-index: 0;
   pointer-events: none;
-  object-fit: cover;
+  object-fit: contain;
   object-position: right center;
-  transform: translateZ(0); /* ← 描画安定化（効くことが多い） */
-  backface-visibility: hidden;
 }
 
 /* スライド内部テキスト */
@@ -488,6 +486,16 @@ body {
   }
 
   .bgVideo {
+    position: absolute;
+    inset: -2px; /* ← はみ出させる */
+    width: calc(105% + 2px);
+    height: calc(105% + 2px);
+    z-index: 0;
+    pointer-events: none;
+    object-fit: cover;
+    object-position: right center;
+    transform: translateZ(0); /* ← 描画安定化（効くことが多い） */
+    backface-visibility: hidden;
   }
 
   .mySlider1Card {
