@@ -111,7 +111,7 @@ const Header2 = () => {
             <Link href="/contact">Contact</Link>
           </li>
           <li className={styles.hideOnMobile}>
-            <Link href="/use">ご利用の流れ</Link>
+            <Link href="/works">Works</Link>
           </li>
         </ul>
       </nav>

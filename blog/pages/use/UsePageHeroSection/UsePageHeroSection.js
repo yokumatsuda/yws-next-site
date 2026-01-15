@@ -1,11 +1,18 @@
+import Image from "next/image";
 import styles from "./UsePageHeroSection.module.css";
 
 function UsePageHeroSection() {
   return (
     <section className={styles.heroSection}>
-      {/* 画像（右側 / モバイル時はトップ） */}
       <div className={styles.heroImage}>
-        <img src="/services-img/use/HeroSection_img3.jpeg" alt="About Us" />
+        <Image
+          src="/services-img/use/HeroSection_img3.jpeg"
+          alt="LET US WORK FOR YOU"
+          fill
+          priority
+          sizes="(max-width: 1024px) 100vw, 50vw"
+          style={{ objectFit: "cover" }} // containにしたいなら "contain"
+        />
       </div>
 
       {/* テキスト（左側） */}
@@ -14,11 +21,11 @@ function UsePageHeroSection() {
         <p className={styles.subtitle}>簡単ステップで、すぐにサービスをご利用いただけます。</p>
 
         <div className={styles.buttonGroup}>
-          <a href="/contact" className={styles.heroButton}>
-            お問い合わせ
+          <a href="/use#usage" className={styles.heroButton}>
+            ご利用の流れ
           </a>
-          <a href="/about" className={styles.heroButton}>
-            事業所紹介
+          <a href="/use#contact" className={styles.heroButton}>
+            お問い合わせ
           </a>
           <a href="/#sectionTitle1" className={styles.heroButton}>
             Home

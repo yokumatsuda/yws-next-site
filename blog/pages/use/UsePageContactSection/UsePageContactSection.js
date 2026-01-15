@@ -3,7 +3,7 @@ import styles from "./UsePageContactSection.module.css";
 function UsePageContactSection() {
   return (
     <div className={styles.UsePageContactSection}>
-      <section className={styles.ContactSection}>
+      <section className={styles.ContactSection} id="contact">
         <h2 className={styles.sectionTitle}>基本情報 / お問い合わせ</h2>
 
         {/* 基本情報 */}
@@ -50,7 +50,7 @@ function UsePageContactSection() {
           {/* お問い合わせボタン */}
           <div className={styles.buttonContainer}>
             <a href="/contact" className={styles.contactButton}>
-              お問い合わせはこちら
+              お問い合わせフォーム
             </a>
           </div>
         </div>

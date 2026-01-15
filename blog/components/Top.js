@@ -1,11 +1,18 @@
+import Image from "next/image";
 import styles from "../styles/Top.module.css";
 
 function Top() {
   return (
     <section className={styles.heroSection} id="top">
-      {/* 画像（右側 / モバイル時はトップ） */}
       <div className={styles.heroImage}>
-        <img src="/services-img/dx-image4.jpeg" alt="About Us" />
+        <Image
+          src="/services-img/dx-image4.jpeg"
+          alt="About Us"
+          fill
+          priority
+          sizes="(max-width: 1024px) 100vw, 50vw"
+          style={{ objectFit: "cover" }}
+        />
       </div>
 
       {/* テキスト（左側） */}
@@ -13,14 +20,14 @@ function Top() {
         <h1 className={styles.pageTitle}>ITをもっと簡単に</h1>
         <p className={styles.subtitle}>誰でも簡単に導入できる ITソリューションを提供します。</p>
         <div className={styles.buttonGroup}>
-          <a href="/contact" className={styles.heroButton}>
+          <a href="/about#greeting" className={styles.heroButton}>
+            代表挨拶
+          </a>
+          <a href="/about#services" className={styles.heroButton}>
+            事業内容
+          </a>
+          <a href="/about#info" className={styles.heroButton}>
             お問い合わせ
-          </a>
-          <a href="/use" className={styles.heroButton}>
-            ご利用の流れ
-          </a>
-          <a href="/#sectionTitle1" className={styles.heroButton}>
-            Home
           </a>
         </div>
       </div>

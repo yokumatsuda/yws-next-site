@@ -47,15 +47,18 @@
   color: red;
 }
 
-/* フォーム行 (姓・名を横並びにする例) */
 .formRow {
   display: flex;
   gap: 10px;
 }
 
+.formRow > .contactInput {
+  min-width: 0; /* ✅ これが重要 */
+}
+
 /* テキスト入力 */
 .contactInput {
-  flex: 1; /* 同じ行なら均等に広がる */
+  flex: 1;
   padding: 8px;
   font-size: 1rem;
   border: 1px solid #ccc;

@@ -61,7 +61,7 @@ function UsePageIntroSection() {
   }, []);
 
   return (
-    <section className={styles.flowContainer}>
+    <section className={styles.flowContainer} id="usage">
       <h2 className={styles.flowTitle}>ご利用の流れ</h2>
 
       {/* タイムライン本体（縦の線） */}
