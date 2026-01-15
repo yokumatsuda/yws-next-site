@@ -354,7 +354,8 @@ body {
 @media (max-width: 1024px) {
   .Container {
     padding-top: 0px;
-    height: 60vh;
+    /* height: 60vh; */
+    height: 600px;
   }
 
   .mySlider1Card {
@@ -395,7 +396,8 @@ body {
 @media (max-width: 992px) {
   .Container {
     padding-top: 0px;
-    height: 60vh;
+    /* height: 60vh; */
+    height: 480px;
   }
 
   .mySlider1Card {
@@ -468,8 +470,8 @@ body {
 @media (max-width: 480px) {
   .Container {
     padding-top: 0px;
-    height: 55vh;
-    /* height: 350px; */
+    /* height: 55vh; */
+    height: 380px;
   }
 
   .mySlider1Container {
