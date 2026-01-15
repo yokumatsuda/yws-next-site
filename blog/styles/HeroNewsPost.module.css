@@ -37,6 +37,11 @@
 @media (max-width: 500px) {
   .heroSection {
     height: 45vh;
+    background-image: url("/services-img/HeroNews-mobile.png");
+    margin-top: 50px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
   }
 
   .heroContent {
