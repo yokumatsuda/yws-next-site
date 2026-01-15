@@ -1,7 +1,8 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState, createRef } from "react";
 import styles from "styles/details.module.css";
+import setBgVideoSources from "components/setBgVideoSources";
 
 export default function SystemPage() {
   /* =============================
@@ -13,7 +14,12 @@ export default function SystemPage() {
       text: "業務システム・管理システムの開発を通じて、業務の効率化とデジタル化を推進します。",
       textMobile: "業務の効率化とデジタル化",
       buttonText: "詳しく見る",
-      bgImage: "/services-img/slider/system-blob3.gif",
+
+      bgVideoMp4: "/services-img/slider-video/office-blob3.mp4",
+      bgVideoWebm: "/services-img/slider-video/office-blob3.webm",
+      // ✅ 黒画面対策
+      poster: "/services-img/slider-video/office-blob3.webp",
+
       scrollTargetId: "dxSection", // ← システム開発 へスクロール
     },
     {
@@ -21,7 +27,12 @@ export default function SystemPage() {
       text: "Webアプリ・スマホアプリの開発を行い、直感的な操作性と高いパフォーマンスを提供します。",
       textMobile: "Webアプリ・スマホアプリの開発",
       buttonText: "詳しく見る",
-      bgImage: "/services-img/slider/system-blob1.gif",
+
+      bgVideoMp4: "/services-img/slider-video/office-blob1.mp4",
+      bgVideoWebm: "/services-img/slider-video/office-blob1.webm",
+      // ✅ 黒画面対策
+      poster: "/services-img/slider-video/office-blob1.webp",
+
       scrollTargetId: "efficiencySection", // ← アプリ開発 へスクロール
     },
     {
@@ -30,7 +41,12 @@ export default function SystemPage() {
       text: "AWSやクラウドを活用したインフラ構築、サーバーレスアーキテクチャの設計・開発を支援します。",
       textMobile: "AWSやクラウドを活用したインフラ構築",
       buttonText: "詳しく見る",
-      bgImage: "/services-img/slider/system-blob2.gif",
+
+      bgVideoMp4: "/services-img/slider-video/office-blob2.mp4",
+      bgVideoWebm: "/services-img/slider-video/office-blob2.webm",
+      // ✅ 黒画面対策
+      poster: "/services-img/slider-video/office-blob2.webp",
+
       scrollTargetId: "paperlessSection", // ← クラウド導入・AWS活用 へスクロール
     },
   ];
@@ -41,15 +57,48 @@ export default function SystemPage() {
   // TSの <HTMLDivElement[]> を消した版
   const cardRefs = useRef([]);
   const dotRefs = useRef([]);
-  const autoScrollRef = useRef(null);
 
-  const autoScrollDelay = 3500;
+  // ✅ 背景 video の参照（スライド数ぶん）
+  const videoRefs = useRef(slides.map(() => createRef()));
+
+  const autoScrollRef = useRef(null);
+  const autoScrollDelay = 4000;
 
   // 背景色を変化させる用
   const bgColors = ["#FDE2E2", "#FAF7B6", "#B8F2E6"];
 
   useEffect(() => {
     loadShowSlideDOM(currentIndex);
+    // ✅ 表示スライド（中央）だけ再生し、左右は先読みして停止
+    const newIndex = (currentIndex + slides.length) % slides.length;
+    const center = newIndex;
+    const left = (newIndex - 1 + slides.length) % slides.length;
+    const right = (newIndex + 1) % slides.length;
+
+    // 中央/左右を先に source セット（黒画面を減らす）
+    [center, left, right].forEach((idx) => {
+      const v = videoRefs.current[idx]?.current;
+      const s = slides[idx];
+      if (!v) return;
+      setBgVideoSources(
+        v,
+        { mp4: s.bgVideoMp4, webm: s.bgVideoWebm, poster: s.poster },
+        idx === center ? "auto" : "metadata"
+      );
+    });
+
+    // 再生制御：中央だけ play、他は pause
+    slides.forEach((_, idx) => {
+      const v = videoRefs.current[idx]?.current;
+      if (!v) return;
+      if (idx === center) {
+        v.currentTime = 0;
+        v.play().catch(() => {});
+      } else {
+        v.pause();
+      }
+    });
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentIndex]);
 
@@ -524,7 +573,6 @@ Webアプリの設計・開発・運用をワンストップでサポートし�
    * ============================= */
   return (
     <>
-      {/* ========== スライダーエリア ========== */}
       <div id="my-slider1-wrapper" className={styles.Container}>
         <div
           className={styles.mySlider1Container}
@@ -535,18 +583,25 @@ Webアプリの設計・開発・運用をワンストップでサポートし�
             <div
               key={i}
               className={styles.mySlider1Card}
-              style={{
-                backgroundImage: slide.bgImage ? `url(${slide.bgImage})` : undefined,
-              }}
               ref={(el) => {
                 if (el) cardRefs.current[i] = el;
               }}
             >
-              <div className={styles.mySlider1CardContent}>
-                {/* PC用タイトル */}
-                <h2 className={styles.slideTitleDesktop}>{slide.title}</h2>
+              <video
+                className={styles.bgVideo}
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload={i === 0 ? "auto" : "metadata"}
+                poster={slide.poster}
+              >
+                <source src={slide.bgVideoWebm} type="video/webm" />
+                <source src={slide.bgVideoMp4} type="video/mp4" />
+              </video>
 
-                {/* モバイル用タイトル（配列なら改行して表示） */}
+              <div className={styles.mySlider1CardContent}>
+                <h2 className={styles.slideTitleDesktop}>{slide.title}</h2>
                 <h2 className={styles.slideTitleMobile}>
                   {Array.isArray(slide.titleMobile)
                     ? slide.titleMobile.map((line, idx) => (
