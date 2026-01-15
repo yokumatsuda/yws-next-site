@@ -1,7 +1,8 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState, createRef } from "react";
 import styles from "styles/details.module.css";
+import setBgVideoSources from "components/setBgVideoSources";
 
 function WebPage() {
   /* =============================
@@ -15,7 +16,12 @@ function WebPage() {
       text: "企業のブランド価値を高めるホームページを制作。採用ページやサービスサイトにも対応可能。",
       textMobile: "LP・ホームページ制作",
       buttonText: "詳しく見る",
-      bgImage: "/services-img/slider/web-blob3.gif",
+
+      bgVideoMp4: "/services-img/slider-video/web-blob3.mp4",
+      bgVideoWebm: "/services-img/slider-video/web-blob3.webm",
+      // ✅ 黒画面対策
+      poster: "/services-img/slider-video/web-blob3.webp",
+
       scrollTargetId: "homepageSection",
     },
     {
@@ -23,7 +29,12 @@ function WebPage() {
       text: "最新のトレンドを取り入れたデザインで、ブランドサイトやUI/UXに特化したWebサイトを制作。",
       textMobile: "最新の技術とデザイン",
       buttonText: "詳しく見る",
-      bgImage: "/services-img/slider/web-blob1.gif",
+
+      bgVideoMp4: "/services-img/slider-video/web-blob1.mp4",
+      bgVideoWebm: "/services-img/slider-video/web-blob1.webm",
+      // ✅ 黒画面対策
+      poster: "/services-img/slider-video/web-blob1.webp",
+
       scrollTargetId: "webDesignSection",
     },
     {
@@ -32,7 +43,11 @@ function WebPage() {
       text: "ユーザーが快適に買い物できるECサイトを構築。決済・在庫管理などの機能も充実。",
       textMobile: "ECサイト・決済・在庫管理システム",
       buttonText: "詳しく見る",
-      bgImage: "/services-img/slider/web-blob2.gif",
+
+      bgVideoMp4: "/services-img/slider-video/web-blob2.mp4",
+      bgVideoWebm: "/services-img/slider-video/web-blob2.webm",
+      // ✅ 黒画面対策
+      poster: "/services-img/slider-video/web-blob2.webp",
       scrollTargetId: "ecommerceSection",
     },
   ];
@@ -43,15 +58,47 @@ function WebPage() {
   // TSの型指定を削除した ref
   const cardRefs = useRef([]);
   const dotRefs = useRef([]);
+  // ✅ 背景 video の参照（スライド数ぶん）
+  const videoRefs = useRef(slides.map(() => createRef()));
   const autoScrollRef = useRef(null);
 
-  const autoScrollDelay = 3500;
+  const autoScrollDelay = 4000;
 
   // 背景色を変化させる用
   const bgColors = ["#FDE2E2", "#FAF7B6", "#B8F2E6"];
 
   useEffect(() => {
     loadShowSlideDOM(currentIndex);
+    // ✅ 表示スライド（中央）だけ再生し、左右は先読みして停止
+    const newIndex = (currentIndex + slides.length) % slides.length;
+    const center = newIndex;
+    const left = (newIndex - 1 + slides.length) % slides.length;
+    const right = (newIndex + 1) % slides.length;
+
+    // 中央/左右を先に source セット（黒画面を減らす）
+    [center, left, right].forEach((idx) => {
+      const v = videoRefs.current[idx]?.current;
+      const s = slides[idx];
+      if (!v) return;
+      setBgVideoSources(
+        v,
+        { mp4: s.bgVideoMp4, webm: s.bgVideoWebm, poster: s.poster },
+        idx === center ? "auto" : "metadata"
+      );
+    });
+
+    // 再生制御：中央だけ play、他は pause
+    slides.forEach((_, idx) => {
+      const v = videoRefs.current[idx]?.current;
+      if (!v) return;
+      if (idx === center) {
+        v.currentTime = 0;
+        v.play().catch(() => {});
+      } else {
+        v.pause();
+      }
+    });
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentIndex]);
 
@@ -647,13 +694,23 @@ ECサイト運営を効率化し、売上を最大化する決済・在庫管理
             <div
               key={i}
               className={styles.mySlider1Card}
-              style={{
-                backgroundImage: slide.bgImage ? `url(${slide.bgImage})` : undefined,
-              }}
               ref={(el) => {
                 if (el) cardRefs.current[i] = el;
               }}
             >
+              <video
+                className={styles.bgVideo}
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload={i === 0 ? "auto" : "metadata"}
+                poster={slide.poster}
+              >
+                <source src={slide.bgVideoWebm} type="video/webm" />
+                <source src={slide.bgVideoMp4} type="video/mp4" />
+              </video>
+
               <div className={styles.mySlider1CardContent}>
                 {/* PC用タイトル */}
                 <h2 className={styles.slideTitleDesktop}>{slide.title}</h2>
