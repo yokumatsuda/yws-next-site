@@ -1,0 +1,15 @@
+.heroImage {
+  flex: 1;
+  max-width: calc(50% - 20px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.heroImage img {
+  width: 100%;
+  max-width: 800px;
+  height: auto;
+  border-radius: 10px;
+}

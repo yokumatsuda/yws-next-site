@@ -1,3 +1,5 @@
+/* styles/TechList.module.css */
+
 .ServicesSection {
   width: 95%;
   max-width: 1200px;
@@ -85,6 +87,10 @@
   top: 2px;
   color: #007bff;
   font-weight: bold;
+}
+
+:global(#techList) {
+  scroll-margin-top: 50px;
 }
 
 /* ---------- 強み・特徴 ---------- */

@@ -47,7 +47,7 @@ function ContactSection() {
         {/* お問い合わせボタン */}
         <div className={styles.buttonContainer}>
           <a href="/contact" className={styles.contactButton}>
-            お問い合わせはこちら
+            お問い合わせフォーム
           </a>
         </div>
       </div>

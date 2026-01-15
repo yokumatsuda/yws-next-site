@@ -102,40 +102,62 @@ body {
   font-weight: 500;
 }
 
-/* 前・次ボタン */
 .mySlider1Prev,
 .mySlider1Next {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  font-size: 32px;
   cursor: pointer;
-  color: white;
-  background: none;
+
+  /* 矢印だけ黒 */
+  color: #111;
+  background: transparent;
   border: none;
   outline: none;
-  padding: 0;
-  margin: 0;
-  z-index: 3;
+
+  /* クリック領域は確保（見た目は何も出さない） */
   width: 48px;
   height: 48px;
+
   display: flex;
   align-items: center;
   justify-content: center;
+
+  font-size: 32px;
+  line-height: 1;
+  z-index: 5;
+
+  padding: 0;
+  margin: 0;
+  -webkit-tap-highlight-color: transparent; /* mobileの青ハイライト抑制 */
 }
+
 .mySlider1Prev {
-  left: 20px;
+  left: 12px;
 }
 .mySlider1Next {
-  right: 20px;
+  right: 12px;
 }
+
+/* hover：矢印だけ少し濃く＆ほんのり拡大（背景は出さない） */
+.mySlider1Prev:hover,
+.mySlider1Next:hover {
+  color: #000;
+  transform: translateY(-50%) scale(1.06);
+}
+
+/* active：押した感 */
 .mySlider1Prev:active,
-.mySlider1Prev:focus,
-.mySlider1Next:active,
-.mySlider1Next:focus {
-  border: 2px solid #fff;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.2);
+.mySlider1Next:active {
+  transform: translateY(-50%) scale(0.98);
+}
+
+/* focus：キーボード操作時だけ見える枠（背景は出さない） */
+.mySlider1Prev:focus-visible,
+.mySlider1Next:focus-visible {
+  outline: 2px solid rgba(0, 0, 0, 0.35);
+  outline-offset: 2px;
+  border-radius: 999px; /* 枠を丸く */
 }
 
 /* ドットナビ & 再生/停止ボタン */
@@ -345,9 +367,15 @@ body {
 
   .mySlider1Prev,
   .mySlider1Next {
+    width: 44px;
+    height: 44px;
     font-size: 28px;
-    width: 40px;
-    height: 40px;
+  }
+  .mySlider1Prev {
+    left: 10px;
+  }
+  .mySlider1Next {
+    right: 10px;
   }
 }
 
@@ -373,6 +401,20 @@ body {
     line-height: 1.6;
     font-size: 16px;
   }
+
+  .mySlider1Prev,
+  .mySlider1Next {
+    width: 40px;
+    height: 40px;
+    font-size: 26px;
+  }
+  .mySlider1Prev {
+    left: 8px;
+  }
+  .mySlider1Next {
+    right: 8px;
+  }
+
   .mySlider1Controls button {
     padding: 4px 8px;
   }
@@ -405,9 +447,6 @@ body {
 
   .mySlider1Prev,
   .mySlider1Next {
-    font-size: 24px;
-    width: 36px;
-    height: 36px;
   }
 }
 
@@ -432,10 +471,17 @@ body {
 
   .mySlider1Prev,
   .mySlider1Next {
-    font-size: 22px;
-    width: 32px;
-    height: 32px;
+    width: 38px;
+    height: 38px;
+    font-size: 24px;
   }
+  .mySlider1Prev {
+    left: 6px;
+  }
+  .mySlider1Next {
+    right: 6px;
+  }
+
   .mySlider1Dots {
     bottom: 20px;
     gap: 4px;
@@ -518,10 +564,17 @@ body {
 
   .mySlider1Prev,
   .mySlider1Next {
-    font-size: 20px;
-    width: 28px;
-    height: 28px;
+    width: 34px;
+    height: 34px;
+    font-size: 22px;
   }
+  .mySlider1Prev {
+    left: 4px;
+  }
+  .mySlider1Next {
+    right: 4px;
+  }
+
   .cardLabel {
     font-size: 16px;
   }

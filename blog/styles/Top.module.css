@@ -1,28 +1,28 @@
+/* Top.module.css */
+
 .heroSection {
+  /* width: 100%; */
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0px 5%;
-  gap: 20px;
-  flex-direction: row-reverse; /* PCでは画像が右側 */
-  height: 100vh;
+  padding: 0px 60px;
+  margin-top: 60px;
+  gap: 40px;
+  flex-direction: row-reverse;
+  height: 95vh;
   background-color: #b8f2e6;
 }
 
 /* 画像（右側 / モバイル時はトップ） */
 .heroImage {
   flex: 1;
-  max-width: calc(50% - 20px);
-  display: flex;
-  align-items: center; /* 垂直中央 */
-  justify-content: center; /* 水平中央 */
-  margin-top: 50px;
-}
-
-.heroImage img {
+  position: relative;
   width: 100%;
   max-width: 800px;
+  height: clamp(260px, 28vw, 520px);
   border-radius: 10px;
+  overflow: hidden;
+  margin-left: auto;
 }
 
 /* テキスト（左側） */
@@ -45,7 +45,7 @@
 }
 
 .subtitle {
-  font-size: 1.5rem;
+  font-size: 18px;
   opacity: 0.8;
   margin-bottom: 20px;
 }
@@ -78,21 +78,6 @@
     height: 450px;
     gap: 40px;
     margin-top: 50px;
-    /* flex-direction: column; 
-    text-align: center;
-    margin-top: 50px; */
-  }
-
-  /* 画像をトップにする */
-  .heroImage {
-    order: -1; /* 画像を最上部に移動 */
-    text-align: center;
-    max-width: 100%;
-  }
-
-  .heroImage img {
-    /* width: 100%;
-    max-width: 700px; */
   }
 
   /* テキスト（左側） */
@@ -103,21 +88,35 @@
 
   /* ボタンをモバイルでも横並びにする */
   .buttonGroup {
+    margin-top: 20px;
     flex-direction: row;
     justify-content: center;
-    flex-wrap: wrap; /* 小さい画面でも折り返し可能 */
+    flex-wrap: wrap;
   }
 
   .heroButton {
     flex: 1;
-    min-width: 150px; /* 小さすぎるボタンを防ぐ */
+    min-width: 150px;
     text-align: center;
+  }
+}
+
+@media (max-width: 1023px) {
+  .heroSection {
+    height: 1000px;
+    flex-direction: column;
+    text-align: center;
+    gap: 0;
+    padding-top: 50px;
+  }
+
+  .heroImage {
+    margin-top: 60px;
   }
 }
 
 @media (max-width: 768px) {
   .heroSection {
-    margin-top: 50px;
   }
 
   .buttonGroup {
@@ -130,6 +129,7 @@
     margin-top: 0px;
     margin-bottom: 10px;
   }
+
   .subtitle {
     font-size: 20px;
     opacity: 0.8;
@@ -139,16 +139,14 @@
 
 @media (max-width: 500px) {
   .heroSection {
-    margin-top: 10px;
-    height: 100vh;
-    flex-direction: column;
-    text-align: center;
-    gap: 0;
-    /* margin-top: 50px; */
+    height: 600px;
+    gap: 20px;
+    padding: 0px 20px 0px 20px;
+    margin-top: 30px;
   }
 
   .heroContent {
-    margin-bottom: 60px;
+    margin-bottom: 20px;
     margin-top: 0px;
   }
 
@@ -161,6 +159,6 @@
   .subtitle {
     font-size: 18px;
     opacity: 0.8;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
   }
 }
