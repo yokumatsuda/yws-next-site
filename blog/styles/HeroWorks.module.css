@@ -13,26 +13,23 @@
   margin-top: 30px;
   display: block;
   object-fit: contain;
-
-  /* ✅ フェードの原因になりがちなものを潰す */
   opacity: 1 !important;
   transition: none !important;
   animation: none !important;
   filter: none !important;
 }
-
+/* 
 .videoDesktop {
   display: block;
 }
 
 .videoMobile {
   display: none;
-}
+} */
 
 @media (max-width: 1024px) {
   .video {
     height: 550px;
-
     object-fit: contain;
   }
 }
@@ -52,16 +49,15 @@
 @media (max-width: 480px) {
   .video {
     height: 85vh;
-
     margin-top: 0;
     object-fit: contain;
   }
-
+  /* 
   .videoDesktop {
     display: none;
   }
 
   .videoMobile {
     display: block;
-  }
+  } */
 }

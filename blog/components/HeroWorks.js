@@ -11,13 +11,16 @@ export default function HeroWorks() {
     const mq = window.matchMedia("(max-width: 480px)");
 
     const applyPoster = () => {
+      // ✅ モバイル時は必ず mobile poster
+      // ✅ PC時は PC poster
       v.poster = mq.matches
         ? "/services-img/HeroWorks-mobile.webp"
         : "/services-img/HeroWorks.webp";
     };
 
     applyPoster();
-    // 画面回転などで変わる可能性があるので追従
+
+    // 画面回転/リサイズに追従
     mq.addEventListener?.("change", applyPoster);
     return () => mq.removeEventListener?.("change", applyPoster);
   }, []);
@@ -32,8 +35,7 @@ export default function HeroWorks() {
           muted
           playsInline
           preload="metadata"
-          // ここは一旦PC側を仮で入れておく（JSで上書きされる）
-          poster="/services-img/HeroWorks.webp"
+          poster="" // ✅ 重要：HTML初期値でPC poster を絶対に入れない
         >
           {/* Mobile: WebM */}
           <source
