@@ -4,6 +4,7 @@ import React, { useEffect, useRef, useState, createRef } from "react";
 import styles from "styles/details.module.css";
 import setBgVideoSources from "components/setBgVideoSources";
 import { useRouter } from "next/router";
+import Meta from "components/meta";
 
 function OfficePage() {
   /* =============================
@@ -714,6 +715,10 @@ function OfficePage() {
    * ============================= */
   return (
     <>
+      <Meta
+        pageTitle="事務作業代行・業務サポート｜石川県・金沢市"
+        pageDesc="金沢市・石川県で事務作業代行を提供。ECサイト運営やホームページ更新に関わる業務もIT活用で効率化します。"
+      />
       <div id="my-slider1-wrapper" className={styles.Container}>
         <div
           className={styles.mySlider1Container}

@@ -35,6 +35,10 @@ export default function Home({ works, posts }) {
 
   return (
     <>
+      <Meta
+        pageTitle="金沢市のホームページ制作・ショッピングサイト"
+        pageDesc="石川県・金沢市でホームページ制作、ショッピングサイト制作、DX支援まで対応。成果につながるモダンなサイトをご提案します。"
+      />
       <Loading show={loading} />
 
       {/* ✅ Heroに onHeroReady を渡す */}
@@ -47,11 +51,6 @@ export default function Home({ works, posts }) {
 
       {!loading && (
         <Container>
-          <Meta
-            pageTitle="金沢市ホームページ制作"
-            pageDesc="金沢市でのWebサイト制作ならY = YWS。モダンなWebサイト・システム構築・DX支援を提供します"
-          />
-
           <Services />
           <WorksPosts works={works} />
           <Pagination nextUrl="/works" nextText="More Works" />

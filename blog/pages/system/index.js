@@ -4,6 +4,7 @@ import React, { useEffect, useRef, useState, createRef } from "react";
 import styles from "styles/details.module.css";
 import setBgVideoSources from "components/setBgVideoSources";
 import { useRouter } from "next/router";
+import Meta from "components/meta";
 
 export default function SystemPage() {
   /* =============================
@@ -597,6 +598,10 @@ Webアプリの設計・開発・運用をワンストップでサポートし�
    * ============================= */
   return (
     <>
+      <Meta
+        pageTitle="システム開発・Webアプリ開発｜石川県・金沢市"
+        pageDesc="金沢市・石川県で業務システムやWebアプリを開発。ホームページ制作ショッピンググサイト制作と連携した実用的なシステムを構築します。"
+      />
       <div id="my-slider1-wrapper" className={styles.Container}>
         <div
           className={styles.mySlider1Container}
