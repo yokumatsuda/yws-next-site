@@ -1,41 +1,37 @@
 /* Header2.module.css */
+
 /* =========================
    固定ヘッダー
 ========================= */
 .customHeader {
   position: fixed;
-
   top: 0;
   left: 0;
   width: 100%;
-  height: 50px;
+  height: 55px;
   background-color: #fff;
   display: flex;
   align-items: center;
-  justify-content: flex-start; /* ロゴ左、ナビ右寄せならspace-between でもOK */
-  padding: 30px 100px;
+  justify-content: flex-start;
+  padding: 0px 100px;
   z-index: 1000;
   border-bottom: solid 1px black;
 }
 
-/* ロゴ周り */
 .logoArea {
-  /* ロゴを左に配置 */
   display: flex;
   align-items: center;
-  margin-right: auto; /* 左寄りにして、残りのスペースを押しやる */
+  margin-right: auto;
 }
 
 .logoImage {
   max-width: 85px;
   height: auto;
-
-  /* 拡大縮小削除 => no transform needed */
 }
 
-/* PC用ナビ (任意) */
+/* PC用ナビ */
 .customNav {
-  margin-right: 20px; /* example spacing */
+  margin-right: 20px;
 }
 
 .customNavMenu {
@@ -44,10 +40,6 @@
   margin: 0;
   padding: 0;
   align-items: baseline;
-}
-
-.customNavMenu ul {
-  gap: 100px;
 }
 
 .customNavMenu li {
@@ -89,75 +81,88 @@
 .active .top {
   transform: translateY(10px) rotate(45deg);
 }
-
 .active .middle {
   opacity: 0;
 }
-
 .active .bottom {
   transform: translateY(-10px) rotate(-45deg);
 }
 
 /* =========================
-   サイドパネル
+   サイドパネル（重要：CSSでtransform/transitionしない）
 ========================= */
 .sidePanel {
   position: fixed;
-  top: 50px;
+  top: 55px;
   right: 0;
   width: 100%;
   height: calc(100% - 50px);
   background-color: #fff;
   z-index: 10000;
-  transform: translateX(100%);
-  transition: transform 0.3s ease;
+  border-top: solid 1px black;
+
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  border-top: solid 1px black;
-  /* ▼ ここで縦スクロールを可能にする ▼ */
-  overflow-y: auto;
-  -webkit-overflow-scrolling: touch; /* iOS等での慣性スクロール */
+
+  overflow-y: hidden; /* GSAPアニメ中はhidden、完了後JSでautoにする */
+
+  will-change: transform;
+  backface-visibility: hidden;
+  transform: translateZ(0); /* GPUに乗りやすく */
 }
 
-.sidePanel.active {
-  transform: translateX(0);
-}
-
-.sidePanel ul {
+.sideMenuList {
   list-style: none;
   margin: 0;
   padding: 20px;
 }
 
-.sidePanel li {
-  /* margin-bottom: 12px; */
-}
-
-/* サイドパネルのテキスト (GSAP) */
+/* ===== GSAP対象（li内のLink/ボタン） ===== */
 .navText {
   display: block;
   color: #333;
   text-decoration: none;
-  transition: color 0.3s ease-in-out;
+  transition: opacity 0.2s ease-in-out;
   font-family: acumin-pro, Noto Sans JP, sans-serif !important;
   font-size: 98px;
   font-weight: 100;
-  transform: none; /* remove scroll transform code */
-  opacity: 0; /* GSAP fade in */
   line-height: 1.05;
+
+  will-change: transform, opacity;
 }
 
-/* ホバー時の色 */
-.sidePanel ul:hover .navText:not(:hover) {
-  color: #bbb;
+/* Linkではなくbuttonを使うので追加 */
+.navButton {
+  display: block;
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+
+  color: #333;
+  font-family: acumin-pro, Noto Sans JP, sans-serif !important;
+  font-size: 98px;
+  font-weight: 100;
+  line-height: 1.05;
+
+  will-change: transform, opacity;
 }
-.navText:hover {
-  color: #000;
+
+/* hover時に全要素color変更だと重くなりやすいので、薄くするならopacity推奨 */
+.sideMenuList:hover .navText:not(:hover),
+.sideMenuList:hover .navButton:not(:hover) {
+  opacity: 0.4;
+}
+.navText:hover,
+.navButton:hover {
+  opacity: 1;
 }
 
 /* =========================
-   サブメニュー(クリック開閉)
+   サブメニュー（display:none禁止）
 ========================= */
 .menuItemWithSub {
   position: relative;
@@ -167,33 +172,54 @@
   list-style: none;
   margin: 10px 0 0 20px;
   padding: 0;
-  display: none; /* JSで切り替え */
+
+  height: 0;
+  overflow: hidden;
+  opacity: 0;
+
+  will-change: height, opacity;
 }
+
 .subMenuLink {
   display: block;
   font-size: 48px;
   color: #666;
   margin-bottom: 10px;
   text-decoration: none;
-  transition: color 0.3s;
-}
-.subMenuLink:hover {
-  color: #000;
+  transition: opacity 0.2s;
+  will-change: opacity;
 }
 
+.subMenuLink {
+  opacity: 1;
+  transition: opacity 0.2s;
+}
+.subMenu:hover .subMenuLink:not(:hover) {
+  opacity: 0.4;
+}
+
+/* .subMenuLink:hover {
+  opacity: 1;
+}
+
+.subMenuLink:not(:hover) {
+  opacity: 0.4;
+} */
+
 /* =========================
-   レスポンシブ例
+   レスポンシブ
 ========================= */
 @media (max-width: 1040px) {
   .customHeader {
-    padding: 0 20px;
+    padding: 0px 20px;
   }
   .logoImage {
     max-width: 90px;
   }
 }
 @media (max-width: 768px) {
-  .navText {
+  .navText,
+  .navButton {
     font-size: 72px;
   }
   .subMenuLink {
@@ -201,7 +227,8 @@
   }
 }
 @media (max-width: 480px) {
-  .navText {
+  .navText,
+  .navButton {
     font-size: 64px;
   }
   .subMenuLink {

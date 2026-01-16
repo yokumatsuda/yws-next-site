@@ -39,7 +39,7 @@ export default function SystemPage() {
       title: "クラウド導入・AWS活用",
       titleMobile: ["クラウド導入・", "AWS活用"],
       text: "AWSやクラウドを活用したインフラ構築、サーバーレスアーキテクチャの設計・開発を支援します。",
-      textMobile: "AWSやクラウドを活用したインフラ構築",
+      textMobile: "AWSやクラウドを活用した構築",
       buttonText: "詳しく見る",
 
       bgVideoMp4: "/services-img/slider-video/office-blob2.mp4",
