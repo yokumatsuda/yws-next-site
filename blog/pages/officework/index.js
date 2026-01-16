@@ -3,6 +3,7 @@
 import React, { useEffect, useRef, useState, createRef } from "react";
 import styles from "styles/details.module.css";
 import setBgVideoSources from "components/setBgVideoSources";
+import { useRouter } from "next/router";
 
 function OfficePage() {
   /* =============================
@@ -49,6 +50,8 @@ function OfficePage() {
       scrollTargetId: "efficiencySection", // ← 業務効率化・自動化 へスクロール
     },
   ];
+
+  const router = useRouter();
 
   // スライダーの状態管理
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -851,14 +854,12 @@ function OfficePage() {
                         <div className={styles.buttonRow}>
                           <button
                             className={styles.linkButton}
-                            onClick={() => (window.location.href = "/contact")}
+                            onClick={() => router.push("/contact")}
                           >
                             お問い合わせ
                           </button>
-                          <button
-                            className={styles.linkButton}
-                            onClick={() => (window.location.href = "/use")}
-                          >
+
+                          <button className={styles.linkButton} onClick={() => router.push("/use")}>
                             ご利用の流れ
                           </button>
                         </div>
@@ -903,14 +904,12 @@ function OfficePage() {
                         <div className={styles.buttonRow}>
                           <button
                             className={styles.linkButton}
-                            onClick={() => (window.location.href = "/contact")}
+                            onClick={() => router.push("/contact")}
                           >
                             お問い合わせ
                           </button>
-                          <button
-                            className={styles.linkButton}
-                            onClick={() => (window.location.href = "/use")}
-                          >
+
+                          <button className={styles.linkButton} onClick={() => router.push("/use")}>
                             ご利用の流れ
                           </button>
                         </div>
@@ -954,14 +953,12 @@ function OfficePage() {
                         <div className={styles.buttonRow}>
                           <button
                             className={styles.linkButton}
-                            onClick={() => (window.location.href = "/contact")}
+                            onClick={() => router.push("/contact")}
                           >
                             お問い合わせ
                           </button>
-                          <button
-                            className={styles.linkButton}
-                            onClick={() => (window.location.href = "/use")}
-                          >
+
+                          <button className={styles.linkButton} onClick={() => router.push("/use")}>
                             ご利用の流れ
                           </button>
                         </div>

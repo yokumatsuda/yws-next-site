@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState, createRef } from "react";
 import styles from "styles/details.module.css";
 import setBgVideoSources from "components/setBgVideoSources";
+import { useRouter } from "next/router";
 
 function dx() {
   /* =============================
@@ -45,6 +46,8 @@ function dx() {
       scrollTargetId: "paperlessSection",
     },
   ];
+
+  const router = useRouter();
 
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -775,14 +778,11 @@ function dx() {
                         <div className={styles.buttonRow}>
                           <button
                             className={styles.linkButton}
-                            onClick={() => (window.location.href = "/contact")}
+                            onClick={() => router.push("/contact")}
                           >
                             お問い合わせ
                           </button>
-                          <button
-                            className={styles.linkButton}
-                            onClick={() => (window.location.href = "/use")}
-                          >
+                          <button className={styles.linkButton} onClick={() => router.push("/use")}>
                             ご利用の流れ
                           </button>
                         </div>
@@ -829,14 +829,11 @@ function dx() {
                         <div className={styles.buttonRow}>
                           <button
                             className={styles.linkButton}
-                            onClick={() => (window.location.href = "/contact")}
+                            onClick={() => router.push("/contact")}
                           >
                             お問い合わせ
                           </button>
-                          <button
-                            className={styles.linkButton}
-                            onClick={() => (window.location.href = "/use")}
-                          >
+                          <button className={styles.linkButton} onClick={() => router.push("/use")}>
                             ご利用の流れ
                           </button>
                         </div>
@@ -883,14 +880,11 @@ function dx() {
                         <div className={styles.buttonRow}>
                           <button
                             className={styles.linkButton}
-                            onClick={() => (window.location.href = "/contact")}
+                            onClick={() => router.push("/contact")}
                           >
                             お問い合わせ
                           </button>
-                          <button
-                            className={styles.linkButton}
-                            onClick={() => (window.location.href = "/use")}
-                          >
+                          <button className={styles.linkButton} onClick={() => router.push("/use")}>
                             ご利用の流れ
                           </button>
                         </div>

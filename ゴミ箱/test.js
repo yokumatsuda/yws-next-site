@@ -1,21 +1,15 @@
-<video
-  ref={videoRefs.current[i]}
-  className={styles.bgVideo}
-  autoPlay
-  muted
-  loop
-  playsInline
-  preload={i === 0 ? "auto" : "metadata"}
-  poster={slide.poster}
->
-  <source src={slide.bgVideoWebm} type="video/webm" />
-  <source src={slide.bgVideoMp4} type="video/mp4" />
-</video>;
+import { useRouter } from "next/router";
 
-function startAutoScroll() {
-  stopAutoScroll();
-  const id = window.setInterval(() => {
-    setCurrentIndex((prev) => prev + 1);
-  }, autoScrollDelay);
-  autoScrollRef.current = id;
-}
+const router = useRouter();
+
+<button
+  className={styles.linkButton}
+  onClick={() => router.push("/contact")}
+>
+  お問い合わせ
+</button>
+
+
+  <button className={styles.linkButton} onClick={() => router.push("/use")}>
+                            ご利用の流れ
+                          </button>
