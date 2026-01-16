@@ -1,4 +1,5 @@
 import styles from "./UsePageContactSection.module.css";
+import Link from "next/link";
 
 function UsePageContactSection() {
   return (
@@ -49,9 +50,9 @@ function UsePageContactSection() {
 
           {/* お問い合わせボタン */}
           <div className={styles.buttonContainer}>
-            <a href="/contact" className={styles.contactButton}>
+            <Link href="/contact" className={styles.contactButton}>
               お問い合わせフォーム
-            </a>
+            </Link>
           </div>
         </div>
       </section>

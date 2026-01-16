@@ -63,15 +63,10 @@ export default function Footer() {
           <h3>ご案内</h3>
           <ul>
             <li>
-              <Link href="/news">お知らせ</Link>
+              <Link href="/blog">お知らせ</Link>
             </li>
             <li>
               <Link href="/contact">お問い合わせ</Link>
-            </li>
-            <li>
-              <a href="https://yoku49.jp/" target="_blank" rel="noopener noreferrer">
-                Yoku Web Designについて
-              </a>
             </li>
           </ul>
         </div>
