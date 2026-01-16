@@ -9,6 +9,14 @@
     --r: 16px;
   }
 
+  .postImg {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-start;
+    margin-bottom: 28px;
+  }
+
   .aiArticle {
     background: var(--paper);
     border: 1px solid var(--line);
@@ -226,6 +234,14 @@
       <span class="aiPill">ChatGPT仕事術</span>
       <span>AIは嘘をつく？</span>
     </p>
+    <section>
+      <div class="postImg">
+        <img
+          src="https://images.microcms-assets.io/assets/bc936088458641c19cc8718c097e2480/ac7f8e733eb743159c7745f7ce080e1f/AI.png"
+          alt=""
+        />
+      </div>
+    </section>
     <h1>AIは“嘘をつく”というより<br />「それっぽく補完してしまう」</h1>
     <p class="aiLead">
       「AIは嘘をつく」と感じる瞬間の多くは、悪意のある嘘ではなく、情報の空白を
@@ -312,8 +328,8 @@
       <div class="aiCode">
         これから依頼します。
         推測で補完せず、情報が足りない場合は「不明」と明記してください。
-        その上で、必要な追加質問を先にしてください。 出力ルール： - 事実 / 推測
-        / 確認が必要 な点を分けて書く -
+        その上で、必要な追加質問を先にしてください。 出力ルール： - 事実 / 推測/
+        確認が必要 な点を分けて書く -
         数字・固有名詞・制度・規約は根拠（参照元/確認方法）も添える -
         前提がズレていそうなら指摘する 最初にやること： 1)
         依頼内容を1〜2行で要約（認識合わせ） 2)

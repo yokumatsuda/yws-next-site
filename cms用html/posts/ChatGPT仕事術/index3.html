@@ -11,6 +11,13 @@
     --shadow: 0 14px 28px rgba(0, 0, 0, 0.08), 0 4px 10px rgba(0, 0, 0, 0.05);
     --r: 16px;
   }
+  .postImg {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-start;
+    margin-bottom: 28px;
+  }
 
   .ywsArticle {
     background: var(--paper);
@@ -29,7 +36,7 @@
       ),
       radial-gradient(
         900px 240px at 90% 0%,
-        rgba(255, 178, 0, 0.1),
+        rgba(0, 170, 255, 0.1),
         transparent 55%
       ),
       linear-gradient(#fff, #fff);
@@ -221,6 +228,14 @@
       <span class="ywsPill">ChatGPT仕事術</span
       ><span>「AIは嘘をつくのか？」</span>
     </p>
+    <section>
+      <div class="postImg">
+        <img
+          src="https://images.microcms-assets.io/assets/bc936088458641c19cc8718c097e2480/90404f665cce4fbcb9fa07673bd14c3c/dx-image12.jpeg"
+          alt=""
+        />
+      </div>
+    </section>
     <h1>
       ChatGPTは嘘をつくのか？<br />“嘘”に見える正体と、間違いを減らす運用術
     </h1>
@@ -326,17 +341,15 @@
         実務での事故率を下げたい場合におすすめです。
       </p>
 
-      <pre class="ywsCode">
-これから依頼します。次のルールを守ってください。
-
-- 根拠のない断定は禁止（推測は「推測」と明記）
-- 分からないことは「不明」と言う（作り話をしない）
-- 重要な前提は最初に列挙し、私に確認する
-- 回答は「確度（高/中/低）」を付ける
-- 最後に「誤りやすい点・追加で必要な情報」を出す
-
-依頼：〇〇について説明して（目的：／読者：／用途：／前提：）</pre
-      >
+      <div class="ywsCode">
+        これから依頼します。次のルールを守ってください。
+        -　根拠のない断定は禁止（推測は「推測」と明記）
+        -　分からないことは「不明」と言う（作り話をしない）
+        -　重要な前提は最初に列挙し、私に確認する
+        -　回答は「確度（高/中/低）」を付ける
+        -　最後に「誤りやすい点・追加で必要な情報」を出す
+        依頼：〇〇について説明して（目的：／読者：／用途：／前提：）
+      </div>
 
       <div class="ywsBadgeRow">
         <span class="ywsBadge"><strong>コツ：</strong>「確度」を出させる</span>
