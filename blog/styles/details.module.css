@@ -42,7 +42,7 @@ body {
   border-radius: 12px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
   color: #333333;
-  transition: transform 2s, opacity 0.5s;
+  /* transition: transform 2s, opacity 0.5s; */
   left: 50%;
   top: 50%;
   transform-style: preserve-3d;
@@ -53,6 +53,14 @@ body {
   box-sizing: border-box;
   border: none;
   background-color: #ffffff;
+}
+
+.notReady {
+  transition: none !important;
+}
+
+.ready {
+  transition: transform 2s, opacity 0.5s;
 }
 
 .bgVideo {
