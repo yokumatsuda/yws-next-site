@@ -17,7 +17,6 @@ function dx() {
       bgVideoWebm: "/services-img/slider-video/dx-blob3.webm",
       // ✅ 黒画面対策
       poster: "/services-img/slider-video/dx-blob3.webp",
-
       scrollTargetId: "dxSection",
     },
     {
