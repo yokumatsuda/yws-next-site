@@ -1,5 +1,6 @@
-/** mp4/webm を video に差し込んで load する（重複ロード防止） */
-function setBgVideoSources(videoEl, { mp4, webm, poster }, preload = "metadata") {
+// components/setBgVideoSources.js
+
+export default function setBgVideoSources(videoEl, { mp4, webm, poster }, preload = "metadata") {
   if (!videoEl) return;
   if (videoEl.dataset.mp4 === mp4) return; // 同じなら何もしない
 

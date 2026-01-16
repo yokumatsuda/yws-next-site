@@ -48,6 +48,9 @@ function dx() {
 
   const [currentIndex, setCurrentIndex] = useState(0);
 
+  // ✅ 初回だけ transition を無効化するフラグ
+  const [isReady, setIsReady] = useState(false);
+
   // DOM参照
   const cardRefs = useRef([]);
   const dotRefs = useRef([]);
@@ -64,9 +67,26 @@ function dx() {
 
   const bgColors = ["#FDE2E2", "#FAF7B6", "#B8F2E6"];
 
+  // 2) 2フレーム待ってから transition有効化
   useEffect(() => {
+    if (isReady) return;
+
+    loadShowSlideDOM(0);
+
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        setIsReady(true); // ここから通常アニメON
+      });
+    });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isReady]);
+
+  useEffect(() => {
+    // ✅ 初回は isReady が true になるまで触らない（初期演出を壊さない）
+    if (!isReady) return;
+
     loadShowSlideDOM(currentIndex);
-    // ✅ 表示スライド（中央）だけ再生し、左右は先読みして停止
+
     const newIndex = (currentIndex + slides.length) % slides.length;
     const center = newIndex;
     const left = (newIndex - 1 + slides.length) % slides.length;
@@ -100,10 +120,11 @@ function dx() {
   }, [currentIndex]);
 
   useEffect(() => {
+    if (!isReady) return;
     startAutoScroll();
     return () => stopAutoScroll();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [isReady]);
 
   /** スライドカードの配置 */
   function loadShowSlideDOM(index) {
@@ -631,12 +652,13 @@ function dx() {
           {slides.map((slide, i) => (
             <div
               key={i}
-              className={styles.mySlider1Card}
+              className={`${styles.mySlider1Card} ${isReady ? styles.ready : styles.notReady}`}
               ref={(el) => {
                 if (el) cardRefs.current[i] = el;
               }}
             >
               <video
+                ref={videoRefs.current[i]}
                 className={styles.bgVideo}
                 autoPlay
                 muted
