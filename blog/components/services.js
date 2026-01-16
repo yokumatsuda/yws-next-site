@@ -1,5 +1,6 @@
 import styles from "styles/services.module.css";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Services() {
   return (
@@ -10,7 +11,7 @@ export default function Services() {
 
         <div className={styles.cardContainer}>
           {/* カード1 */}
-          <a href="/dx" className={styles.card}>
+          <Link href="/dx" className={styles.card}>
             <figure>
               <div className={styles.imageWrapper}>
                 <Image
@@ -37,10 +38,10 @@ export default function Services() {
               AI活用でDX・業務自動化を推進。
             </p>
             <span className={styles.cardButton}>詳しく見る</span>
-          </a>
+          </Link>
 
           {/* カード2 */}
-          <a href="/system" className={styles.card}>
+          <Link href="/system" className={styles.card}>
             <figure>
               <div className={styles.imageWrapper}>
                 <Image
@@ -67,10 +68,10 @@ export default function Services() {
             </p>
 
             <span className={styles.cardButton}>詳しく見る</span>
-          </a>
+          </Link>
 
           {/* カード3 */}
-          <a href="/officework" className={styles.card}>
+          <Link href="/officework" className={styles.card}>
             <figure>
               <div className={styles.imageWrapper}>
                 <Image
@@ -91,10 +92,10 @@ export default function Services() {
               勤怠集計・給与関連データの整理／入力を代行。
             </p>
             <span className={styles.cardButton}>詳しく見る</span>
-          </a>
+          </Link>
 
           {/* カード4 */}
-          <a href="/web" className={styles.card}>
+          <Link href="/web" className={styles.card}>
             <figure>
               <div className={styles.imageWrapper}>
                 <Image
@@ -116,7 +117,7 @@ export default function Services() {
             </p>
 
             <span className={styles.cardButton}>詳しく見る</span>
-          </a>
+          </Link>
         </div>
       </section>
 
@@ -127,9 +128,9 @@ export default function Services() {
           <p className={styles.subCatch}>
             デジタル変革を通じて、より効率的で革新的な働き方を実現。
           </p>
-          <a href="/dx" className={styles.heroButton}>
+          <Link href="/dx" className={styles.heroButton}>
             AI・DXについて
-          </a>
+          </Link>
         </div>
       </section>
 
@@ -139,7 +140,7 @@ export default function Services() {
 
         <div className={styles.cardContainer}>
           {/* カード1: 業務効率化 & 自動化（DX支援） */}
-          <a href="/dx" className={styles.card}>
+          <Link href="/dx" className={styles.card}>
             <figure>
               <div className={styles.imageWrapper}>
                 <Image
@@ -160,10 +161,10 @@ export default function Services() {
               単発導入も継続支援もOK。段階的に拡張可能。
             </p>
             <span className={styles.cardButton}>詳しく見る</span>
-          </a>
+          </Link>
 
           {/* カード2: システム構築 & アプリ開発 */}
-          <a href="/system" className={styles.card}>
+          <Link href="/system" className={styles.card}>
             <figure>
               <div className={styles.imageWrapper}>
                 <Image
@@ -187,10 +188,10 @@ export default function Services() {
             </p>
 
             <span className={styles.cardButton}>詳しく見る</span>
-          </a>
+          </Link>
 
           {/* カード3: 事務作業代行 */}
-          <a href="/officework" className={styles.card}>
+          <Link href="/officework" className={styles.card}>
             <figure>
               <div className={styles.imageWrapper}>
                 <Image
@@ -213,10 +214,10 @@ export default function Services() {
             </p>
 
             <span className={styles.cardButton}>詳しく見る</span>
-          </a>
+          </Link>
 
           {/* カード4: Web制作（ECサイト含む） */}
-          <a href="/web" className={styles.card}>
+          <Link href="/web" className={styles.card}>
             <figure>
               <div className={styles.imageWrapper}>
                 <Image
@@ -239,7 +240,7 @@ export default function Services() {
             </p>
 
             <span className={styles.cardButton}>詳しく見る</span>
-          </a>
+          </Link>
         </div>
       </section>
 
@@ -249,12 +250,12 @@ export default function Services() {
           <h2 className={styles.catchPhrase}>DXからWeb制作までトータルサポート。</h2>
           <p className={styles.subCatch}>効率化、デザイン、自動化で次のレベルへ。</p>
           <div className={styles.heroButton2Wrapper}>
-            <a href="/system" className={styles.heroButton2}>
+            <Link href="/system" className={styles.heroButton2}>
               システム開発
-            </a>
-            <a href="/web" className={styles.heroButton2}>
+            </Link>
+            <Link href="/web" className={styles.heroButton2}>
               Webデザイン
-            </a>
+            </Link>
           </div>
         </div>
       </section>

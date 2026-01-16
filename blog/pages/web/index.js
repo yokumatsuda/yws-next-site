@@ -3,6 +3,7 @@
 import React, { useEffect, useRef, useState, createRef } from "react";
 import styles from "styles/details.module.css";
 import setBgVideoSources from "components/setBgVideoSources";
+import { useRouter } from "next/router";
 
 function WebPage() {
   /* =============================
@@ -51,6 +52,8 @@ function WebPage() {
       scrollTargetId: "ecommerceSection",
     },
   ];
+
+  const router = useRouter();
 
   // スライダーの状態管理
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -846,14 +849,12 @@ ECサイト運営を効率化し、売上を最大化する決済・在庫管理
                         <div className={styles.buttonRow}>
                           <button
                             className={styles.linkButton}
-                            onClick={() => (window.location.href = "/contact")}
+                            onClick={() => router.push("/contact")}
                           >
                             お問い合わせ
                           </button>
-                          <button
-                            className={styles.linkButton}
-                            onClick={() => (window.location.href = "/use")}
-                          >
+
+                          <button className={styles.linkButton} onClick={() => router.push("/use")}>
                             ご利用の流れ
                           </button>
                         </div>
@@ -902,14 +903,12 @@ ECサイト運営を効率化し、売上を最大化する決済・在庫管理
                         <div className={styles.buttonRow}>
                           <button
                             className={styles.linkButton}
-                            onClick={() => (window.location.href = "/contact")}
+                            onClick={() => router.push("/contact")}
                           >
                             お問い合わせ
                           </button>
-                          <button
-                            className={styles.linkButton}
-                            onClick={() => (window.location.href = "/use")}
-                          >
+
+                          <button className={styles.linkButton} onClick={() => router.push("/use")}>
                             ご利用の流れ
                           </button>
                         </div>
@@ -957,14 +956,12 @@ ECサイト運営を効率化し、売上を最大化する決済・在庫管理
                         <div className={styles.buttonRow}>
                           <button
                             className={styles.linkButton}
-                            onClick={() => (window.location.href = "/contact")}
+                            onClick={() => router.push("/contact")}
                           >
                             お問い合わせ
                           </button>
-                          <button
-                            className={styles.linkButton}
-                            onClick={() => (window.location.href = "/use")}
-                          >
+
+                          <button className={styles.linkButton} onClick={() => router.push("/use")}>
                             ご利用の流れ
                           </button>
                         </div>
