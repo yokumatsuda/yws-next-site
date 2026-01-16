@@ -1,7 +1,10 @@
+// pages/dx/index.js
+
 import React, { useEffect, useRef, useState, createRef } from "react";
 import styles from "styles/details.module.css";
 import setBgVideoSources from "components/setBgVideoSources";
 import { useRouter } from "next/router";
+import Meta from "components/meta";
 
 function dx() {
   /* =============================
@@ -646,6 +649,10 @@ function dx() {
    * ============================= */
   return (
     <>
+      <Meta
+        pageTitle="業務効率化・DX支援｜石川県・金沢市"
+        pageDesc="石川県・金沢市でDX支援・業務効率化をサポート。電子契約、書類管理、業務自動化をホームページやECサイトと連携して改善します。"
+      />
       <div id="my-slider1-wrapper" className={styles.Container}>
         <div
           className={styles.mySlider1Container}

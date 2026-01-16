@@ -2,7 +2,7 @@
 import { getAllPosts } from "lib/api";
 import Meta from "components/meta";
 import Container from "components/container";
-// import Hero from "components/hero";
+
 import Posts from "components/posts";
 import styles from "styles/cmsWrapper.module.css";
 
@@ -12,9 +12,12 @@ import HeroNews from "@/components/HeroNews";
 export default function Blog({ posts }) {
   return (
     <>
+      <Meta
+        pageTitle="ブログ｜ホームページ制作・EC運営・Web活用"
+        pageDesc="ホームページ制作、ECサイト運営、Webデザイン、SEO、業務効率化に関する情報を発信しています。"
+      />
       <HeroNews title="Blog" subtitle="Recent Posts" />
       <Container>
-        <Meta pageTitle="ブログ" pageDesc="ブログの記事一覧" />
         <div className={styles.cmsWrapper}>
           <Posts posts={posts} />
         </div>

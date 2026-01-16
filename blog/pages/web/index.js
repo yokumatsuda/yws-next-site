@@ -4,6 +4,7 @@ import React, { useEffect, useRef, useState, createRef } from "react";
 import styles from "styles/details.module.css";
 import setBgVideoSources from "components/setBgVideoSources";
 import { useRouter } from "next/router";
+import Meta from "components/meta";
 
 function WebPage() {
   /* =============================
@@ -707,6 +708,10 @@ ECサイト運営を効率化し、売上を最大化する決済・在庫管理
    * ============================= */
   return (
     <>
+      <Meta
+        pageTitle="Webサイト制作・ネットショップ構築｜石川県・金沢市"
+        pageDesc="石川県・金沢市でECサイト制作・ネットショップ構築を支援。Shopifyやオリジナル開発に対応し、売れる仕組みを設計します。"
+      />
       {/* ========== スライダーエリア ========== */}
       <div id="my-slider1-wrapper" className={styles.Container}>
         <div
