@@ -1,4 +1,10 @@
 /* globals.css */
+/* hydrated になるまでは絶対に出さない */
+html:not(.hydrated) .sidePanel {
+  transform: translateX(102%) !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
 
 :root {
   /* --white: #ffffff;
