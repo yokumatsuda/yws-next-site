@@ -100,16 +100,17 @@
   background-color: #fff;
   z-index: 10000;
   border-top: solid 1px black;
-
   display: flex;
   flex-direction: column;
   align-items: flex-start;
 
-  overflow-y: hidden; /* GSAPアニメ中はhidden、完了後JSでautoにする */
+  /* ✅ これを追加：JS前に見えないようにする */
+  transform: translate3d(100%, 0, 0);
+  pointer-events: none; /* 閉じてる間はクリック無効（任意） */
 
+  overflow-y: hidden;
   will-change: transform;
   backface-visibility: hidden;
-  transform: translateZ(0); /* GPUに乗りやすく */
 }
 
 .sideMenuList {
