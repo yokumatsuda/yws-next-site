@@ -75,12 +75,12 @@ export default function Header2() {
 
   // ====== open/close は play/reverse だけ ======
   useEffect(() => {
-    const tl = tlRef.current;
     const panel = panelRef.current;
+    const tl = tlRef.current;
     if (!tl || !panel) return;
 
     if (panelOpen) {
-      // 開く：アニメ中はスクロール無効（軽くなる）
+      panel.style.pointerEvents = "auto";
       panel.style.overflowY = "hidden";
       tl.eventCallback("onComplete", () => {
         panel.style.overflowY = "auto";
@@ -88,6 +88,7 @@ export default function Header2() {
       tl.play();
     } else {
       setOpenSub(null);
+      panel.style.pointerEvents = "none";
       panel.style.overflowY = "hidden";
       tl.eventCallback("onReverseComplete", () => {
         panel.style.overflowY = "hidden";
