@@ -13,7 +13,7 @@ export default function Header2() {
 
   // liのDOMを集める（Linkにrefを付けない）
   const itemRefs = useRef([]);
-  itemRefs.current = [];
+  itemRefs.current = []; // ✅ 毎レンダーでリセット（今の実装方針に合わせる）
   const setItemRef = (el) => {
     if (!el) return;
     itemRefs.current.push(el);
@@ -37,9 +37,17 @@ export default function Header2() {
       const panel = panelRef.current;
       const items = itemRefs.current;
 
-      // 初期状態：閉
+      // ✅ 初期の「映り込み」を完全に防ぐ：GSAP初期化完了まで見せない
+      panel.style.visibility = "hidden";
+      panel.style.pointerEvents = "none";
+      panel.style.overflowY = "hidden";
+
+      // ✅ 初期状態：閉（GSAPで確定）
       gsap.set(panel, { xPercent: 100, force3D: true });
       gsap.set(items, { x: 40, opacity: 0, force3D: true });
+
+      // ✅ 初期化が済んだら表示してOK（ここからは“閉じた状態”のまま見える）
+      panel.style.visibility = "visible";
 
       const tl = gsap.timeline({
         paused: true,
@@ -75,24 +83,31 @@ export default function Header2() {
 
   // ====== open/close は play/reverse だけ ======
   useEffect(() => {
-    const panel = panelRef.current;
     const tl = tlRef.current;
+    const panel = panelRef.current;
     if (!tl || !panel) return;
 
+    // ✅ コールバック積み上げ防止
+    tl.eventCallback("onComplete", null);
+    tl.eventCallback("onReverseComplete", null);
+
     if (panelOpen) {
+      // 開く：クリック可能にする
       panel.style.pointerEvents = "auto";
       panel.style.overflowY = "hidden";
+
       tl.eventCallback("onComplete", () => {
         panel.style.overflowY = "auto";
       });
-      tl.play();
+
+      tl.play(0);
     } else {
       setOpenSub(null);
+
+      // 閉じる：スクロール/クリックを止める（背面への誤タップ防止）
       panel.style.pointerEvents = "none";
       panel.style.overflowY = "hidden";
-      tl.eventCallback("onReverseComplete", () => {
-        panel.style.overflowY = "hidden";
-      });
+
       tl.reverse();
     }
   }, [panelOpen]);
@@ -161,6 +176,7 @@ export default function Header2() {
         aria-label="メニューの切替"
         aria-expanded={panelOpen}
         aria-controls="side-panel"
+        type="button"
       >
         <span className={`${styles.line} ${styles.top}`} />
         <span className={`${styles.line} ${styles.middle}`} />
