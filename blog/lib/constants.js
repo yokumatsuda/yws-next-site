@@ -11,7 +11,7 @@ export const siteMeta = {
 };
 
 export const eyecatchLocal = {
-  url: "/images-post/eyecatch.jpg",
+  url: "/",
   width: 1920,
   height: 1280,
 };
