@@ -46,6 +46,7 @@
   display: flex;
   margin-left: 40px;
 }
+
 .customNavMenu a {
   text-decoration: none;
   color: #333;
@@ -81,38 +82,44 @@
 .active .top {
   transform: translateY(10px) rotate(45deg);
 }
+
 .active .middle {
   opacity: 0;
 }
+
 .active .bottom {
   transform: translateY(-10px) rotate(-45deg);
 }
 
 /* =========================
-   サイドパネル（重要：CSSでtransform/transitionしない）
+   サイドパネル
+   ✅ transformで隠さない（GSAPに任せる）
+   ✅ 初期映り込みは visibility で消す
 ========================= */
 .sidePanel {
   position: fixed;
   top: 55px;
   right: 0;
   width: 100%;
-  height: calc(100% - 50px);
+  height: calc(100% - 55px);
   background-color: #fff;
   z-index: 10000;
   border-top: solid 1px black;
+
   display: flex;
   flex-direction: column;
   align-items: flex-start;
 
-  /* ✅ これを追加：JS前に見えないようにする */
-  transform: translate3d(100%, 0, 0);
-  pointer-events: none; /* 閉じてる間はクリック無効（任意） */
-
   overflow-y: hidden;
+
+  /* ✅ 初期映り込みを防ぐ */
+  visibility: hidden;
+
   will-change: transform;
   backface-visibility: hidden;
 }
 
+/* メニューリスト */
 .sideMenuList {
   list-style: none;
   margin: 0;
@@ -129,7 +136,6 @@
   font-size: 98px;
   font-weight: 100;
   line-height: 1.05;
-
   will-change: transform, opacity;
 }
 
@@ -148,15 +154,15 @@
   font-size: 98px;
   font-weight: 100;
   line-height: 1.05;
-
   will-change: transform, opacity;
 }
 
-/* hover時に全要素color変更だと重くなりやすいので、薄くするならopacity推奨 */
+/* hover時：メインだけ */
 .sideMenuList:hover .navText:not(:hover),
 .sideMenuList:hover .navButton:not(:hover) {
   opacity: 0.4;
 }
+
 .navText:hover,
 .navButton:hover {
   opacity: 1;
@@ -173,11 +179,9 @@
   list-style: none;
   margin: 10px 0 0 20px;
   padding: 0;
-
   height: 0;
   overflow: hidden;
   opacity: 0;
-
   will-change: height, opacity;
 }
 
@@ -189,23 +193,13 @@
   text-decoration: none;
   transition: opacity 0.2s;
   will-change: opacity;
+  opacity: 1;
 }
 
-.subMenuLink {
-  opacity: 1;
-  transition: opacity 0.2s;
-}
+/* ✅ subMenu内だけ：hoverした要素以外を薄く */
 .subMenu:hover .subMenuLink:not(:hover) {
   opacity: 0.4;
 }
-
-/* .subMenuLink:hover {
-  opacity: 1;
-}
-
-.subMenuLink:not(:hover) {
-  opacity: 0.4;
-} */
 
 /* =========================
    レスポンシブ
@@ -218,6 +212,7 @@
     max-width: 90px;
   }
 }
+
 @media (max-width: 768px) {
   .navText,
   .navButton {
@@ -227,6 +222,7 @@
     font-size: 36px;
   }
 }
+
 @media (max-width: 480px) {
   .navText,
   .navButton {
