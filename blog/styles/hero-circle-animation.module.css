@@ -7,8 +7,6 @@
   width: 100%;
   height: 100vh;
   overflow: hidden;
-
-  /* 白紙演出ならこれが大事：動画が来るまで白 */
   background: #fff;
 }
 
@@ -23,19 +21,19 @@
 /* ======== モバイル対応 ======== */
 @media (max-width: 1024px) {
   .heroMedia {
-    height: 50vh;
+    height: calc(100vh - 55px); /* ヘッダー分を引く（不要なら100vhのままでOK） */
+    display: flex;
+    align-items: center; /* 縦中央 */
+    justify-content: center; /* 横中央 */
+    background-color: #d9d9d9;
   }
 
   .heroVideo {
-    height: 50vh;
+    position: relative; /* ✅ absolute解除（これが重要） */
+    inset: auto; /* ✅ inset:0 を打ち消す */
+    width: 100%;
+    height: 50vh; /* 원하는高さ */
+    object-fit: cover;
+    object-position: center center; /* 念のため中央基準 */
   }
-}
-
-@media (max-width: 1023px) {
-}
-
-@media (max-width: 768px) {
-}
-
-@media (max-width: 500px) {
 }
