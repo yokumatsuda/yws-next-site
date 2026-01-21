@@ -21,19 +21,9 @@
 /* ======== モバイル対応 ======== */
 @media (max-width: 1024px) {
   .heroMedia {
-    height: calc(100vh - 55px); /* ヘッダー分を引く（不要なら100vhのままでOK） */
-    display: flex;
-    align-items: center; /* 縦中央 */
-    justify-content: center; /* 横中央 */
-    background-color: #d9d9d9;
+    height: 40vh;
   }
 
   .heroVideo {
-    position: relative; /* ✅ absolute解除（これが重要） */
-    inset: auto; /* ✅ inset:0 を打ち消す */
-    width: 100%;
-    height: 50vh; /* 원하는高さ */
-    object-fit: cover;
-    object-position: center center; /* 念のため中央基準 */
   }
 }
