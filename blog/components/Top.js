@@ -6,7 +6,7 @@ function Top() {
     <section className={styles.heroSection} id="top">
       <div className={styles.heroImage}>
         <Image
-          src="/services-img/dx-image4.jpeg"
+          src="/services-img/dx-image4.jpg"
           alt="About Us"
           fill
           priority

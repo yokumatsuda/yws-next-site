@@ -6,7 +6,7 @@ function UsePageHeroSection() {
     <section className={styles.heroSection}>
       <div className={styles.heroImage}>
         <Image
-          src="/services-img/use/HeroSection_img3.jpeg"
+          src="/services-img/use/HeroSection_img3.jpg"
           alt="LET US WORK FOR YOU"
           fill
           priority

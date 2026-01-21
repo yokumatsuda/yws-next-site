@@ -1,15 +1,11 @@
+// loading.js
+
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import styles from "styles/loading.module.css";
 import logoWhite from "public/logo.png";
 
-/**
- * ベスト版 Loading
- * - show=trueで表示
- * - show=falseでフェードアウトして消える
- * - フェードアウト後にDOMから外す（visible=false）
- */
-export default function LoadingBest({ show }) {
+export default function LoadingBest({ show, onHidden }) {
   const [visible, setVisible] = useState(show);
 
   useEffect(() => {
@@ -17,11 +13,12 @@ export default function LoadingBest({ show }) {
       setVisible(true);
       return;
     }
-
-    // show=falseになったら、CSSアニメ(1s)のあとDOMから外す
-    const timer = setTimeout(() => setVisible(false), 1000);
+    const timer = setTimeout(() => {
+      setVisible(false);
+      onHidden?.(); // 完全に消えた合図
+    }, 1000);
     return () => clearTimeout(timer);
-  }, [show]);
+  }, [show, onHidden]);
 
   if (!visible) return null;
 
@@ -31,7 +28,6 @@ export default function LoadingBest({ show }) {
         <div className={`${styles.panel} ${!show ? styles.fadeOutLeft : ""}`} />
         <div className={`${styles.panel} ${!show ? styles.fadeOutRight : ""}`} />
       </div>
-
       <div className={`${styles.text} ${!show ? styles.fadeOutText : ""}`}>
         <Image src={logoWhite} alt="YWS Logo" priority />
       </div>
