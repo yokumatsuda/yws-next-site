@@ -1,0 +1,41 @@
+.heroSection {
+  padding-top: 55px;
+}
+
+.heroMedia {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+
+  /* 白紙演出ならこれが大事：動画が来るまで白 */
+  background: #fff;
+}
+
+.heroVideo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ======== モバイル対応 ======== */
+@media (max-width: 1024px) {
+  .heroMedia {
+    height: 50vh;
+  }
+
+  .heroVideo {
+    height: 50vh;
+  }
+}
+
+@media (max-width: 1023px) {
+}
+
+@media (max-width: 768px) {
+}
+
+@media (max-width: 500px) {
+}
