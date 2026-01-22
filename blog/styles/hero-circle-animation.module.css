@@ -20,9 +20,11 @@
 
 /* ======== モバイル対応 ======== */
 @media (max-width: 1024px) {
-  .heroMedia {
+  .heroSection {
     padding-top: 0px;
-    /* height: 40vh; */
+  }
+  .heroMedia {
+    height: 100vh;
   }
 
   .heroVideo {
