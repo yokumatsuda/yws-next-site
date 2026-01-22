@@ -21,7 +21,7 @@
 /* ======== モバイル対応 ======== */
 @media (max-width: 1024px) {
   .heroMedia {
-    height: 40vh;
+    /* height: 40vh; */
   }
 
   .heroVideo {
