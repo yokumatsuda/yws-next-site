@@ -31,8 +31,8 @@ export default function HeroSection({
   const sources = useMemo(() => {
     if (isMobile) {
       return {
-        webm: "/services-img/top-hero/hero-circle-animation.webm",
-        mp4: "/services-img/top-hero/hero-circle-animation.mp4",
+        webm: "/services-img/top-hero/hero-circle-animation-mobile.webm",
+        mp4: "/services-img/top-hero/hero-circle-animation-mobile.mp4",
       };
     }
     return {
