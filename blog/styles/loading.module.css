@@ -39,24 +39,34 @@
 
 .text {
   position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 2rem;
-  color: white;
+  inset: 0;
   z-index: 10000;
   transition: opacity 1s ease;
+  pointer-events: none;
+  overflow: hidden;
 }
 
-/* 追加：フェードアウト中にクリックを邪魔しない */
 .fadeOut {
   opacity: 0;
   transition: opacity 1s ease;
   pointer-events: none;
 }
 
-/* 追加：テキストも同じく邪魔しない */
 .fadeOutText {
   opacity: 0;
   pointer-events: none;
+}
+
+.videoBox {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }

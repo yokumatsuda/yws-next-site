@@ -12,7 +12,7 @@ import { eyecatchLocal } from "lib/constants";
 import { getAllPosts, getAllWorks } from "lib/api";
 
 export default function Home({ works, posts }) {
-  const MIN_MS = 1000; // ✅ ロード完了しても最低これだけ表示
+  const MIN_MS = 3000; // ✅ ロード完了しても最低これだけ表示
   const MAX_MS = 4000; // ✅ これ以上は待たず強制的に終了（永遠ローディング防止）
 
   const [loading, setLoading] = useState(true);

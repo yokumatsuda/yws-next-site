@@ -1,0 +1,66 @@
+/* styles/loading.module.css */
+
+.loadingWrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 9999;
+  overflow: hidden;
+}
+
+.panel {
+  position: absolute;
+  top: 0;
+  width: 50vw;
+  height: 100%;
+  background: #ffffff;
+  transition: transform 1s ease;
+}
+
+.panel:first-child {
+  left: 0;
+  transform-origin: left;
+}
+
+.panel:last-child {
+  right: 0;
+  transform-origin: right;
+}
+
+.fadeOutLeft {
+  transform: translateX(-100%);
+}
+
+.fadeOutRight {
+  transform: translateX(100%);
+}
+
+.text {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  transition: opacity 1s ease;
+  pointer-events: none;
+
+  overflow: hidden;
+}
+
+.fadeOut {
+  opacity: 0;
+  transition: opacity 1s ease;
+  pointer-events: none;
+}
+
+.fadeOutText {
+  opacity: 0;
+  pointer-events: none;
+}
+.lottieBox {
+  position: absolute;
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+}

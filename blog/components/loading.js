@@ -1,9 +1,6 @@
 // loading.js
-
-import { useEffect, useRef, useState } from "react";
-import Image from "next/image";
+import { useEffect, useState } from "react";
 import styles from "styles/loading.module.css";
-import logoWhite from "public/logo.png";
 
 export default function LoadingBest({ show, onHidden }) {
   const [visible, setVisible] = useState(show);
@@ -15,7 +12,7 @@ export default function LoadingBest({ show, onHidden }) {
     }
     const timer = setTimeout(() => {
       setVisible(false);
-      onHidden?.(); // 完全に消えた合図
+      onHidden?.();
     }, 1000);
     return () => clearTimeout(timer);
   }, [show, onHidden]);
@@ -28,8 +25,15 @@ export default function LoadingBest({ show, onHidden }) {
         <div className={`${styles.panel} ${!show ? styles.fadeOutLeft : ""}`} />
         <div className={`${styles.panel} ${!show ? styles.fadeOutRight : ""}`} />
       </div>
+
       <div className={`${styles.text} ${!show ? styles.fadeOutText : ""}`}>
-        <Image src={logoWhite} alt="YWS Logo" priority />
+        <div className={styles.videoBox}>
+          <video className={styles.video} autoPlay loop muted playsInline preload="auto">
+            {/* WebM優先。未対応環境はmp4へフォールバック */}
+            <source src="/loading/Loading-animation-textmotion.webm" type="video/webm" />
+            <source src="/loading/Loading-animation-textmotion.mp4" type="video/mp4" />
+          </video>
+        </div>
       </div>
     </>
   );
