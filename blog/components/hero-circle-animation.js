@@ -2,7 +2,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import styles from "styles/hero-circle-animation.module.css";
 
-const MOBILE_MAX = 1023; // ここ以下をモバイル扱い（必要なら調整）
+const MOBILE_MAX = 1024; // ここ以下をモバイル扱い（必要なら調整）
 
 export default function HeroSection({
   mode = "show", // "preload" | "show"
