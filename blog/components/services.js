@@ -15,7 +15,7 @@ export default function Services() {
             <figure>
               <div className={styles.imageWrapper}>
                 <Image
-                  src="/services-img/dx-image65.jpeg"
+                  src="/services-img/dx-image65.jpg"
                   alt="DXをもっと身近に"
                   width={400} // 適切な幅
                   height={225} // 16:9 のアスペクト比
@@ -39,7 +39,7 @@ export default function Services() {
             <figure>
               <div className={styles.imageWrapper}>
                 <Image
-                  src="/services-img/dx-image57.jpeg"
+                  src="/services-img/dx-image57.jpg"
                   alt="本格的なシステム導入"
                   width={400} // 適切な幅
                   height={225} // 16:9 のアスペクト比
@@ -66,7 +66,7 @@ export default function Services() {
             <figure>
               <div className={styles.imageWrapper}>
                 <Image
-                  src="/services-img/dx-image71.jpeg"
+                  src="/services-img/dx-image71.jpg"
                   alt="あなたのIT部門代行"
                   width={400} // 適切な幅
                   height={225} // 16:9 のアスペクト比
@@ -92,7 +92,7 @@ export default function Services() {
             <figure>
               <div className={styles.imageWrapper}>
                 <Image
-                  src="/services-img/Web-img17.jpeg"
+                  src="/services-img/Web-img17.jpg"
                   alt="サイト作成から管理まで"
                   width={400} // 適切な幅
                   height={225} // 16:9 のアスペクト比
@@ -139,7 +139,7 @@ export default function Services() {
             <figure>
               <div className={styles.imageWrapper}>
                 <Image
-                  src="/services-img/top_pageimg9.jpeg"
+                  src="/services-img/top_pageimg9.jpg"
                   alt="業務効率化 & DX化"
                   width={400}
                   height={225}
@@ -169,7 +169,7 @@ export default function Services() {
             <figure>
               <div className={styles.imageWrapper}>
                 <Image
-                  src="/services-img/top_pageimg7.jpeg"
+                  src="/services-img/top_pageimg7.jpg"
                   alt="システム構築 & アプリ開発"
                   width={400}
                   height={225}
@@ -223,7 +223,7 @@ export default function Services() {
             <figure>
               <div className={styles.imageWrapper}>
                 <Image
-                  src="/services-img/top_pageimg14.jpeg"
+                  src="/services-img/top_pageimg14.jpg"
                   alt="Web制作"
                   width={400}
                   height={225}
