@@ -5,6 +5,130 @@ import Link from "next/link";
 export default function Services() {
   return (
     <>
+      {/*second section */}
+      <section className={styles.servicesSection}>
+        <h2 className={styles.sectionTitle}> DX、Web制作</h2>
+
+        <div className={styles.cardContainer}>
+          {/* カード1: 業務効率化 & 自動化（DX支援） */}
+          <Link href="/dx" className={styles.card}>
+            <figure>
+              <div className={styles.imageWrapper}>
+                <Image
+                  src="/services-img/dx-image65.jpeg"
+                  alt="DXをもっと身近に"
+                  width={400} // 適切な幅
+                  height={225} // 16:9 のアスペクト比
+                  priority
+                />
+              </div>
+            </figure>
+
+            <h3 className={styles.cardTitle}>DXをもっと身近に</h3>
+            <p className={`${styles.cardDesc} ${styles.cardDescDesktop}`}>
+              単発での部分導入も、サブスク型の継続支援もOK。必要な範囲から始めて段階的に拡張できます。
+            </p>
+            <p className={`${styles.cardDesc} ${styles.cardDescMobile}`}>
+              単発導入も継続支援もOK。段階的に拡張可能。
+            </p>
+            <span className={styles.cardButton}>詳しく見る</span>
+          </Link>
+
+          {/* カード2: システム構築 & アプリ開発 */}
+          <Link href="/system" className={styles.card}>
+            <figure>
+              <div className={styles.imageWrapper}>
+                <Image
+                  src="/services-img/dx-image57.jpeg"
+                  alt="本格的なシステム導入"
+                  width={400} // 適切な幅
+                  height={225} // 16:9 のアスペクト比
+                  priority
+                />
+              </div>
+            </figure>
+
+            <h3 className={styles.cardTitle}>本格的なシステム導入</h3>
+
+            <p className={`${styles.cardDesc} ${styles.cardDescDesktop}`}>
+              小規模ツールから本格的システム開発まで対応。開発時のイニシャル費用＋サポートプランを選べるので、
+              予算と機能要件をバランスよく満たします。
+            </p>
+            <p className={`${styles.cardDesc} ${styles.cardDescMobile}`}>
+              小規模から本格開発まで対応。予算に合わせて選べます。
+            </p>
+
+            <span className={styles.cardButton}>詳しく見る</span>
+          </Link>
+
+          {/* カード3: 事務作業代行 */}
+          <Link href="/officework" className={styles.card}>
+            <figure>
+              <div className={styles.imageWrapper}>
+                <Image
+                  src="/services-img/dx-image71.jpeg"
+                  alt="あなたのIT部門代行"
+                  width={400} // 適切な幅
+                  height={225} // 16:9 のアスペクト比
+                  priority
+                />
+              </div>
+            </figure>
+
+            <h3 className={styles.cardTitle}>あなたのIT部門代行</h3>
+
+            <p className={`${styles.cardDesc} ${styles.cardDescDesktop}`}>
+              日々の運用や管理業務を代行し、本来の業務に集中できる環境を提供。必要なサポートメニューを自由に選択できます。
+            </p>
+            <p className={`${styles.cardDesc} ${styles.cardDescMobile}`}>
+              運用・管理を代行。必要なサポートを選べます。
+            </p>
+
+            <span className={styles.cardButton}>詳しく見る</span>
+          </Link>
+
+          {/* カード4: Web制作（ECサイト含む） */}
+          <Link href="/web" className={styles.card}>
+            <figure>
+              <div className={styles.imageWrapper}>
+                <Image
+                  src="/services-img/Web-img17.jpeg"
+                  alt="サイト作成から管理まで"
+                  width={400} // 適切な幅
+                  height={225} // 16:9 のアスペクト比
+                  priority
+                />
+              </div>
+            </figure>
+
+            <h3 className={styles.cardTitle}>サイト作成から管理まで</h3>
+
+            <p className={`${styles.cardDesc} ${styles.cardDescDesktop}`}>
+              制作費だけでなく、一定期間のサポートも付帯可能。運用代行に切り替えれば、更新作業も負担なく続けられます。
+            </p>
+            <p className={`${styles.cardDesc} ${styles.cardDescMobile}`}>
+              制作＋サポートもOK。運用代行で更新も楽に。
+            </p>
+
+            <span className={styles.cardButton}>詳しく見る</span>
+          </Link>
+        </div>
+      </section>
+      {/* ▼ 2. キャッチフレーズ＋背景イラストのセクション */}
+      <section className={styles.heroSection2}>
+        <div className={styles.heroContent}>
+          <h2 className={styles.catchPhrase}>DXからWeb制作までトータルサポート。</h2>
+          <p className={styles.subCatch}>効率化、デザイン、自動化で次のレベルへ。</p>
+          <div className={styles.heroButton2Wrapper}>
+            <Link href="/system" className={styles.heroButton2}>
+              システム開発
+            </Link>
+            <Link href="/web" className={styles.heroButton2}>
+              Webデザイン
+            </Link>
+          </div>
+        </div>
+      </section>
       {/* ▼ 1. 4枚のカードを表示するセクション */}
       <section className={styles.servicesSection} id="sectionTitle1">
         <h2 className={styles.sectionTitle}> AI × 自動化</h2>
@@ -120,7 +244,6 @@ export default function Services() {
           </Link>
         </div>
       </section>
-
       {/* ▼ 2. キャッチフレーズ＋背景イラストのセクション */}
       <section className={styles.heroSection}>
         <div className={styles.heroContent}>
@@ -131,132 +254,6 @@ export default function Services() {
           <Link href="/dx" className={styles.heroButton}>
             AI・DXについて
           </Link>
-        </div>
-      </section>
-
-      {/*second section */}
-      <section className={styles.servicesSection}>
-        <h2 className={styles.sectionTitle}> DX、Web制作</h2>
-
-        <div className={styles.cardContainer}>
-          {/* カード1: 業務効率化 & 自動化（DX支援） */}
-          <Link href="/dx" className={styles.card}>
-            <figure>
-              <div className={styles.imageWrapper}>
-                <Image
-                  src="/services-img/dx-image65.jpeg"
-                  alt="DXをもっと身近に"
-                  width={400} // 適切な幅
-                  height={225} // 16:9 のアスペクト比
-                  priority
-                />
-              </div>
-            </figure>
-
-            <h3 className={styles.cardTitle}>DXをもっと身近に</h3>
-            <p className={`${styles.cardDesc} ${styles.cardDescDesktop}`}>
-              単発での部分導入も、サブスク型の継続支援もOK。必要な範囲から始めて段階的に拡張できます。
-            </p>
-            <p className={`${styles.cardDesc} ${styles.cardDescMobile}`}>
-              単発導入も継続支援もOK。段階的に拡張可能。
-            </p>
-            <span className={styles.cardButton}>詳しく見る</span>
-          </Link>
-
-          {/* カード2: システム構築 & アプリ開発 */}
-          <Link href="/system" className={styles.card}>
-            <figure>
-              <div className={styles.imageWrapper}>
-                <Image
-                  src="/services-img/dx-image57.jpeg"
-                  alt="本格的なシステム導入"
-                  width={400} // 適切な幅
-                  height={225} // 16:9 のアスペクト比
-                  priority
-                />
-              </div>
-            </figure>
-
-            <h3 className={styles.cardTitle}>本格的なシステム導入</h3>
-
-            <p className={`${styles.cardDesc} ${styles.cardDescDesktop}`}>
-              小規模ツールから本格的システム開発まで対応。開発時のイニシャル費用＋サポートプランを選べるので、
-              予算と機能要件をバランスよく満たします。
-            </p>
-            <p className={`${styles.cardDesc} ${styles.cardDescMobile}`}>
-              小規模から本格開発まで対応。予算に合わせて選べます。
-            </p>
-
-            <span className={styles.cardButton}>詳しく見る</span>
-          </Link>
-
-          {/* カード3: 事務作業代行 */}
-          <Link href="/officework" className={styles.card}>
-            <figure>
-              <div className={styles.imageWrapper}>
-                <Image
-                  src="/services-img/dx-image71.jpeg"
-                  alt="あなたのIT部門代行"
-                  width={400} // 適切な幅
-                  height={225} // 16:9 のアスペクト比
-                  priority
-                />
-              </div>
-            </figure>
-
-            <h3 className={styles.cardTitle}>あなたのIT部門代行</h3>
-
-            <p className={`${styles.cardDesc} ${styles.cardDescDesktop}`}>
-              日々の運用や管理業務を代行し、本来の業務に集中できる環境を提供。必要なサポートメニューを自由に選択できます。
-            </p>
-            <p className={`${styles.cardDesc} ${styles.cardDescMobile}`}>
-              運用・管理を代行。必要なサポートを選べます。
-            </p>
-
-            <span className={styles.cardButton}>詳しく見る</span>
-          </Link>
-
-          {/* カード4: Web制作（ECサイト含む） */}
-          <Link href="/web" className={styles.card}>
-            <figure>
-              <div className={styles.imageWrapper}>
-                <Image
-                  src="/services-img/Web-img17.jpeg"
-                  alt="サイト作成から管理まで"
-                  width={400} // 適切な幅
-                  height={225} // 16:9 のアスペクト比
-                  priority
-                />
-              </div>
-            </figure>
-
-            <h3 className={styles.cardTitle}>サイト作成から管理まで</h3>
-
-            <p className={`${styles.cardDesc} ${styles.cardDescDesktop}`}>
-              制作費だけでなく、一定期間のサポートも付帯可能。運用代行に切り替えれば、更新作業も負担なく続けられます。
-            </p>
-            <p className={`${styles.cardDesc} ${styles.cardDescMobile}`}>
-              制作＋サポートもOK。運用代行で更新も楽に。
-            </p>
-
-            <span className={styles.cardButton}>詳しく見る</span>
-          </Link>
-        </div>
-      </section>
-
-      {/* ▼ 2. キャッチフレーズ＋背景イラストのセクション */}
-      <section className={styles.heroSection2}>
-        <div className={styles.heroContent}>
-          <h2 className={styles.catchPhrase}>DXからWeb制作までトータルサポート。</h2>
-          <p className={styles.subCatch}>効率化、デザイン、自動化で次のレベルへ。</p>
-          <div className={styles.heroButton2Wrapper}>
-            <Link href="/system" className={styles.heroButton2}>
-              システム開発
-            </Link>
-            <Link href="/web" className={styles.heroButton2}>
-              Webデザイン
-            </Link>
-          </div>
         </div>
       </section>
     </>

@@ -11,7 +11,7 @@ html {
 .servicesSection {
   /* max-width: 90%; */
   margin-top: 96px;
-  margin-bottom: 96px;
+  margin-bottom: 48px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -124,11 +124,12 @@ html {
   position: relative;
   padding: 60px 20px;
   /* max-width: 90%; */
-  margin-left: auto;
-  margin-right: auto;
+
+  margin: 0 auto 96px auto;
   /* background-color: #eee;
   background-image: url("https://ywd-digital-contents.s3.ap-northeast-1.amazonaws.com/yws-wp/services/paper_less30.png"); */
-  background-image: linear-gradient(to right, rgba(0, 255, 255, 0.2), rgba(0, 128, 255, 0.2)),
+  background-image:
+    linear-gradient(to right, rgba(0, 255, 255, 0.2), rgba(0, 128, 255, 0.2)),
     url("/services-img/paper_less30.png");
 
   background-repeat: no-repeat;
@@ -141,8 +142,9 @@ html {
   position: relative;
   padding: 60px 20px;
   /* max-width: 90%; */
-  margin: 0 auto 96px auto;
-  background-image: linear-gradient(to right, rgba(0, 255, 255, 0.2), rgba(0, 128, 255, 0.2)),
+
+  background-image:
+    linear-gradient(to right, rgba(0, 255, 255, 0.2), rgba(0, 128, 255, 0.2)),
     url("/services-img/paper_less101.png");
   background-repeat: no-repeat;
   background-position: right center;
@@ -160,7 +162,8 @@ html {
   font-weight: bold;
   margin-bottom: 16px;
   /* text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); */
-  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4),
+  text-shadow:
+    3px 3px 6px rgba(0, 0, 0, 0.4),
     /* メインの影（少し強め） */ -2px -2px 6px rgba(0, 0, 0, 0.2),
     /* 上方向の補助影 */ 0px 0px 8px rgba(0, 0, 0, 0.5); /* 全体的なぼかし */
 }
@@ -169,7 +172,8 @@ html {
   color: #fff;
   font-size: 1.2rem;
   margin-bottom: 24px;
-  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4),
+  text-shadow:
+    3px 3px 6px rgba(0, 0, 0, 0.4),
     /* メインの影（少し強め） */ -2px -2px 6px rgba(0, 0, 0, 0.2),
     /* 上方向の補助影 */ 0px 0px 8px rgba(0, 0, 0, 0.5); /* 全体的なぼかし */
 }
@@ -258,6 +262,7 @@ html {
   } */
   .heroSection {
     padding: 15px;
+    margin: 0 auto 48px auto;
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center top;

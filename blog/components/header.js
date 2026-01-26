@@ -146,7 +146,7 @@ export default function Header2() {
     <header ref={rootRef} className={styles.customHeader}>
       <div className={styles.logoArea}>
         <Link href="/?menu=1" aria-label="Home" onClick={closePanel}>
-          <img src="/logo.png" alt="YWS" className={styles.logoImage} />
+          <img src="/images-post/YWD-LOGO-trimmed.png" alt="YWD" className={styles.logoImage} />
         </Link>
       </div>
 

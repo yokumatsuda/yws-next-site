@@ -24,7 +24,7 @@ function Greeting() {
             <h2 className={styles.sectionTitle2}>ご挨拶</h2>
             <br></br>
             <h2 className={styles.sectionTitle}>
-              お客様に寄り添うITパートナー - Yoku Web サービス
+              お客様に寄り添うITパートナー - ヨク ウェブ デザイン
             </h2>
             <p className={styles.greetingText}>
               <span className={styles.highlight}> 「DX」「業務効率化」「ペーパーレス」 </span>{" "}
