@@ -6,7 +6,7 @@ export default function Footer() {
     <footer id="footer" className={styles.footerContainer}>
       <div className={styles.footerContent}>
         <div className={styles.column}>
-          <h3>Yoku Web サービス</h3>
+          <h3>ヨク ウェブ デザイン</h3>
           <ul>
             <li>
               Mail: <a href="mailto:yoku@yokuweb.com">yoku@yokuweb.com</a>
@@ -78,7 +78,7 @@ export default function Footer() {
           <Link href="/terms">利用規約</Link>
         </div>
         <div className={styles.column2}>
-          <p>Copyright © 2025 YWS Yoku Web Service All rights reserved.</p>
+          <p>Copyright © 2025 YWD Yoku Web Design All rights reserved.</p>
         </div>
       </div>
     </footer>

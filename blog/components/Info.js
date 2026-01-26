@@ -11,7 +11,7 @@ function ContactSection() {
         <h3 className={styles.subTitle}>事業所基本情報</h3>
         <ul className={styles.infoList}>
           <li>
-            <strong>事業所名：</strong>Yoku ウェブ サービス
+            <strong>事業所名：</strong>ヨク ウェブ デザイン
           </li>
           <li>
             <strong>代表名：</strong>松田 翼 <span className={styles.smallText}>(マツダ ヨク)</span>

@@ -25,7 +25,7 @@
 }
 
 .logoImage {
-  max-width: 85px;
+  max-width: 150px;
   height: auto;
 }
 
@@ -63,6 +63,7 @@
   cursor: pointer;
   width: 40px;
   height: 40px;
+  /* margin-left: 5px; */
   margin-left: auto;
   padding: 0;
   position: relative;
@@ -132,7 +133,10 @@
   color: #333;
   text-decoration: none;
   transition: opacity 0.2s ease-in-out;
-  font-family: acumin-pro, Noto Sans JP, sans-serif !important;
+  font-family:
+    acumin-pro,
+    Noto Sans JP,
+    sans-serif !important;
   font-size: 98px;
   font-weight: 100;
   line-height: 1.05;
@@ -150,7 +154,10 @@
   cursor: pointer;
 
   color: #333;
-  font-family: acumin-pro, Noto Sans JP, sans-serif !important;
+  font-family:
+    acumin-pro,
+    Noto Sans JP,
+    sans-serif !important;
   font-size: 98px;
   font-weight: 100;
   line-height: 1.05;
@@ -209,7 +216,11 @@
     padding: 0px 20px;
   }
   .logoImage {
-    max-width: 90px;
+    max-width: 120px;
+  }
+
+  .customNavMenu li {
+    margin-left: 20px;
   }
 }
 
@@ -232,9 +243,13 @@
     font-size: 24px;
   }
   .logoImage {
-    max-width: 80px;
+    max-width: 110px;
   }
   .hideOnMobile {
     display: none !important;
   }
+  /*   
+  .customNavMenu li {
+    margin-left: 20px;
+  } */
 }

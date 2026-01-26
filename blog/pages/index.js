@@ -10,6 +10,7 @@ import Pagination from "components/pagination";
 import Services from "components/services";
 import { eyecatchLocal } from "lib/constants";
 import { getAllPosts, getAllWorks } from "lib/api";
+import styles from "styles/Home.module.css";
 
 export default function Home({ works, posts }) {
   const MIN_MS = 3000; // ✅ ロード完了しても最低これだけ表示
@@ -80,7 +81,9 @@ export default function Home({ works, posts }) {
           <Services />
           <WorksPosts works={works} />
           <Pagination nextUrl="/works" nextText="More Works" />
-          <Posts posts={posts} />
+          <div className={styles.postsSpacing}>
+            <Posts posts={posts} />
+          </div>
           <Pagination nextUrl="/blog" nextText="More Posts" />
         </Container>
       )}

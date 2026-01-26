@@ -1,14 +1,132 @@
-// meta.js
-return (
-  <Head>
-    <title>{title}</title>
-    <meta name="description" content={desc} />
-    {/* ✅ Google Search Console */}
-    <meta
-      name="google-site-verification"
-      content="8zQjD6XCrKOO1T20PTaoMlmD9wfEnLgoBLY4Yqidlp8"
-    />
-    <link rel="canonical" href={url} />
-    ...
-  </Head>
-);
+{
+  /* ▼ 1. 4枚のカードを表示するセクション */
+}
+<section className={styles.servicesSection} id="sectionTitle1">
+  <h2 className={styles.sectionTitle}> AI × 自動化</h2>
+
+  <div className={styles.cardContainer}>
+    {/* カード1 */}
+    <Link href="/dx" className={styles.card}>
+      <figure>
+        <div className={styles.imageWrapper}>
+          <Image
+            src="/services-img/top_pageimg9.jpeg"
+            alt="業務効率化 & DX化"
+            width={400}
+            height={225}
+            priority
+          />
+        </div>
+      </figure>
+      <h3 className={styles.cardTitle}>
+        業務効率化 <br className={styles.onlyMobileBr} /> &amp; DX化
+      </h3>
+
+      {/* ✅ PC用（長文） */}
+      <p className={`${styles.cardDesc} ${styles.cardDescDesktop}`}>
+        話題のChatGPTやAIツールを活用し、DX支援からペーパーレス化まで一挙に推進。
+        生産性向上を加速させます。
+      </p>
+
+      {/* ✅ モバイル用（短文） */}
+      <p className={`${styles.cardDesc} ${styles.cardDescMobile}`}>
+        AI活用でDX・業務自動化を推進。
+      </p>
+      <span className={styles.cardButton}>詳しく見る</span>
+    </Link>
+
+    {/* カード2 */}
+    <Link href="/system" className={styles.card}>
+      <figure>
+        <div className={styles.imageWrapper}>
+          <Image
+            src="/services-img/top_pageimg7.jpeg"
+            alt="システム構築 & アプリ開発"
+            width={400}
+            height={225}
+            priority
+          />
+        </div>
+      </figure>
+
+      <h3 className={styles.cardTitle}>
+        システム構築 &amp;
+        <br className={styles.onlyMobileBr} /> アプリ開発
+      </h3>
+
+      <p className={`${styles.cardDesc} ${styles.cardDescDesktop}`}>
+        オンプレからクラウドまで、幅広い業務システムを迅速に構築。
+        拡張性も柔軟に対応可能です。
+      </p>
+      <p className={`${styles.cardDesc} ${styles.cardDescMobile}`}>
+        オンプレからクラウドまで迅速に構築。
+      </p>
+
+      <span className={styles.cardButton}>詳しく見る</span>
+    </Link>
+
+    {/* カード3 */}
+    <Link href="/officework" className={styles.card}>
+      <figure>
+        <div className={styles.imageWrapper}>
+          <Image
+            src="/services-img/top_pageimg3.jpeg"
+            alt="事務作業代行"
+            width={400}
+            height={225}
+            priority
+          />
+        </div>
+      </figure>
+
+      <h3 className={styles.cardTitle}>事務作業代行</h3>
+      <p className={`${styles.cardDesc} ${styles.cardDescDesktop}`}>
+        勤怠データの集計や給与計算に必要なデータ整理・入力を代行。当事業所の自動化システムで結果をスピーディーに返却します。
+      </p>
+      <p className={`${styles.cardDesc} ${styles.cardDescMobile}`}>
+        勤怠集計・給与関連データの整理／入力を代行。
+      </p>
+      <span className={styles.cardButton}>詳しく見る</span>
+    </Link>
+
+    {/* カード4 */}
+    <Link href="/web" className={styles.card}>
+      <figure>
+        <div className={styles.imageWrapper}>
+          <Image
+            src="/services-img/top_pageimg14.jpeg"
+            alt="Web制作"
+            width={400}
+            height={225}
+            priority
+          />
+        </div>
+      </figure>
+      <h3 className={styles.cardTitle}>Web制作</h3>
+
+      <p className={`${styles.cardDesc} ${styles.cardDescDesktop}`}>
+        企業サイトからECサイトまで、目的に合わせたWebを最適化。ブランド力向上にも役立ちます。
+      </p>
+      <p className={`${styles.cardDesc} ${styles.cardDescMobile}`}>
+        企業サイトからECまで目的に合わせて制作。
+      </p>
+
+      <span className={styles.cardButton}>詳しく見る</span>
+    </Link>
+  </div>
+</section>;
+
+{
+  /* ▼ 2. キャッチフレーズ＋背景イラストのセクション */
+}
+<section className={styles.heroSection}>
+  <div className={styles.heroContent}>
+    <h2 className={styles.catchPhrase}>AI × DXで、時代に合わせた成長を。</h2>
+    <p className={styles.subCatch}>
+      デジタル変革を通じて、より効率的で革新的な働き方を実現。
+    </p>
+    <Link href="/dx" className={styles.heroButton}>
+      AI・DXについて
+    </Link>
+  </div>
+</section>;
